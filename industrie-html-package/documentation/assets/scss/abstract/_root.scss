@@ -1,0 +1,84 @@
+:root {
+  /**
+  @font family declaration
+  */
+
+
+  --rs-ff-body: 'Urbanist', sans-serif;
+  --rs-ff-title: 'Urbanist', sans-serif;
+  --rs-ff-p: 'Urbanist', sans-serif;
+  --rs-ff-fontawesome: "Font Awesome 6 Pro";
+  --rs-ff-remixicon: "remixicon";
+
+
+
+  /**
+  @color declaration
+  */
+  
+  // Common Color
+  --rs-white: #ffffff;
+  --rs-black: #1F1F1F;
+  --rs-placeholder: rgba(0, 0, 0, 0.7);
+  --rs-selection: #262626;
+  
+  // Heading Color
+  --rs-heading: #1F1F1F;
+
+  // Theme Color
+  --rs-primary: #EA5501;
+
+  // Text Color
+  --rs-text-primary: #666666;
+  --rs-text-secondary: #CCE2FA;
+
+  // Background Color
+  --theme-bg-primary: #F2F4FF;
+  --theme-bg-secondary: #060615;
+  --theme-rating-color:#EC8D1D;
+
+  // Border Color
+  --rs-border-primary: hsl(0, 0%, 90%);
+  --rs-border-secondary: rgba(255,255,255,.2);
+
+  // rgba Color
+  --rs-rgba-color: rgba(255,255,255,.2);
+
+  // action Color
+  --rs-success: #198754;
+  --rs-info: #0dcaf0;
+  --rs-warning: #ffc107;
+  --rs-danger: #dc3545;
+  --rs-light: #f8f9fa;
+  --rs-dark: #212529;
+  --bs-primary-rgb: #ED6E5A;
+  /**
+  @font weight declaration
+  */
+  --rs-fw-normal: normal;
+  --rs-fw-thin: 100;
+  --rs-fw-elight: 200;
+  --rs-fw-light: 300;
+  --rs-fw-regular: 400;
+  --rs-fw-medium: 500;
+  --rs-fw-sbold: 600;
+  --rs-fw-bold: 700;
+  --rs-fw-ebold: 800;
+  --rs-fw-black: 900;
+
+  /**
+  @font size declaration
+  */
+  --rs-fs-body: 16px;
+  --rs-fs-p: 16px;
+  --rs-fs-h1: 60px;
+  --rs-fs-h2: 48px;
+  --rs-fs-h3: 38px;
+  --rs-fs-h4: 32px;
+  --rs-fs-h5: 24px;
+  --rs-fs-h6: 20px;
+  --rs-fs-b1: 14px;
+  --rs-fs-b2: 16px;
+  --rs-fs-b3: 18px;
+  --rs-fs-b4: 22px;
+}

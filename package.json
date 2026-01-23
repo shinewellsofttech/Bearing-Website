@@ -1,0 +1,35 @@
+{
+  "name": "bearing-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "convert-pages": "node convert-pages.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "swiper": "^11.0.5",
+    "bootstrap": "^5.3.2",
+    "gsap": "^3.12.2",
+    "lenis": "^1.0.29",
+    "jarallax": "^2.0.7",
+    "isotope-layout": "^3.0.6",
+    "imagesloaded": "^5.0.0",
+    "magnific-popup": "^1.1.0",
+    "wow.js": "^1.2.2",
+    "chart.js": "^4.4.0",
+    "nouislider": "^15.7.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.8",
+    "sass": "^1.69.5"
+  }
+}
