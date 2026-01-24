@@ -18,7 +18,7 @@ function Preloader() {
       <div id="loader" className="loader">
         <div className="loader-container has-theme-light-blue">
           <div className="loader-icon">
-            <img src="/assets/images/favicon-light-blue.png" alt="Loading" />
+            <img src="/assets/images/Main-images/LOGO.jpeg" alt="Western Bearing Logo" style={{ maxHeight: '40px', width: 'auto' }} />
           </div>
         </div>
       </div>

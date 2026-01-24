@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Laboratory() {
   // Flags data array
@@ -142,17 +143,23 @@ function Laboratory() {
         })
       }
 
-      // Odometer js
+      // Odometer js - Initialize when counter section is visible
       const initOdometer = () => {
-        const odometerElements = document.querySelectorAll('.odometer:not([data-odometer-initialized])')
-        odometerElements.forEach((element) => {
-          const countNumber = element.getAttribute('data-count')
-          if (!countNumber) return
-          
-          // Use Intersection Observer for better performance
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !element.dataset.odometerInitialized) {
+        const counterSection = document.querySelector('.rs-counter-area')
+        if (!counterSection) return
+
+        const odometerElements = document.querySelectorAll('.rs-counter-area .odometer:not([data-odometer-initialized])')
+        if (odometerElements.length === 0) return
+
+        // Observe the counter section instead of individual elements
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !counterSection.dataset.countersInitialized) {
+              // Initialize all counters when section is visible
+              odometerElements.forEach((element) => {
+                const countNumber = element.getAttribute('data-count')
+                if (!countNumber || element.dataset.odometerInitialized) return
+                
                 const targetValue = parseInt(countNumber)
                 
                 if (window.Odometer) {
@@ -175,12 +182,10 @@ function Laboratory() {
                     }, 100)
                     
                     element.dataset.odometerInitialized = 'true'
-                    observer.unobserve(element)
                   } catch (e) {
                     console.error('Odometer initialization error:', e)
                     element.textContent = countNumber
                     element.dataset.odometerInitialized = 'true'
-                    observer.unobserve(element)
                   }
                 } else {
                   // Fallback: simple count animation
@@ -197,14 +202,16 @@ function Laboratory() {
                   }, 40)
                   
                   element.dataset.odometerInitialized = 'true'
-                  observer.unobserve(element)
                 }
-              }
-            })
-          }, { threshold: 0.3, rootMargin: '0px' })
-          
-          observer.observe(element)
-        })
+              })
+              
+              counterSection.dataset.countersInitialized = 'true'
+              observer.unobserve(counterSection)
+            }
+          })
+        }, { threshold: 0.3, rootMargin: '0px' })
+        
+        observer.observe(counterSection)
       }
 
       // Initialize odometer after scripts are loaded
@@ -556,7 +563,7 @@ function Laboratory() {
             tab.dataset.bootstrapTabInitialized = 'true'
           }
         })
-      }
+  }
     }
 
     // Wait for scripts to load
@@ -592,7 +599,7 @@ function Laboratory() {
                         {/* SLIDE 1 — Legacy & Trust (FOUNDATION SLIDE) */}
                         <div className="swiper-slide">
                             <div className="rs-banner-item-wrapper">
-                                <div className="rs-banner-bg-thumb" data-background="/assets/images/bg/banner-bg-09.png">
+                                <div className="rs-banner-bg-thumb" data-background="/assets/images/Main-images/Hero/1.jpg">
                                 </div>
                                 <div className="container-fluid">
                                     <div className="row g-5">
@@ -637,7 +644,7 @@ function Laboratory() {
                         {/* SLIDE 2 — Manufacturing & Quality (STRENGTH SLIDE) */}
                         <div className="swiper-slide">
                             <div className="rs-banner-item-wrapper">
-                                <div className="rs-banner-bg-thumb" data-background="/assets/images/bg/banner-bg-10.png">
+                                <div className="rs-banner-bg-thumb" data-background="/assets/images/Main-images/Hero/2.jpg">
                                 </div>
                                 <div className="container-fluid">
                                     <div className="row g-5">
@@ -682,7 +689,7 @@ function Laboratory() {
                         {/* SLIDE 3 — Global Reach & Vision (GROWTH SLIDE) */}
                         <div className="swiper-slide">
                             <div className="rs-banner-item-wrapper">
-                                <div className="rs-banner-bg-thumb" data-background="/assets/images/bg/banner-bg-09.png">
+                                <div className="rs-banner-bg-thumb" data-background="/assets/images/Main-images/Hero/3.jpg">
                     </div>
                                 <div className="container-fluid">
                                     <div className="row g-5">
@@ -747,7 +754,7 @@ function Laboratory() {
                 <div className="row g-5">
                     <div className="col-xl-4 col-lg-4 col-md-6">
                         <div className="rs-feature-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                            <div className="rs-feature-bg-thumb" data-background="/assets/images/bg/features-bg-02.png">
+                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/manufacturing.jpg.jpeg">
                             </div>
                             <div className="rs-feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
@@ -789,7 +796,7 @@ function Laboratory() {
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-6">
                         <div className="rs-feature-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                            <div className="rs-feature-bg-thumb" data-background="/assets/images/bg/features-bg-02.png">
+                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/best-quality.jpeg">
                             </div>
                             <div className="rs-feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="55" viewBox="0 0 40 55"
@@ -819,7 +826,7 @@ function Laboratory() {
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-6">
                         <div className="rs-feature-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                            <div className="rs-feature-bg-thumb" data-background="/assets/images/bg/features-bg-02.png">
+                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/worker.jpg.jpeg">
                             </div>
                             <div className="rs-feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="57" viewBox="0 0 50 57"
@@ -858,7 +865,7 @@ function Laboratory() {
                     <div className="col-xl-12">
                         <div className="rs-about-wrapper">
                             <div className="rs-about-thumb rs-image scroll_reveal reveal_left reveal-active">
-                                <img decoding="async" src="/assets/images/about/about-thumb-08.png" alt="image" />
+                                <img decoding="async" src="/assets/images/Main-images/short-about.png" alt="image" />
                             </div>
                             <div className="rs-about-content-wrapper">
                                 <div className="rs-section-title-wrapper">
@@ -899,7 +906,7 @@ function Laboratory() {
                                 <div className="rs-aobut-tab-content-wrapper">
                                     <div className="tab-content rs-about-tab-anim" id="pills-tabContent">
                                         <div className="tab-pane fade show active" id="pills-item-one" role="tabpanel"
-                                            aria-labelledby="pills-item-one-tab" tabindex="0">
+                                            aria-labelledby="pills-item-one-tab" tabIndex="0">
                                             <div className="rs-about-tab-content">
                                                 <p>Founded in 1970 and manufacturing since 1985, Western Bearing has
                                                     earned a strong reputation for quality and reliability under the
@@ -914,7 +921,7 @@ function Laboratory() {
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="pills-item-two" role="tabpanel"
-                                            aria-labelledby="pills-item-two-tab" tabindex="0">
+                                            aria-labelledby="pills-item-two-tab" tabIndex="0">
                                             <div className="rs-about-tab-content">
                                                 <p>To manufacture high-quality bearings that deliver reliable
                                                     performance and meet the precise requirements of OEM and industrial
@@ -922,7 +929,7 @@ function Laboratory() {
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="pills-item-three" role="tabpanel"
-                                            aria-labelledby="pills-item-three-tab" tabindex="0">
+                                            aria-labelledby="pills-item-three-tab" tabIndex="0">
                                             <div className="rs-about-tab-content">
                                                 <p>To build WESTERN BEARING as a globally trusted bearing brand,
                                                     recognized for quality, innovation, and long-term growth.</p>
@@ -1122,20 +1129,20 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="gsap-marquee right speed-20 move-to-1000">
                                 <div className="rs-text-slide-inner">
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title"> Quality Assurance</h2>
+                                        <h2 className="rs-text-slide-title"> Innovation in Motion</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Testing Product Design</h2>
+                                        <h2 className="rs-text-slide-title">&amp; Precision You Trust</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Development Training Quality Assurance
+                                        <h2 className="rs-text-slide-title">&amp; Built for Performance
                                         </h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Testing Product Design</h2>
+                                        <h2 className="rs-text-slide-title">&amp; Engineering Excellence</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Development Training</h2>
+                                        <h2 className="rs-text-slide-title">&amp; Reliability Redefined</h2>
                                     </div>
                                 </div>
                             </div>
@@ -1153,7 +1160,7 @@ connecting with the agricultural industry nationwide.</p>
                     <div className="col-lg-12">
                         <div className="rs-video-bg-thumb-wrapper">
                             <div className="rs-video-bg-thumb jarallax-img"
-                                data-background="/assets/images/bg/video-bg-02.png">
+                                data-background="/assets/images/Main-images/1720x550.jpg.jpeg">
                             </div>
                         </div>
                     </div>
@@ -1278,7 +1285,7 @@ connecting with the agricultural industry nationwide.</p>
                     <div className="col-xl-6 col-lg-12">
                         <div className="rs-portfolio-item">
                             <div className="rs-portfolio-thumb">
-                                <img src="/assets/images/portfolio/portfolio-thumb-21.png" alt="image" />
+                                <img src="/assets/images/Main-images/agriculture-machines.jpeg" alt="image" />
                             </div>
                             <div className="rs-portfolio-content has-large">
                                 <h3 className="rs-portfolio-title has-big underline has-white"> <a
@@ -1313,7 +1320,7 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/portfolio/portfolio-thumb-22.png" alt="image" />
+                                        <img src="/assets/images/Main-images/earth-moving.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
@@ -1348,7 +1355,7 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/portfolio/portfolio-thumb-23.png" alt="image" />
+                                        <img src="/assets/images/Main-images/tractor-trolly.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
@@ -1383,7 +1390,7 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/portfolio/portfolio-thumb-24.png" alt="image" />
+                                        <img src="/assets/images/Main-images/rotavator-and-seeder.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
@@ -1417,7 +1424,7 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/portfolio/portfolio-thumb-25.png" alt="image" />
+                                        <img src="/assets/images/Main-images/harvester.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
@@ -1466,18 +1473,18 @@ connecting with the agricultural industry nationwide.</p>
                                 International Market
                             </span>
                             <div className="rs-section-border-line"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
                 <div className="row g-5 section-title-space align-items-center">
                     <div className="col-xl-12">
                         <div className="rs-section-title-wrapper">
                             <h2 className="rs-section-title has-theme-light-blue rs-split-text-enable split-in-fade">
                                 Global Presence & Export Excellence
                             </h2>
-                        </div>
                     </div>
-                </div>
+                                </div>
+                            </div>
                 <div className="row g-5 align-items-center mt-50">
                     <div className="col-xl-6 col-lg-6 col-md-12">
                         <div className="rs-world-map-wrapper wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="1s">
@@ -1506,9 +1513,9 @@ connecting with the agricultural industry nationwide.</p>
                                     zIndex: 1,
                                     filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))'
                                 }} />
-                            </div>
                         </div>
                     </div>
+                                </div>
                     <div className="col-xl-6 col-lg-6 col-md-12">
                         <div className="rs-international-content wow fadeInRight" data-wow-delay=".5s" data-wow-duration="1s">
                             <div style={{ 
@@ -1539,7 +1546,7 @@ connecting with the agricultural industry nationwide.</p>
                                     color: '#555',
                                     marginBottom: '20px'
                                 }}>
-                                    Western Bearing has a strong global presence, exporting to 40+ countries across multiple regions. Supported by a reliable global shipping network, we ensure timely deliveries worldwide with 24/7 customer support.
+                                    Western Bearing has a strong global presence, exporting to 30+ countries across multiple regions. Supported by a reliable global shipping network, we ensure timely deliveries worldwide with 24/7 customer support.
                                 </p>
                                 <p style={{ 
                                     fontSize: '22px', 
@@ -1561,14 +1568,14 @@ connecting with the agricultural industry nationwide.</p>
                                             fontWeight: '700', 
                                             color: '#007bff',
                                             lineHeight: '1'
-                                        }}>40+</div>
+                                        }}>30+</div>
                                         <div style={{ 
                                             fontSize: '14px', 
                                             color: '#777',
                                             marginTop: '5px',
                                             fontWeight: '500'
                                         }}>Countries</div>
-                                    </div>
+                            </div>
                                     <div>
                                         <div style={{ 
                                             fontSize: '36px', 
@@ -1582,7 +1589,7 @@ connecting with the agricultural industry nationwide.</p>
                                             marginTop: '5px',
                                             fontWeight: '500'
                                         }}>Support</div>
-                                    </div>
+                        </div>
                                     <div>
                                         <div style={{ 
                                             fontSize: '36px', 
@@ -1596,7 +1603,7 @@ connecting with the agricultural industry nationwide.</p>
                                             marginTop: '5px',
                                             fontWeight: '500'
                                         }}>Quality</div>
-                                    </div>
+                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1606,29 +1613,34 @@ connecting with the agricultural industry nationwide.</p>
                     <div className="col-xl-12">
                         <div className="rs-countries-flags-wrapper">
                             <h4 className="rs-countries-title text-center mb-40" style={{ fontSize: '28px', fontWeight: '600', color: '#1f1f1f', marginTop:'30px' }}>Exporting to 40+ Countries Worldwide</h4>
-                            <div className="rs-flags-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '25px', maxWidth: '1400px', margin: '0 auto', padding: '20px' }}>
+                            <div className="rs-flags-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '25px', maxWidth: '1400px', margin: '0 auto', padding: '20px', contain: 'layout style paint' }}>
                                 {/* Country Flags - mapped from flags array */}
                                 {flags.map((flag, index) => (
                                     <div 
                                         key={flag.name} 
-                                        className="rs-flag-item text-center wow fadeInUp" 
-                                        data-wow-delay={`${(index * 0.05 + 0.1).toFixed(2)}s`} 
-                                        data-wow-duration="1s" 
+                                        className="rs-flag-item text-center" 
                                         style={{ 
                                             padding: '0', 
                                             background: '#fff', 
                                             borderRadius: '10px', 
-                                            boxShadow: '0 2px 10px rgba(0,0,0,0.05)', 
-                                            transition: 'transform 0.3s ease',
+                                            border: '1px solid #e0e0e0',
                                             minWidth: '140px',
                                             height: '100px',
-                                            overflow: 'hidden'
+                                            overflow: 'hidden',
+                                            transform: 'translateZ(0)',
+                                            contain: 'layout style paint'
                                         }}
                                     >
                                         <div className="rs-flag-icon" style={{ width: '100%', height: '100%', margin: '0', borderRadius: '10px', overflow: 'hidden', border: 'none' }}>
-                                            <img src={`/assets/images/Main-images/Flags/${flag.image}`} alt={flag.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                                        </div>
-                                    </div>
+                                            <img 
+                                                src={`/assets/images/Main-images/Flags/${flag.image}`} 
+                                                alt={flag.name} 
+                                                loading="lazy"
+                                                decoding="async"
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                                            />
+            </div>
+        </div>
                                 ))}
                             </div>
                         </div>
@@ -1975,42 +1987,42 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="rs-brand-item-wrapper">
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".3s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-21.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/1.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".4s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-22.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/2.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".5s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-23.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/3.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".6s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-24.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/4.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".7s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-25.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/5.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".8s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-26.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/6.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay=".9s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-27.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/7.jpg" alt="image" />
                                     </div>
                                 </div>
                                 <div className="rs-brand-item wow fadeIn" data-wow-delay="1s" data-wow-duration="1s">
                                     <div className="rs-brand-thumb">
-                                        <img src="/assets/images/brand/brand-thumb-28.png" alt="image" />
+                                        <img src="/assets/images/Main-images/Company/8.jpg" alt="image" />
                                     </div>
                                 </div>
                             </div>
@@ -2065,7 +2077,7 @@ connecting with the agricultural industry nationwide.</p>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
-                                    <a href="/team-details"><img src="/assets/images/team/team-thumb-01.png"
+                                    <a href="/team-details"><img src="/assets/images/Main-images/Team/1.jpg"
                                             alt="image" /></a>
                                     <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
@@ -2075,8 +2087,8 @@ connecting with the agricultural industry nationwide.</p>
                             </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
-                                        <h5 className="rs-team-title"><a href="/team-details">Peter Hase</a></h5>
-                                        <span className="rs-team-designation">Sr. Engineer</span>
+                                        <h5 className="rs-team-title"><a href="/team-details">Mr.Aziz Belim</a></h5>
+                                        <span className="rs-team-designation">FOUNDER</span>
                                 </div>
                             </div>
                         </div>
@@ -2084,7 +2096,7 @@ connecting with the agricultural industry nationwide.</p>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
-                                    <a href="/team-details"><img src="/assets/images/team/team-thumb-02.png"
+                                    <a href="/team-details"><img src="/assets/images/Main-images/Team/2.jpg"
                                             alt="image" /></a>
                                     <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
@@ -2094,8 +2106,8 @@ connecting with the agricultural industry nationwide.</p>
                             </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
-                                        <h5 className="rs-team-title"><a href="/team-details">Jack Peter</a></h5>
-                                        <span className="rs-team-designation">Four Man</span>
+                                        <h5 className="rs-team-title"><a href="/team-details">Mr.Waheed Belim</a></h5>
+                                        <span className="rs-team-designation">MANAGING DIRECTOR </span>
                                 </div>
                             </div>
                         </div>
@@ -2103,7 +2115,7 @@ connecting with the agricultural industry nationwide.</p>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
-                                    <a href="/team-details"><img src="/assets/images/team/team-thumb-03.png"
+                                    <a href="/team-details"><img src="/assets/images/Main-images/Team/3.jpg"
                                             alt="image" /></a>
                                     <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
@@ -2113,8 +2125,8 @@ connecting with the agricultural industry nationwide.</p>
                             </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
-                                        <h5 className="rs-team-title"><a href="/team-details">Bradley Roy</a></h5>
-                                        <span className="rs-team-designation">Sr. Engineer</span>
+                                        <h5 className="rs-team-title"><a href="/team-details">Mr.Maheed Belim</a></h5>
+                                        <span className="rs-team-designation">EXECUTIVE DIRECTOR</span>
                                 </div>
                             </div>
                         </div>
@@ -2125,7 +2137,7 @@ connecting with the agricultural industry nationwide.</p>
         {/* team area end */}
 
         {/* blog area start */}
-        <section className="rs-blog-area section-space rs-blog-one has-theme-light-blue">
+        {/* <section className="rs-blog-area section-space rs-blog-one has-theme-light-blue">
             <div className="container has-large">
                 <div className="row">
                     <div className="col-lg-12">
@@ -2268,7 +2280,7 @@ connecting with the agricultural industry nationwide.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> */}
         {/* blog area end */}
 
         {/* cta area start */}
@@ -2277,7 +2289,7 @@ connecting with the agricultural industry nationwide.</p>
                 <div className="rs-cta-wrapper">
                     <div className="rs-cta-bg-thumb" data-background="/assets/images/bg/cta-bg-03.png"></div>
                     <div className="row align-items-center g-5">
-                        <div className="col-xxl-7 col-xl-6 col-lg-6">
+                        <div className="col-xxl-10 col-xl-9 col-lg-9">
                             <div className="rs-cta-content">
                                 <div className="rs-cta-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"
@@ -2291,38 +2303,48 @@ connecting with the agricultural industry nationwide.</p>
                                     </svg>
                                 </div>
                                 <div className="rs-section-title-wrapper">
-                                    <h2 className="rs-section-title rs-split-text-enable split-in-fade">Sign up to get the
-                                        latest
-                                        updates</h2>
+                                    <h2 className="rs-section-title rs-split-text-enable split-in-fade">Your Trust, Our Identity</h2>
                                     <p className="rs-cta-description">
-                                        Stay updated on the latest trends.
+                                        Since 1985, Western Bearing delivers ISO-certified, OEM-standard bearings trusted across industries and global markets.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xxl-5 col-xl-6 col-lg-6">
-                            <div className="rs-cta-form">
-                                <form action="#">
-                                    <div className="rs-cta-input">
-                                        <input type="email" placeholder="Your Email Here..." />
-                                        <button type="submit" className="rs-btn has-black has-icon">Subscribe Now
-                                            <span className="icon-box">
-                                                <svg className="icon-first" xmlns="http://www.w3.org/2000/svg"
+                        <div className="col-xxl-2 col-xl-3 col-lg-3" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <div className="rs-cta-form text-center" style={{ 
+                                width: '100%', 
+                                display: 'flex', 
+                                justifyContent: 'center', 
+                                alignItems: 'center'
+                            }}>
+                                <Link to="/contact" className="rs-btn has-icon" style={{ 
+                                    display: 'inline-flex', 
+                                    alignItems: 'center', 
+                                    gap: '10px',
+                                    backgroundColor: '#fff',
+                                    color: '#1f1f1f',
+                                    border: '1px solid #fff',
+                                    position: 'relative',
+                                    margin: '0 auto'
+                                }}>
+                                    Contact Us
+                                    <span className="icon-box">
+                                        <svg className="icon-first" xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 32 32">
                                                     <path
-                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"
+                                                        fill="#1f1f1f">
                                                     </path>
                                                 </svg>
-                                                <svg className="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                        <svg className="icon-second" xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 32 32">
                                                     <path
-                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"
+                                                        fill="#1f1f1f">
                                                     </path>
                                                 </svg>
                                             </span>
-                                        </button>
-                                    </div>
-                                </form>
+                                </Link>
                             </div>
                         </div>
                     </div>

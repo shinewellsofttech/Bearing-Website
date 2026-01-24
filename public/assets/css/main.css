@@ -6382,7 +6382,7 @@ html.lenis body {
 }
 .rs-header-four .rs-header-right {
   display: flex;
-  gap: 30px;
+  /* gap: 30px; */
   align-items: center;
   background: var(--rs-bg-primary);
   padding: 15px 45px 15px 45px;
@@ -16040,11 +16040,25 @@ html.lenis body {
   width: 85px;
 }
 .rs-cta-three .rs-cta-form {
-  margin-inline-start: 95px;
+  margin-inline-start: 0px !important;
+  margin-left: 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.rs-cta-three .rs-cta-form .rs-btn {
+  position: relative !important;
+  inset-inline-end: auto !important;
+  top: auto !important;
+  margin: 0 auto !important;
+  width: auto !important;
 }
 @media only screen and (max-width: 1366px) {
   .rs-cta-three .rs-cta-form {
-    margin-inline-start: 0px;
+    margin-inline-start: 0px !important;
   }
 }
 .rs-cta-three .rs-cta-input {
@@ -26091,11 +26105,11 @@ html.lenis body {
 /*----------------------------------------*/
 .rs-shop-meta-wrapper {
 	display: none !important;
-	align-items: center;
-	justify-content: space-between;
-	gap: 30px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
 }
 
 .rs-shorting-select {
@@ -28506,25 +28520,29 @@ a.ui-button:active {
 
 /* International Market Flags Styling */
 .rs-flag-item {
-  cursor: pointer;
-  transition: all 0.3s ease;
+  cursor: default;
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
-.rs-flag-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+.rs-flags-grid {
+  contain: layout style paint;
+  will-change: auto;
 }
 
 .rs-flag-icon img {
-  transition: transform 0.3s ease;
-}
-
-.rs-flag-item:hover .rs-flag-icon img {
-  transform: scale(1.1);
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .rs-flags-grid {
   padding: 20px 0;
+  contain: layout style paint;
+  will-change: auto;
 }
 
 /* Flags grid - 8 cards per row with increased width */
@@ -28557,13 +28575,6 @@ a.ui-button:active {
 }
 
 /* International Market Section Enhancements */
-.rs-world-map-thumb {
-  transition: transform 0.3s ease;
-}
-
-.rs-world-map-thumb:hover {
-  transform: scale(1.02);
-}
 
 .rs-international-content h3 {
   background: linear-gradient(135deg, #1f1f1f 0%, #007bff 100%);
