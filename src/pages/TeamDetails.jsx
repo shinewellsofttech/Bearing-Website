@@ -92,7 +92,7 @@ function TeamDetails() {
                                         Email:
                                     </span>
                                     <span class="rs-team-details-info-content">
-                                        john.maxwell@gmail.com
+                                        sales@westernbearing.in
                                     </span>
                                 </div>
                                 <div class="rs-team-details-info-item">

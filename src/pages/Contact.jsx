@@ -119,7 +119,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                     </h6>
                                 </div>
                                 <div class="rs-contact-item">
@@ -199,7 +199,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                     </h6>
                                 </div>
                                 <div class="rs-contact-list">
@@ -260,7 +260,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                     </h6>
                                 </div>
                                 <div class="rs-contact-list">
@@ -321,7 +321,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                     </h6>
                                 </div>
                                 <div class="rs-contact-list">

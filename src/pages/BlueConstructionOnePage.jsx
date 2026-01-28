@@ -1418,7 +1418,7 @@ function BlueConstructionOnePage() {
                                     <div class="rs-contact-list-content">
                                         <span>Email Address</span>
                                         <p> Interested in working with us?</p>
-                                        <h6><a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                        <h6><a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                         </h6>
                                     </div>
                                 </div>

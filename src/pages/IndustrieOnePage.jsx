@@ -42,7 +42,7 @@ function WesternBearningOnePage() {
                         <div class="rs-banner-meta-wrapper">
                             <div class="rs-banner-contact-item">
                                 <span>Email.</span>
-                                <h6><a href="mailto:westernbearing1988@gmail.com ">westernbearing1988@gmail.com </a></h6>
+                                <h6><a href="mailto:sales@westernbearing.in ">sales@westernbearing.in </a></h6>
                             </div>
                             <div class="rs-banner-contact-item">
                                 <span>Call.</span>
@@ -1756,7 +1756,7 @@ function WesternBearningOnePage() {
                                     <div class="rs-contact-list-content">
                                         <span>Email Address</span>
                                         <p> Interested in working with us?</p>
-                                        <h6><a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                        <h6><a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                         </h6>
                                     </div>
                                 </div>

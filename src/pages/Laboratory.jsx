@@ -1,7 +1,9 @@
-﻿import { useEffect } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Laboratory() {
+  // State for Read More functionality
+  const [expandedCards, setExpandedCards] = useState({});
   // Flags data array
   const flags = [
     // { name: 'India', image: 'India.png' },
@@ -38,6 +40,55 @@ function Laboratory() {
     { name: 'Country 31', image: '31.png' },
     { name: 'Country 32', image: '32.png' }
   ];
+
+  useEffect(() => {
+    // Handle all link clicks to show "Page Working in Progress..." message
+    const handleLinkClick = (e) => {
+      // Check for anchor tags
+      let target = e.target.closest('a')
+      if (!target) {
+        // Check for React Router Link components
+        target = e.target.closest('[role="link"]') || e.target.closest('Link')
+      }
+      if (!target) return
+      
+      const href = target.getAttribute('href') || target.getAttribute('to')
+      
+      // Only intercept internal navigation links (not external URLs, email, tel, or anchor links)
+      if (href && 
+          !href.startsWith('http') && 
+          !href.startsWith('mailto:') && 
+          !href.startsWith('tel:') && 
+          !href.startsWith('javascript:') && 
+          !href.startsWith('#') &&
+          href !== '/') {
+        e.preventDefault()
+        e.stopPropagation()
+        alert('Page Working in Progress...')
+        return false
+      }
+    }
+
+    // Use event delegation on document level with capture phase
+    document.addEventListener('click', handleLinkClick, true)
+
+    // Also handle React Router navigation programmatically
+    const originalPushState = window.history.pushState
+    window.history.pushState = function(...args) {
+      const url = args[2]
+      if (url && url !== '/' && !url.startsWith('http') && !url.startsWith('#')) {
+        alert('Page Working in Progress...')
+        return
+      }
+      return originalPushState.apply(window.history, args)
+    }
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('click', handleLinkClick, true)
+      window.history.pushState = originalPushState
+    }
+  }, [])
 
   useEffect(() => {
     // Wait for jQuery and other libraries to be loaded
@@ -754,7 +805,7 @@ function Laboratory() {
                 <div className="row g-5">
                     <div className="col-xl-4 col-lg-4 col-md-6">
                         <div className="rs-feature-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/manufacturing.jpg.jpeg">
+                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/manufacturing-capablity.png">
                             </div>
                             <div className="rs-feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
@@ -788,15 +839,38 @@ function Laboratory() {
                                         fill="white"></path>
                                 </svg>
                             </div>
-                            <h5 className="rs-feature-title">Worldwide Manufacturing</h5>
+                            <h5 className="rs-feature-title">Manufacuring Capabilities
+                            </h5>
                             <div className="rs-feature-descrip">
-                                <p>Western Bearing manufactures high-quality bearings in India and exports them globally, serving customers across Asia, Europe, the Middle East, Africa, and other international markets with consistent quality and reliability.</p>
+                                <p style={{ 
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: expandedCards.card1 ? 'none' : '4',
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    lineHeight: '1.6'
+                                }}>Western Bearings has an annual production capacity of 2.4 million bearings, supported by over 100 skilled and semi-skilled employees and advanced CNC and grinding machines from leading global brands. With complete in-house manufacturing facilities, we produce bearings ranging from 30 mm to 120 mm inner bore diameter, ensuring high precision and consistent quality through strict dimensional control using Mitutoyo (Japan) dial gauges.</p>
+                                <button 
+                                    onClick={() => setExpandedCards(prev => ({ ...prev, card1: !prev.card1 }))}
+                                    style={{
+                                        marginTop: '10px',
+                                        background: 'transparent',
+                                        border: 'none',
+                                        color: '#007bff',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        fontWeight: '600',
+                                        padding: '0'
+                                    }}
+                                >
+                                    {expandedCards.card1 ? 'Read Less' : 'Read More'}
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-6">
                         <div className="rs-feature-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/best-quality.jpeg">
+                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/Quality-Standards.png">
                             </div>
                             <div className="rs-feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="55" viewBox="0 0 40 55"
@@ -818,15 +892,38 @@ function Laboratory() {
                                         fill="white"></path>
                                 </svg>
                             </div>
-                            <h5 className="rs-feature-title">Best Quality Service</h5>
+                            <h5 className="rs-feature-title">Quality Standards & Testing Excellence</h5>
                             <div className="rs-feature-descrip">
-                                <p>ISO 9001:2015 and ZED certified, Western Bearing follows strict quality control processes, in-house testing, and OEM standards to ensure superior performance, durability, and customer satisfaction. </p>
+                                <p style={{ 
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: expandedCards.card2 ? 'none' : '4',
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    lineHeight: '1.6'
+                                }}>Western Bearing operates a state-of-the-art in-house testing laboratory equipped with world-class instruments, including Mahr (Germany) roughness testing machine controll RA value 0.010 to 0.025 and Contour testing machines Mahr (Germany) for Bearing profile and hardness testing facilities so every batch controll with quality. As an ISO 9001:2015 and ZED certified manufacturer, we follow international testing standards, provide 2D/3D drawings as per customer requirements
+                                </p>
+                                <button 
+                                    onClick={() => setExpandedCards(prev => ({ ...prev, card2: !prev.card2 }))}
+                                    style={{
+                                        marginTop: '10px',
+                                        background: 'transparent',
+                                        border: 'none',
+                                        color: '#007bff',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        fontWeight: '600',
+                                        padding: '0'
+                                    }}
+                                >
+                                    {expandedCards.card2 ? 'Read Less' : 'Read More'}
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-6">
                         <div className="rs-feature-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/worker.jpg.jpeg">
+                            <div className="rs-feature-bg-thumb" data-background="/assets/images/Main-images/Product-Portfolio.png">
                             </div>
                             <div className="rs-feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="57" viewBox="0 0 50 57"
@@ -836,9 +933,32 @@ function Laboratory() {
                                         fill="white"></path>
                                 </svg>
                             </div>
-                            <h5 className="rs-feature-title">Experienced Workers</h5>
+                            <h5 className="rs-feature-title">Product Portfolio & Industrial Applications & Services
+                            </h5>
                             <div className="rs-feature-descrip">
-                                <p>With decades of expertise since 1985, Western Bearing is supported by a skilled workforce and experienced professionals who ensure precision manufacturing, continuous improvement, and dependable production.</p>
+                                <p style={{ 
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: expandedCards.card3 ? 'none' : '4',
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    lineHeight: '1.6'
+                                }}>estern Bearing offers a wide range of high-quality bearings, including Insert Unit Bearings, Tapered Roller Bearings, Cylindrical Roller Bearings, Deep Groove Ball Bearings, and Kingpin Bearings. Our products are widely used in heavy commercial and passenger vehicles, as well as agricultural and earth-moving machinery such as tractors, harvesters, and combine machines. Designed for durability, smooth performance, and reliable operation under heavy-load conditions, we are committed to providing dependable products along with 24/7 customer support and service.</p>
+                                <button 
+                                    onClick={() => setExpandedCards(prev => ({ ...prev, card3: !prev.card3 }))}
+                                    style={{
+                                        marginTop: '10px',
+                                        background: 'transparent',
+                                        border: 'none',
+                                        color: '#007bff',
+                                        cursor: 'pointer',
+                                        fontSize: '14px',
+                                        fontWeight: '600',
+                                        padding: '0'
+                                    }}
+                                >
+                                    {expandedCards.card3 ? 'Read Less' : 'Read More'}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -865,7 +985,17 @@ function Laboratory() {
                     <div className="col-xl-12">
                         <div className="rs-about-wrapper">
                             <div className="rs-about-thumb rs-image scroll_reveal reveal_left reveal-active">
-                                <img decoding="async" src="/assets/images/Main-images/short-about.png" alt="image" />
+                                <img 
+                                    decoding="async" 
+                                    src="/assets/images/Main-images/short-about1.png" 
+                                    alt="image" 
+                                    style={{ 
+                                        width: '100%', 
+                                        height: 'auto', 
+                                        display: 'block',
+                                        maxWidth: '100%'
+                                    }} 
+                                />
                             </div>
                             <div className="rs-about-content-wrapper">
                                 <div className="rs-section-title-wrapper">
@@ -923,9 +1053,14 @@ function Laboratory() {
                                         <div className="tab-pane fade" id="pills-item-two" role="tabpanel"
                                             aria-labelledby="pills-item-two-tab" tabIndex="0">
                                             <div className="rs-about-tab-content">
-                                                <p>To manufacture high-quality bearings that deliver reliable
-                                                    performance and meet the precise requirements of OEM and industrial
-                                                    customers.</p>
+                                                <p>Our mission is to achieve a 30 percent increase in market share in the heavy commercial vehicle segment by 2027.
+                                                  </p>
+                                                <div style={{ marginTop: '20px' }}>
+                                                    <p style={{ marginBottom: '10px' }}>Agriculture Industry – 50%</p>
+                                                    <p style={{ marginBottom: '10px' }}>Commercial & Passenger Light Vehicles – 15%</p>
+                                                    <p style={{ marginBottom: '10px' }}>Commercial & Passenger Heavy Vehicles – 15%</p>
+                                                    <p style={{ marginBottom: '10px' }}>Earth Moving Machinery – 20%</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="pills-item-three" role="tabpanel"
@@ -994,7 +1129,7 @@ function Laboratory() {
                             <h4 className="rs-services-title underline has-theme-blue"><a href="/services-details">
                                     International <br/>Auto Expo  </a></h4>
                             <p className="descrip"> Participated in India’s premier
-automobile exhibition across multiple years.</p>
+automobile exhibition across multiple years (2014, 2016, 2018, 2020, 2023).</p>
                             <div className="rs-services-icon">
                                 <a className="rs-btn has-icon has-transparent-btn" href="/services-details">
                                     <span className="icon-box">
@@ -1025,7 +1160,7 @@ automobile exhibition across multiple years.</p>
                             </div>
                             <h4 className="rs-services-title underline has-theme-blue"><a href="/services-details">
                                     ACMA <br />Automechanika </a></h4>
-                            <p className="descrip"> Global exhibition organized by Germany,
+                            <p className="descrip"> Global exhibition organized by Germany(2015, 2017, 2019, 2024, 2026),
 building strong market presence and brand identity.</p>
                             <div className="rs-services-icon">
                                 <a className="rs-btn has-icon has-transparent-btn" href="/services-details">
@@ -1129,21 +1264,21 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="gsap-marquee right speed-20 move-to-1000">
                                 <div className="rs-text-slide-inner">
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title"> Innovation in Motion</h2>
+                                        <h2 className="rs-text-slide-title"> INNOVATION ACROSS EVERY PRODUCT</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Precision You Trust</h2>
+                                        <h2 className="rs-text-slide-title">&amp; SERVING EVERY INDUSTRY WITH PRECISION</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Built for Performance
+                                        <h2 className="rs-text-slide-title">&amp; HIGH-PERFORMANCE BEARING
                                         </h2>
                                     </div>
-                                    <div className="rs-text-slide-item">
+                                    {/* <div className="rs-text-slide-item">
                                         <h2 className="rs-text-slide-title">&amp; Engineering Excellence</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
                                         <h2 className="rs-text-slide-title">&amp; Reliability Redefined</h2>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -1285,15 +1420,15 @@ connecting with the agricultural industry nationwide.</p>
                     <div className="col-xl-6 col-lg-12">
                         <div className="rs-portfolio-item">
                             <div className="rs-portfolio-thumb">
-                                <img src="/assets/images/Main-images/agriculture-machines.jpeg" alt="image" />
+                                <img src="/assets/images/Main-images/Vehicle/truck.jpeg" alt="image" />
                             </div>
                             <div className="rs-portfolio-content has-large">
                                 <h3 className="rs-portfolio-title has-big underline has-white"> <a
-                                        href="/portfolio-details">Agriculture Machinery
+                                        href="/portfolio-details">Heavy Commercial Vehicles
 
                                         </a></h3>
                                 <div className="rs-portfolio-tag">
-                                    <a href="/portfolio-details">High-performance bearings used in tractors for smooth operation, durability, and long service life under heavy agricultural loads.</a>
+                                    {/* <a href="/portfolio-details">High-performance bearings used in tractors for smooth operation, durability, and long service life under heavy agricultural loads.</a> */}
                                 </div>
                             </div>
                             <div className="rs-services-text-btn">
@@ -1320,14 +1455,14 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/Main-images/earth-moving.jpg" alt="image" />
+                                        <img src="/assets/images/Main-images/Vehicle/Earth-Moving-Machine.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
                                                 href="/portfolio-details">Earth Moving Machines
                                                 </a></h5>
                                         <div className="rs-portfolio-tag">
-                                            <a href="/portfolio-details">Robust bearings for earth-moving equipment, delivering strength, reliability, and long operational life in demanding environments.</a>
+                                            {/* <a href="/portfolio-details">Robust bearings for earth-moving equipment, delivering strength, reliability, and long operational life in demanding environments.</a> */}
                                         </div>
                                     </div>
                                     <div className="rs-services-text-btn">
@@ -1355,14 +1490,14 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/Main-images/tractor-trolly.jpg" alt="image" />
+                                        <img src="/assets/images/Main-images/Vehicle/Concreate-Mixer.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
-                                                href="/portfolio-details"> Tractor Trolley
+                                                href="/portfolio-details"> Concrete Mixer
                                                 </a></h5>
                                         <div className="rs-portfolio-tag">
-                                            <a href="/portfolio-details">Durable bearing solutions for tractor trolleys and utility vehicles, built to handle heavy loads and continuous movement.</a>
+                                            {/* <a href="/portfolio-details">Durable bearing solutions for tractor trolleys and utility vehicles, built to handle heavy loads and continuous movement.</a> */}
                                         </div>
                                     </div>
                                     <div className="rs-services-text-btn">
@@ -1390,13 +1525,13 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/Main-images/rotavator-and-seeder.jpg" alt="image" />
+                                        <img src="/assets/images/Main-images/Vehicle/Tractor.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
-                                                href="/portfolio-details">Rotavator & Seeder </a></h5>
+                                                href="/portfolio-details">Tractor </a></h5>
                                         <div className="rs-portfolio-tag">
-                                            <a href="/portfolio-details">Bearings engineered for rotavators, super seeders, and planters, offering strength, shock resistance, and smooth rotational accuracy.</a>
+                                            {/* <a href="/portfolio-details">Bearings engineered for rotavators, super seeders, and planters, offering strength, shock resistance, and smooth rotational accuracy.</a> */}
                                         </div>
                                     </div>
                                     <div className="rs-services-text-btn">
@@ -1424,14 +1559,14 @@ connecting with the agricultural industry nationwide.</p>
                             <div className="col-xl-6 col-lg-6 col-md-6">
                                 <div className="rs-portfolio-item">
                                     <div className="rs-portfolio-thumb">
-                                        <img src="/assets/images/Main-images/harvester.jpg" alt="image" />
+                                        <img src="/assets/images/Main-images/Vehicle/Harvestor.jpg" alt="image" />
                                     </div>
                                     <div className="rs-portfolio-content">
                                         <h5 className="rs-portfolio-title underline has-white"> <a
                                                 href="/portfolio-details">
-                                                Harvester Machines</a></h5>
+                                                Harvester </a></h5>
                                         <div className="rs-portfolio-tag">
-                                            <a href="/portfolio-details">Reliable bearings designed for harvesters, ensuring precision motion, reduced friction, and consistent performance in tough field conditions.</a>
+                                            {/* <a href="/portfolio-details">Reliable bearings designed for harvesters, ensuring precision motion, reduced friction, and consistent performance in tough field conditions.</a> */}
                                         </div>
                                     </div>
                                     <div className="rs-services-text-btn">
@@ -1612,7 +1747,7 @@ connecting with the agricultural industry nationwide.</p>
                 <div className="row g-5">
                     <div className="col-xl-12">
                         <div className="rs-countries-flags-wrapper">
-                            <h4 className="rs-countries-title text-center mb-40" style={{ fontSize: '28px', fontWeight: '600', color: '#1f1f1f', marginTop:'30px' }}>Exporting to 40+ Countries Worldwide</h4>
+                            <h4 className="rs-countries-title text-center mb-40" style={{ fontSize: '28px', fontWeight: '600', color: '#1f1f1f', marginTop:'30px' }}>Exporting to 30+ Countries Worldwide</h4>
                             <div className="rs-flags-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)', gap: '25px', maxWidth: '1400px', margin: '0 auto', padding: '20px', contain: 'layout style paint' }}>
                                 {/* Country Flags - mapped from flags array */}
                                 {flags.map((flag, index) => (
@@ -1625,19 +1760,20 @@ connecting with the agricultural industry nationwide.</p>
                                             borderRadius: '10px', 
                                             border: '1px solid #e0e0e0',
                                             minWidth: '140px',
+                                            width: '100%',
                                             height: '100px',
                                             overflow: 'hidden',
                                             transform: 'translateZ(0)',
                                             contain: 'layout style paint'
                                         }}
                                     >
-                                        <div className="rs-flag-icon" style={{ width: '100%', height: '100%', margin: '0', borderRadius: '10px', overflow: 'hidden', border: 'none' }}>
+                                        <div className="rs-flag-icon" style={{ width: '100%', height: '100%', margin: '0', padding: '0', borderRadius: '10px', overflow: 'hidden', border: 'none' }}>
                                             <img 
                                                 src={`/assets/images/Main-images/Flags/${flag.image}`} 
                                                 alt={flag.name} 
                                                 loading="lazy"
                                                 decoding="async"
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: '0', padding: '0' }} 
                                             />
             </div>
         </div>
@@ -1980,7 +2116,7 @@ connecting with the agricultural industry nationwide.</p>
                                     className="rs-section-title has-theme-light-blue rs-split-text-enable split-in-fade mb-20">
                                     WE ARE AN ESTEEMED MEMBER 
                                 </h2>
-                                <p className="descrip">Western Bearing is an active and recognized member of 7+ leading national industry and government organizations, including MSME, CII, GeM, ACMA, FIEO, Rajasthan Ball Bearing Merchant Association, and Marudhara Industries Association. These memberships reflect our strong industry compliance, export readiness, and commitment to quality, credibility, and ethical business practices.</p>
+                                <p className="descrip" style={{ fontSize: '19px', lineHeight: '1.7' }}>Western Bearing is an active and recognized member of 7+ leading national industry and government organizations, including MSME, CII, GeM, ACMA, FIEO, Rajasthan Ball Bearing Merchant Association, and Marudhara Industries Association. These memberships reflect our strong industry compliance, export readiness, and commitment to quality, credibility, and ethical business practices.</p>
                             </div>
 
 
@@ -2079,55 +2215,55 @@ connecting with the agricultural industry nationwide.</p>
                                 <div className="rs-team-thumb has-clip">
                                     <a href="/team-details"><img src="/assets/images/Main-images/Team/1.jpg"
                                             alt="image" /></a>
-                                    <div className="rs-theme-social rs-team-social has-transparent">
+                                    {/* <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
                                         <a href="#"><i className="ri-facebook-fill"></i></a>
                                         <a href="#"><i className="ri-linkedin-fill"></i></a>
+                                </div> */}
                                 </div>
-                            </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
                                         <h5 className="rs-team-title"><a href="/team-details">Mr.Aziz Belim</a></h5>
                                         <span className="rs-team-designation">FOUNDER</span>
+                            </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
                                     <a href="/team-details"><img src="/assets/images/Main-images/Team/2.jpg"
                                             alt="image" /></a>
-                                    <div className="rs-theme-social rs-team-social has-transparent">
+                                    {/* <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
                                         <a href="#"><i className="ri-facebook-fill"></i></a>
                                         <a href="#"><i className="ri-linkedin-fill"></i></a>
-                                </div>
-                            </div>
+                                </div> */}
+                    </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
                                         <h5 className="rs-team-title"><a href="/team-details">Mr.Waheed Belim</a></h5>
                                         <span className="rs-team-designation">MANAGING DIRECTOR </span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
                                     <a href="/team-details"><img src="/assets/images/Main-images/Team/3.jpg"
                                             alt="image" /></a>
-                                    <div className="rs-theme-social rs-team-social has-transparent">
+                                    {/* <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
                                         <a href="#"><i className="ri-facebook-fill"></i></a>
                                         <a href="#"><i className="ri-linkedin-fill"></i></a>
-                                </div>
-                            </div>
+                                </div> */}
+                        </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
                                         <h5 className="rs-team-title"><a href="/team-details">Mr.Maheed Belim</a></h5>
                                         <span className="rs-team-designation">EXECUTIVE DIRECTOR</span>
-                                </div>
+                    </div>
                             </div>
                         </div>
                     </div>

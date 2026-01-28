@@ -64,7 +64,7 @@ function Footer() {
               </div>
               <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div className="rs-footer-widget footer-2-col-3">
-                  <h5 className="rs-footer-widget-title">Office Address</h5>
+                  <h5 className="rs-footer-widget-title">Unit Address</h5>
                   <div className="rs-footer-widget-content">
                     <div className="rs-footer-widget-meta">
                       <div className="rs-footer-widget-address">
@@ -73,9 +73,9 @@ function Footer() {
                         </a>
                       </div>
                       <h5 className="rs-footer-widget-title">Email Address</h5>
-                      <p>Interested in working with us?</p>
+                      {/* <p>Interested in working with us?</p> */}
                       <div className="rs-footer-widget-email">
-                        <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                       </div>
                     </div>
                   </div>
@@ -83,15 +83,21 @@ function Footer() {
               </div>
               <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div className="rs-footer-widget footer-2-col-4">
-                  <h5 className="rs-footer-widget-title">Phone Number</h5>
+                  <h5 className="rs-footer-widget-title">Contact Us</h5>
                   <div className="rs-footer-widget-content">
                     <div className="rs-footer-widget-contact-info">
                       <div className="rs-footer-widget-number">
                         <span>
-                          <a href="tel:+91 982 902 3064">+91 982 902 3064</a>
+                          <div style={{ marginBottom: '5px', fontWeight: '600', color: '#fff' }}>Customer Care</div>
+                          <a href="tel:+91 982 902 3064">+91 992 853 2210</a>
                         </span>
                         <span>
-                          <a href="tel:+91 982 902 3064">+91 992 853 2210</a>
+                          <div style={{ marginBottom: '5px', fontWeight: '600', color: '#fff' }}>For Export Sales</div>
+                          <a href="tel:+91 992 939 6200">+91 992 939 6200</a>
+                        </span>
+                        <span>
+                          <div style={{ marginBottom: '5px', fontWeight: '600', color: '#fff' }}>For Domestic Sales</div>
+                          <a href="tel:+91 992 902 3064">+91 992 902 3064</a>
                         </span>
                       </div>
                     </div>

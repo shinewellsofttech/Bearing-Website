@@ -205,7 +205,7 @@ function ArchitectureOnePage() {
                                     </div>
                                     <div class="rs-contact-content">
                                         <span>Say Something</span>
-                                        <h6><a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a></h6>
+                                        <h6><a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a></h6>
                                     </div>
                                 </div>
                             </div>

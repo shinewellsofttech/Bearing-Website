@@ -307,8 +307,8 @@ function ContactTwo() {
                                 </div>
                                 <div class="rs-contact-content">
                                     <h5 class="rs-contact-title">Chat to Support</h5>
-                                    <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
-                                    <a href="mailto:westernbearing1988@gmail.com">westernbearing1988@gmail.com</a>
+                                    <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
+                                    <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                                 </div>
                             </div>
 

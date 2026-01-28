@@ -5120,8 +5120,8 @@ code {
 }
 @media only screen and (max-width: 767px) {
   .rs-brand-two .rs-brand-item-wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
   }
 }
 .rs-brand-two .rs-brand-item {
@@ -5139,10 +5139,14 @@ code {
 }
 @media only screen and (max-width: 767px) {
   .rs-brand-two .rs-brand-item {
-    width: 130px;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 480px) {
+  .rs-brand-two .rs-brand-item-wrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
   .rs-brand-two .rs-brand-item {
     width: 100%;
   }
@@ -13815,14 +13819,19 @@ html.lenis body {
 @media only screen and (max-width: 991px) {
   .rs-about-six .rs-about-thumb {
     margin: 0 auto;
+    visibility: visible !important;
   }
 }
 .rs-about-six .rs-about-thumb img {
   width: 410px;
 }
 @media only screen and (max-width: 767px) {
+  .rs-about-six .rs-about-thumb {
+    visibility: visible !important;
+  }
   .rs-about-six .rs-about-thumb img {
     width: 100%;
+    display: block;
   }
 }
 .rs-about-six .rs-about-content-wrapper {
@@ -16701,6 +16710,9 @@ html.lenis body {
   z-index: 1;
   transition: all 0.5s ease;
   margin-top: 40px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
 }
 @media only screen and (max-width: 1700px) {
   .rs-feature-five .rs-feature-item {
@@ -16735,6 +16747,15 @@ html.lenis body {
 }
 .rs-feature-five .rs-feature-item:hover .rs-feature-descrip p {
   color: #E6E6E6;
+}
+.rs-feature-five .rs-feature-descrip {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rs-feature-five .rs-feature-descrip p {
+  flex-grow: 1;
 }
 .rs-feature-five .rs-feature-bg-thumb {
   position: absolute;
@@ -25363,6 +25384,22 @@ html.lenis body {
   counter-reset: count;
 }
 
+/* Equal height cards for process-counts section */
+.process-counts > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.process-counts .rs-services-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.process-counts .rs-services-item .descrip {
+  flex-grow: 1;
+}
+
 /*----------------------------------------*/
 /*  line css
 /*----------------------------------------*/
@@ -28571,6 +28608,30 @@ a.ui-button:active {
 @media (max-width: 576px) {
   .rs-flags-grid {
     grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+  }
+  
+  .rs-flag-item {
+    padding: 0 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 100px !important;
+  }
+  
+  .rs-flag-icon {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .rs-flag-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
@@ -28604,12 +28665,23 @@ a.ui-button:active {
   }
   
   .rs-flag-item {
-    padding: 10px !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 100px !important;
   }
   
   .rs-flag-icon {
-    width: 50px !important;
-    height: 33px !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+  
+  .rs-flag-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
   
   .rs-flag-name {
