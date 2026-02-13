@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 
 function Footer() {
@@ -53,9 +53,9 @@ function Footer() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About us</Link></li>
                         <li><Link to="/shop">Product</Link></li>
-                        <li><a href="javascript:void(0)">Application </a></li>
-                        <li><a href="javascript:void(0)">Infrastructure</a></li>
-                        <li><a href="javascript:void(0)">News and gallery</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Application </a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Infrastructure</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>News and gallery</a></li>
                         <li><Link to="/contact">Contact us</Link></li>
                       </ul>
                     </div>

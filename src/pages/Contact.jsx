@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -106,7 +106,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="tel:+32(0)73240396">+32 (0) 73 240 396</a>
+                                        <a href="tel:+32(0)73240396">+91 992 853 2210</a>
                                     </h6>
                                 </div>
                                 <div class="rs-contact-item">
@@ -132,7 +132,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="#"> 42 Mamnoun Street, Saba Carpet and Antiques Store, UK</a>
+                                        <a href="#">  B-7, Industrial Estate, New Power House Road, Jodhpur - 342 003 (Rajasthan.) INDIA</a>
                                     </h6>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@ function Contact() {
                         <div class="rs-contact-item">
                             <div class="rs-contact-bg-thumb"
                                 data-background="assets/images/contact/contact-thumb-02.png"></div>
-                            <h4 class="rs-contact-title">San Francisco</h4>
+                            <h4 class="rs-contact-title">Managing Director</h4>
                             <div class="rs-contact-list-wrapper">
                                 <div class="rs-contact-list">
                                     <div class="rs-contact-icon">

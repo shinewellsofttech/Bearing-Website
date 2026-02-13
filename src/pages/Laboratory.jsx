@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 function Laboratory() {
   // State for Read More functionality
   const [expandedCards, setExpandedCards] = useState({});
+  // State for mobile detection
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 991);
   // Flags data array
   const flags = [
     // { name: 'India', image: 'India.png' },
@@ -42,53 +44,67 @@ function Laboratory() {
   ];
 
   useEffect(() => {
-    // Handle all link clicks to show "Page Working in Progress..." message
-    const handleLinkClick = (e) => {
-      // Check for anchor tags
-      let target = e.target.closest('a')
-      if (!target) {
-        // Check for React Router Link components
-        target = e.target.closest('[role="link"]') || e.target.closest('Link')
-      }
-      if (!target) return
-      
-      const href = target.getAttribute('href') || target.getAttribute('to')
-      
-      // Only intercept internal navigation links (not external URLs, email, tel, or anchor links)
-      if (href && 
-          !href.startsWith('http') && 
-          !href.startsWith('mailto:') && 
-          !href.startsWith('tel:') && 
-          !href.startsWith('javascript:') && 
-          !href.startsWith('#') &&
-          href !== '/') {
-        e.preventDefault()
-        e.stopPropagation()
-        alert('Page Working in Progress...')
-        return false
-      }
-    }
-
-    // Use event delegation on document level with capture phase
-    document.addEventListener('click', handleLinkClick, true)
-
-    // Also handle React Router navigation programmatically
-    const originalPushState = window.history.pushState
-    window.history.pushState = function(...args) {
-      const url = args[2]
-      if (url && url !== '/' && !url.startsWith('http') && !url.startsWith('#')) {
-        alert('Page Working in Progress...')
-        return
-      }
-      return originalPushState.apply(window.history, args)
-    }
-
-    // Cleanup
+    // Handle window resize for mobile detection
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 991);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+    
     return () => {
-      document.removeEventListener('click', handleLinkClick, true)
-      window.history.pushState = originalPushState
-    }
-  }, [])
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+//   useEffect(() => {
+//     // Handle all link clicks to show "Page Working in Progress..." message
+//     const handleLinkClick = (e) => {
+//       // Check for anchor tags
+//       let target = e.target.closest('a')
+//       if (!target) {
+//         // Check for React Router Link components
+//         target = e.target.closest('[role="link"]') || e.target.closest('Link')
+//       }
+//       if (!target) return
+      
+//       const href = target.getAttribute('href') || target.getAttribute('to')
+      
+//       // Only intercept internal navigation links (not external URLs, email, tel, or anchor links)
+//       if (href && 
+//           !href.startsWith('http') && 
+//           !href.startsWith('mailto:') && 
+//           !href.startsWith('tel:') && 
+//           !href.startsWith('javascript:') && 
+//           !href.startsWith('#') &&
+//           href !== '/') {
+//         e.preventDefault()
+//         e.stopPropagation()
+//         alert('Page Working in Progress...')
+//         return false
+//       }
+//     }
+
+//     // Use event delegation on document level with capture phase
+//     document.addEventListener('click', handleLinkClick, true)
+
+//     // Also handle React Router navigation programmatically
+//     const originalPushState = window.history.pushState
+//     window.history.pushState = function(...args) {
+//       const url = args[2]
+//       if (url && url !== '/' && !url.startsWith('http') && !url.startsWith('#')) {
+//         alert('Page Working in Progress...')
+//         return
+//       }
+//       return originalPushState.apply(window.history, args)
+//     }
+
+//     // Cleanup
+//     return () => {
+//       document.removeEventListener('click', handleLinkClick, true)
+//       window.history.pushState = originalPushState
+//     }
+//   }, [])
 
   useEffect(() => {
     // Wait for jQuery and other libraries to be loaded
@@ -605,6 +621,35 @@ function Laboratory() {
         }
       }
 
+      // Mobile marquee fallback - duplicate content for seamless loop
+      const initMobileMarquee = () => {
+        const isMobile = window.innerWidth <= 991
+        const marqueeElements = document.querySelectorAll('.rs-text-slide-two .gsap-marquee .rs-text-slide-inner')
+        
+        marqueeElements.forEach((inner) => {
+          // Check if already duplicated
+          if (inner.dataset.mobileDuplicated === 'true') return
+          
+          if (isMobile) {
+            // Clone all items for seamless loop
+            const items = inner.querySelectorAll('.rs-text-slide-item')
+            items.forEach((item) => {
+              const clone = item.cloneNode(true)
+              inner.appendChild(clone)
+            })
+            inner.dataset.mobileDuplicated = 'true'
+          }
+        })
+      }
+
+      // Initialize on load and resize
+      if (window.innerWidth <= 991) {
+        setTimeout(initMobileMarquee, 500)
+      }
+      window.addEventListener('resize', () => {
+        setTimeout(initMobileMarquee, 100)
+      })
+
       // Bootstrap tabs initialization
       if (typeof window !== 'undefined' && window.bootstrap) {
         const tabElements = document.querySelectorAll('[data-bs-toggle="pill"]')
@@ -843,28 +888,32 @@ function Laboratory() {
                             </h5>
                             <div className="rs-feature-descrip">
                                 <p style={{ 
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: expandedCards.card1 ? 'none' : '4',
-                                    WebkitBoxOrient: 'vertical',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
+                                    display: isMobile ? 'block' : (expandedCards.card1 ? 'block' : '-webkit-box'),
+                                    WebkitLineClamp: isMobile ? 'none' : (expandedCards.card1 ? 'none' : '4'),
+                                    WebkitBoxOrient: isMobile ? 'initial' : 'vertical',
+                                    overflow: isMobile ? 'visible' : (expandedCards.card1 ? 'visible' : 'hidden'),
+                                    textOverflow: isMobile ? 'clip' : 'ellipsis',
                                     lineHeight: '1.6'
                                 }}>Western Bearings has an annual production capacity of 2.4 million bearings, supported by over 100 skilled and semi-skilled employees and advanced CNC and grinding machines from leading global brands. With complete in-house manufacturing facilities, we produce bearings ranging from 30 mm to 120 mm inner bore diameter, ensuring high precision and consistent quality through strict dimensional control using Mitutoyo (Japan) dial gauges.</p>
-                                <button 
-                                    onClick={() => setExpandedCards(prev => ({ ...prev, card1: !prev.card1 }))}
-                                    style={{
-                                        marginTop: '10px',
-                                        background: 'transparent',
-                                        border: 'none',
-                                        color: '#007bff',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        fontWeight: '600',
-                                        padding: '0'
-                                    }}
-                                >
-                                    {expandedCards.card1 ? 'Read Less' : 'Read More'}
-                                </button>
+                                {!isMobile && (
+                                    <button 
+                                        onClick={() => setExpandedCards(prev => ({ ...prev, card1: !prev.card1 }))}
+                                        style={{
+                                            marginTop: '15px',
+                                            background: 'transparent',
+                                            border: 'none',
+                                            color: '#007bff',
+                                            cursor: 'pointer',
+                                            fontSize: '14px',
+                                            fontWeight: '600',
+                                            padding: '0',
+                                            alignSelf: 'flex-start',
+                                            flexShrink: 0
+                                        }}
+                                    >
+                                        {expandedCards.card1 ? 'Read Less' : 'Read More'}
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -895,29 +944,31 @@ function Laboratory() {
                             <h5 className="rs-feature-title">Quality Standards & Testing Excellence</h5>
                             <div className="rs-feature-descrip">
                                 <p style={{ 
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: expandedCards.card2 ? 'none' : '4',
-                                    WebkitBoxOrient: 'vertical',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
+                                    display: isMobile ? 'block' : (expandedCards.card2 ? 'block' : '-webkit-box'),
+                                    WebkitLineClamp: isMobile ? 'none' : (expandedCards.card2 ? 'none' : '4'),
+                                    WebkitBoxOrient: isMobile ? 'initial' : 'vertical',
+                                    overflow: isMobile ? 'visible' : (expandedCards.card2 ? 'visible' : 'hidden'),
+                                    textOverflow: isMobile ? 'clip' : 'ellipsis',
                                     lineHeight: '1.6'
                                 }}>Western Bearing operates a state-of-the-art in-house testing laboratory equipped with world-class instruments, including Mahr (Germany) roughness testing machine controll RA value 0.010 to 0.025 and Contour testing machines Mahr (Germany) for Bearing profile and hardness testing facilities so every batch controll with quality. As an ISO 9001:2015 and ZED certified manufacturer, we follow international testing standards, provide 2D/3D drawings as per customer requirements
                                 </p>
-                                <button 
-                                    onClick={() => setExpandedCards(prev => ({ ...prev, card2: !prev.card2 }))}
-                                    style={{
-                                        marginTop: '10px',
-                                        background: 'transparent',
-                                        border: 'none',
-                                        color: '#007bff',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        fontWeight: '600',
-                                        padding: '0'
-                                    }}
-                                >
-                                    {expandedCards.card2 ? 'Read Less' : 'Read More'}
-                                </button>
+                                {!isMobile && (
+                                    <button 
+                                        onClick={() => setExpandedCards(prev => ({ ...prev, card2: !prev.card2 }))}
+                                        style={{
+                                            marginTop: '10px',
+                                            background: 'transparent',
+                                            border: 'none',
+                                            color: '#007bff',
+                                            cursor: 'pointer',
+                                            fontSize: '14px',
+                                            fontWeight: '600',
+                                            padding: '0'
+                                        }}
+                                    >
+                                        {expandedCards.card2 ? 'Read Less' : 'Read More'}
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -937,28 +988,30 @@ function Laboratory() {
                             </h5>
                             <div className="rs-feature-descrip">
                                 <p style={{ 
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: expandedCards.card3 ? 'none' : '4',
-                                    WebkitBoxOrient: 'vertical',
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
+                                    display: isMobile ? 'block' : (expandedCards.card3 ? 'block' : '-webkit-box'),
+                                    WebkitLineClamp: isMobile ? 'none' : (expandedCards.card3 ? 'none' : '4'),
+                                    WebkitBoxOrient: isMobile ? 'initial' : 'vertical',
+                                    overflow: isMobile ? 'visible' : (expandedCards.card3 ? 'visible' : 'hidden'),
+                                    textOverflow: isMobile ? 'clip' : 'ellipsis',
                                     lineHeight: '1.6'
                                 }}>estern Bearing offers a wide range of high-quality bearings, including Insert Unit Bearings, Tapered Roller Bearings, Cylindrical Roller Bearings, Deep Groove Ball Bearings, and Kingpin Bearings. Our products are widely used in heavy commercial and passenger vehicles, as well as agricultural and earth-moving machinery such as tractors, harvesters, and combine machines. Designed for durability, smooth performance, and reliable operation under heavy-load conditions, we are committed to providing dependable products along with 24/7 customer support and service.</p>
-                                <button 
-                                    onClick={() => setExpandedCards(prev => ({ ...prev, card3: !prev.card3 }))}
-                                    style={{
-                                        marginTop: '10px',
-                                        background: 'transparent',
-                                        border: 'none',
-                                        color: '#007bff',
-                                        cursor: 'pointer',
-                                        fontSize: '14px',
-                                        fontWeight: '600',
-                                        padding: '0'
-                                    }}
-                                >
-                                    {expandedCards.card3 ? 'Read Less' : 'Read More'}
-                                </button>
+                                {!isMobile && (
+                                    <button 
+                                        onClick={() => setExpandedCards(prev => ({ ...prev, card3: !prev.card3 }))}
+                                        style={{
+                                            marginTop: '10px',
+                                            background: 'transparent',
+                                            border: 'none',
+                                            color: '#007bff',
+                                            cursor: 'pointer',
+                                            fontSize: '14px',
+                                            fontWeight: '600',
+                                            padding: '0'
+                                        }}
+                                    >
+                                        {expandedCards.card3 ? 'Read Less' : 'Read More'}
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -1060,8 +1113,8 @@ function Laboratory() {
                                                     <p style={{ marginBottom: '10px' }}>Commercial & Passenger Light Vehicles – 15%</p>
                                                     <p style={{ marginBottom: '10px' }}>Commercial & Passenger Heavy Vehicles – 15%</p>
                                                     <p style={{ marginBottom: '10px' }}>Earth Moving Machinery – 20%</p>
-                                                </div>
                                             </div>
+                                        </div>
                                         </div>
                                         <div className="tab-pane fade" id="pills-item-three" role="tabpanel"
                                             aria-labelledby="pills-item-three-tab" tabIndex="0">
@@ -1258,7 +1311,7 @@ connecting with the agricultural industry nationwide.</p>
         {/* text slider area start */}
         <div className="rs-text-slide-area rs-text-slide-two">
             <div className="container has-large">
-                <div className="row">
+                   <div className="row">
                     <div className="col-lg-12">
                         <div className="rs-text-slide-wrapper">
                             <div className="gsap-marquee right speed-20 move-to-1000">
@@ -1273,12 +1326,12 @@ connecting with the agricultural industry nationwide.</p>
                                         <h2 className="rs-text-slide-title">&amp; HIGH-PERFORMANCE BEARING
                                         </h2>
                                     </div>
-                                    {/* <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Engineering Excellence</h2>
+                                    <div className="rs-text-slide-item">
+                                        <h2 className="rs-text-slide-title">&amp; INNOVATION ACROSS EVERY PRODUCT</h2>
                                     </div>
                                     <div className="rs-text-slide-item">
-                                        <h2 className="rs-text-slide-title">&amp; Reliability Redefined</h2>
-                                    </div> */}
+                                        <h2 className="rs-text-slide-title">&amp; HIGH-PERFORMANCE BEARING</h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>

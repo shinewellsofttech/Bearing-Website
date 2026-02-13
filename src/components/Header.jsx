@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 function Header() {
@@ -97,11 +97,11 @@ function Header() {
                       <Link to="/shop">Product</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="javascript:void(0)">Pages</a>
+                      <a href="#" onClick={(e) => e.preventDefault()}>Pages</a>
                       <ul className="submenu last-children">
-                        <li><a href="javascript:void(0)">Application and industry</a></li>
-                        <li><a href="javascript:void(0)">Infrastructure</a></li>
-                        <li><a href="javascript:void(0)">News and gallery</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Application and industry</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Infrastructure</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>News and gallery</a></li>
                       </ul>
                     </li>
                     <li className={location.pathname.startsWith('/contact') ? 'active' : ''}>
@@ -168,11 +168,11 @@ function Header() {
                       <Link to="/shop">Product</Link>
                     </li>
                     <li className="menu-item-has-children">
-                      <a href="javascript:void(0)">Pages</a>
+                      <a href="#" onClick={(e) => e.preventDefault()}>Pages</a>
                       <ul className="submenu last-children">
-                        <li><a href="javascript:void(0)">Application and industry</a></li>
-                        <li><a href="javascript:void(0)">Infrastructure</a></li>
-                        <li><a href="javascript:void(0)">News and gallery</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Application and industry</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>Infrastructure</a></li>
+                        <li><a href="#" onClick={(e) => e.preventDefault()}>News and gallery</a></li>
                       </ul>
                     </li>
                     <li className={location.pathname.startsWith('/contact') ? 'active' : ''}>
