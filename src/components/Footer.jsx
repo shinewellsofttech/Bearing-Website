@@ -53,9 +53,9 @@ function Footer() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About us</Link></li>
                         <li><Link to="/shop">Product</Link></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Application </a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Infrastructure</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>News and gallery</a></li>
+                        <li><Link to="/applications-industry">Application </Link></li>
+                        <li><Link to="/infrastructure">Infrastructure</Link></li>
+                        <li><Link to="/news-gallery">News and gallery</Link></li>
                         <li><Link to="/contact">Contact us</Link></li>
                       </ul>
                     </div>

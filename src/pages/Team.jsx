@@ -1,27 +1,38 @@
-﻿import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
 function Team() {
+  const contentRef = useRef(null)
   useSwiper()
   useScripts()
+
+  // Apply data-background and theme scripts after content is in DOM (so CSS/backgrounds work)
+  useEffect(() => {
+    const wrapper = contentRef.current
+    if (!wrapper) return
+    wrapper.querySelectorAll('[data-background]').forEach((el) => {
+      const bg = el.getAttribute('data-background')
+      if (bg) el.style.backgroundImage = `url(${bg})`
+    })
+  }, [])
 
   // Process HTML content for React
   const processHTML = (html) => {
     if (!html) return ''
     
     return html
-      // Convert class to className
-      .replace(/\sclass=/g, ' className=')
+      // Keep 'class' - raw HTML in dangerouslySetInnerHTML uses class, not className
       // Convert image paths
       .replace(/src="assets\//g, 'src="/assets/')
       .replace(/href="assets\//g, 'href="/assets/')
       // Convert data-background paths
       .replace(/data-background="assets\//g, 'data-background="/assets/')
-      // Convert href links
+      // Convert href links to React Router paths
       .replace(/href="([^"]+\.html)"/g, (match, path) => {
         const route = path.replace('.html', '').replace('index', '')
-        return `href="${route || '/'}"`
+        const slug = route ? `/${route}` : '/'
+        return `href="${slug}"`
       })
       // Remove script tags
       .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
@@ -183,7 +194,7 @@ function Team() {
     `
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <div ref={contentRef} className="rs-team-page rs-main" dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
   )
 }
 

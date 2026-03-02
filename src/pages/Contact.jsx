@@ -2,9 +2,34 @@ import { useEffect } from 'react'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
+const WHATSAPP_NUMBER = '7878218459'
+
 function Contact() {
   useSwiper()
   useScripts()
+
+  useEffect(() => {
+    const form = document.getElementById('contact-form')
+    if (!form) return
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      const name = (form.querySelector('#name')?.value || '').trim()
+      const email = (form.querySelector('#email')?.value || '').trim()
+      const phone = (form.querySelector('#phone')?.value || '').trim()
+      const message = (form.querySelector('#message')?.value || '').trim()
+      const text = [
+        'Hello, I want to get in touch.',
+        name && `*Name:* ${name}`,
+        email && `*Email:* ${email}`,
+        phone && `*Phone:* ${phone}`,
+        message && `*Message:* ${message}`
+      ].filter(Boolean).join('\n')
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }
+    form.addEventListener('submit', handleSubmit)
+    return () => form.removeEventListener('submit', handleSubmit)
+  }, [])
 
   // Process HTML content for React
   // Note: Keep 'class' as is for dangerouslySetInnerHTML (raw HTML, not JSX)
@@ -27,6 +52,8 @@ function Contact() {
       .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
       // Remove style tags
       .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+
+      
   }
 
   const htmlContent = `
@@ -96,6 +123,7 @@ function Contact() {
                                     </span>
                                 </a>
                             </div>
+                            
                             <div class="rs-cotact-list-wrapper">
                                 <div class="rs-contact-item">
                                     <div class="rs-contact-icon">
@@ -166,17 +194,18 @@ function Contact() {
                                     d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
                                     fill="#EA5501"></path>
                             </svg>
-                            Branch
+                            Our Team
                         </span>
-                        <h2 class="rs-section-title rs-split-text-enable split-in-fade">Global Office</h2>
+                        <h2 class="rs-section-title rs-split-text-enable split-in-fade">Contact Details</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="rs-contact-wrapper">
+                    <div class="rs-contact-wrapper rs-contact-team-grid">
                         <div class="rs-contact-item">
                             <div class="rs-contact-bg-thumb"
                                 data-background="assets/images/contact/contact-thumb-02.png"></div>
-                            <h4 class="rs-contact-title">Managing Director</h4>
+                            <h4 class="rs-contact-title">Waheed Belim</h4>
+                            <p class="rs-contact-role">Managing Director</p>
                             <div class="rs-contact-list-wrapper">
                                 <div class="rs-contact-list">
                                     <div class="rs-contact-icon">
@@ -186,181 +215,87 @@ function Contact() {
                                             </path>
                                         </svg>
                                     </div>
-                                    <h6>
-                                        <a href="tel:+32(0)73240396">+32 (0) 73 240 396</a>
-                                    </h6>
+                                    <h6><a href="tel:+919829023064">+91 982 902 3064</a></h6>
                                 </div>
                                 <div class="rs-contact-list">
                                     <div class="rs-contact-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z">
-                                            </path>
+                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
                                         </svg>
                                     </div>
-                                    <h6>
-                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
-                                    </h6>
+                                    <h6><a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a></h6>
                                 </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <h6>
-                                        <span> Mon - Sat 10.00 - 18.00 </span>
-                                    </h6>
-                                </div>
-                            </div>
-                            <div class="rs-contact-btn">
-                                <a class="rs-btn has-bg-transparent has-icon has-bg w-100"
-                                    href="https://maps.app.goo.gl/4CyH82tFmf6L8H1TA">View
-                                    Location
-                                    <span class="icon-box">
-                                        <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                            <path
-                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                            </path>
-                                        </svg>
-                                        <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                            <path
-                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                            </path>
-                                        </svg>
-                                    </span>
-                                </a>
                             </div>
                         </div>
                         <div class="rs-contact-item">
                             <div class="rs-contact-bg-thumb"
                                 data-background="assets/images/contact/contact-thumb-03.png"></div>
-                            <h4 class="rs-contact-title">California City</h4>
+                            <h4 class="rs-contact-title">Neha Dadich</h4>
+                            <p class="rs-contact-role">Export Sales Executive</p>
                             <div class="rs-contact-list-wrapper">
                                 <div class="rs-contact-list">
                                     <div class="rs-contact-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z">
-                                            </path>
+                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
                                         </svg>
                                     </div>
-                                    <h6>
-                                        <a href="tel:+32(0)73240396">+32 (0) 73 240 396</a>
-                                    </h6>
+                                    <h6><a href="mailto:exportwesternbearing@gmail.com">exportwesternbearing@gmail.com</a></h6>
                                 </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <h6>
-                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
-                                    </h6>
-                                </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <h6>
-                                        <span> Mon - Sat 10.00 - 18.00 </span>
-                                    </h6>
-                                </div>
-                            </div>
-                            <div class="rs-contact-btn">
-                                <a class="rs-btn has-bg-transparent has-icon has-bg w-100"
-                                    href="https://maps.app.goo.gl/4CyH82tFmf6L8H1TA">View
-                                    Location
-                                    <span class="icon-box">
-                                        <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                            <path
-                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                            </path>
-                                        </svg>
-                                        <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                            <path
-                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                            </path>
-                                        </svg>
-                                    </span>
-                                </a>
                             </div>
                         </div>
                         <div class="rs-contact-item">
                             <div class="rs-contact-bg-thumb"
                                 data-background="assets/images/contact/contact-thumb-04.png"></div>
-                            <h4 class="rs-contact-title">New York City</h4>
+                            <h4 class="rs-contact-title">Adnan Sheikh</h4>
+                            <p class="rs-contact-role">Accounts</p>
                             <div class="rs-contact-list-wrapper">
                                 <div class="rs-contact-list">
                                     <div class="rs-contact-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z">
-                                            </path>
+                                            <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
                                         </svg>
                                     </div>
-                                    <h6>
-                                        <a href="tel:+32(0)73240396">+32 (0) 73 240 396</a>
-                                    </h6>
+                                    <h6><a href="tel:+919928532210">+91 992 853 2210</a></h6>
                                 </div>
                                 <div class="rs-contact-list">
                                     <div class="rs-contact-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z">
-                                            </path>
+                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
                                         </svg>
                                     </div>
-                                    <h6>
-                                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
-                                    </h6>
-                                </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <h6>
-                                        <span> Mon - Sat 10.00 - 18.00 </span>
-                                    </h6>
+                                    <h6><a href="mailto:adnan.westerneng@gmail.com">adnan.westerneng@gmail.com</a></h6>
                                 </div>
                             </div>
-                            <div class="rs-contact-btn">
-                                <a class="rs-btn has-bg-transparent has-icon has-bg w-100"
-                                    href="https://maps.app.goo.gl/4CyH82tFmf6L8H1TA">View
-                                    Location
-                                    <span class="icon-box">
-                                        <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                            <path
-                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                            </path>
+                        </div>
+                        <div class="rs-contact-item">
+                            <div class="rs-contact-bg-thumb"
+                                data-background="assets/images/contact/contact-thumb-02.png"></div>
+                            <h4 class="rs-contact-title">Aakib Khilji</h4>
+                            <p class="rs-contact-role">Office Team Head</p>
+                            <div class="rs-contact-list-wrapper">
+                                <div class="rs-contact-list">
+                                    <div class="rs-contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
                                         </svg>
-                                        <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                            <path
-                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                            </path>
+                                    </div>
+                                    <h6><a href="tel:+918769636208">+91 876 963 6208</a></h6>
+                                </div>
+                                <div class="rs-contact-list">
+                                    <div class="rs-contact-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
                                         </svg>
-                                    </span>
-                                </a>
+                                    </div>
+                                    <h6><a href="mailto:aakib.westerneng@gmail.com">aakib.westerneng@gmail.com</a></h6>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- contact area start -->
+        <!-- contact area end -->
 
         <!-- contact form area start -->
         <section class="rs-contact-form-area rs-contact-seven">
@@ -371,7 +306,7 @@ function Contact() {
                             <h3 class="rs-contact-form-title">Get in Touch</h3>
                             <p class="descrip">The point of using Lorem Ipsum is that it has more-or-less packages
                                 normal make a type specimen book it has survived</p>
-                            <form id="contact-form" action="assets/mailer.php" method="POST">
+                            <form id="contact-form" action="#" method="get" role="form">
                                 <div class="row g-5">
                                     <div class="col-md-4">
                                         <div class="rs-contact-input">
@@ -413,8 +348,8 @@ function Contact() {
         <div class="rs-map-area rs-map-one">
             <div class="rs-google-map">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d34214.60083365065!2d-74.01068688015093!3d40.714229226069826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1713786758295!5m2!1sen!2sbd"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.36!2d73.0128354!3d26.2632152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418e8f828701a1%3A0xe56fda7f5b778b07!2sWESTERN+BEARING!5e0!3m2!1sen!2sin!4v1713786758295"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Western Bearing - Jodhpur">
                 </iframe>
             </div>
         </div>

@@ -48,6 +48,10 @@ import Automation from './pages/Automation'
 import AutomationOnePage from './pages/AutomationOnePage'
 import YellowConstruction from './pages/YellowConstruction'
 import YellowConstructionOnePage from './pages/YellowConstructionOnePage'
+// Application & Industry page
+import ApplicationsIndustry from './pages/ApplicationsIndustry'
+import Infrastructure from './pages/Infrastructure'
+import NewsGallery from './pages/NewsGallery'
 // Elements pages
 import ElementsFeatures from './pages/ElementsFeatures'
 import ElementsAdvanceTab from './pages/ElementsAdvanceTab'
@@ -88,6 +92,9 @@ function App() {
           <Route path="blog-details" element={<BlogDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="contact-two" element={<ContactTwo />} />
+          <Route path="applications-industry" element={<ApplicationsIndustry />} />
+          <Route path="infrastructure" element={<Infrastructure />} />
+          <Route path="news-gallery" element={<NewsGallery />} />
           {/* Home variations */}
           <Route path="western-bearning-one-page" element={<WesternBearningOnePage />} />
           <Route path="red-engineering" element={<RedEngineering />} />

@@ -99,9 +99,10 @@ function Header() {
                     <li className="menu-item-has-children">
                       <a href="#" onClick={(e) => e.preventDefault()}>Pages</a>
                       <ul className="submenu last-children">
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Application and industry</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Infrastructure</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>News and gallery</a></li>
+                        <li><Link to="/team">Team</Link></li>
+                        <li><Link to="/applications-industry">Application and industry</Link></li>
+                        <li><Link to="/infrastructure">Infrastructure</Link></li>
+                        <li><Link to="/news-gallery">News and gallery</Link></li>
                       </ul>
                     </li>
                     <li className={location.pathname.startsWith('/contact') ? 'active' : ''}>
@@ -170,9 +171,10 @@ function Header() {
                     <li className="menu-item-has-children">
                       <a href="#" onClick={(e) => e.preventDefault()}>Pages</a>
                       <ul className="submenu last-children">
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Application and industry</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>Infrastructure</a></li>
-                        <li><a href="#" onClick={(e) => e.preventDefault()}>News and gallery</a></li>
+                        <li><Link to="/team">Team</Link></li>
+                        <li><Link to="/applications-industry">Application and industry</Link></li>
+                        <li><Link to="/infrastructure">Infrastructure</Link></li>
+                        <li><Link to="/news-gallery">News and gallery</Link></li>
                       </ul>
                     </li>
                     <li className={location.pathname.startsWith('/contact') ? 'active' : ''}>
