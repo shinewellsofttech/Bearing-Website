@@ -1,4 +1,4 @@
-﻿(function ($) {
+(function ($) {
     "use strict";
     var windowOn = $(window);
 
@@ -564,7 +564,7 @@ Sidebar Toggle
                 data : {
                     labels : ["Sciences & Healthcare","Power Generation","Retail & Consumer","Industrial & Chemical","Oil & Gas Energy"],
                     datasets : [ {
-                        backgroundColor : ["#0D80CE","#5CC8BE","#3B37FD","#EE0D08","#EA5501"],
+                        backgroundColor : ["#0D80CE","#5CC8BE","#3B37FD","#EE0D08","#0C7BC7"],
                         data : ["16","36","46","56","76"],
                     } ]
                 },

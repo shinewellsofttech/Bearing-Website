@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import CtaSection from '../components/CtaSection'
 
 function Infrastructure() {
   const [hoveredFacility, setHoveredFacility] = useState(null)
@@ -122,7 +123,7 @@ function Infrastructure() {
               <div className="wow fadeInLeft" data-wow-delay=".2s">
                 <div style={{ position: 'relative' }}>
                   <img src="http://localhost:3000/assets/images/history/history-thumb-01.png" alt="Western Bearing Factory" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
-                  <div style={{ position: 'absolute', bottom: '-15px', right: '-10px', background: 'linear-gradient(135deg, #293194, #0C7BC7)', color: '#fff', padding: '16px 22px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(41,49,148,0.35)', textAlign: 'center' }}>
+                  <div style={{ position: 'absolute', bottom: '-15px', right: '-10px', background: 'linear-gradient(135deg, #293194, #0C7BC7)', color: '#fff', padding: '16px 22px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(41,49,148,0.35)', textAlign: 'center' }} className="resp-float-badge">
                     <div style={{ fontSize: '26px', fontWeight: 800, lineHeight: 1 }}>16,000+</div>
                     <div style={{ fontSize: '12px', fontWeight: 500, opacity: 0.85, marginTop: '2px' }}>Sq. Ft. Facility</div>
                   </div>
@@ -162,9 +163,9 @@ function Infrastructure() {
           </div>
           <div className="row g-4">
             {facilities.map((f, i) => (
-              <div className="col-xl-4 col-lg-4 col-md-6" key={i}>
+              <div className="col-xl-4 col-lg-4 col-md-6 col-12" key={i}>
                 <div
-                  className="wow fadeInUp" data-wow-delay={`${0.1 + i * 0.1}s`}
+                  className="wow fadeInUp resp-facility-card" data-wow-delay={`${0.1 + i * 0.1}s`}
                   onMouseEnter={() => setHoveredFacility(i)}
                   onMouseLeave={() => setHoveredFacility(null)}
                   style={{
@@ -210,9 +211,9 @@ function Infrastructure() {
           </div>
           <div className="row g-4">
             {qualityEquipment.map((eq, i) => (
-              <div className="col-xl-6 col-lg-6 col-md-6" key={i}>
+              <div className="col-xl-6 col-lg-6 col-md-6 col-12" key={i}>
                 <div
-                  className="wow fadeInUp" data-wow-delay={`${0.1 + i * 0.1}s`}
+                  className="wow fadeInUp resp-quality-card" data-wow-delay={`${0.1 + i * 0.1}s`}
                   onMouseEnter={() => setHoveredEquip(i)}
                   onMouseLeave={() => setHoveredEquip(null)}
                   style={{
@@ -227,7 +228,7 @@ function Infrastructure() {
                   }}
                 >
                   {/* Image Section */}
-                  <div style={{ width: '45%', minHeight: '200px', position: 'relative' }}>
+                  <div className="resp-quality-img" style={{ width: '45%', minHeight: '200px', position: 'relative' }}>
                     <img 
                       src={eq.image} 
                       alt={eq.name} 
@@ -258,7 +259,7 @@ function Infrastructure() {
                   </div>
                   
                   {/* Content Section */}
-                  <div style={{ 
+                  <div className="resp-quality-content" style={{ 
                     width: '55%', 
                     padding: '24px', 
                     display: 'flex', 
@@ -299,7 +300,7 @@ function Infrastructure() {
                 <p style={{ color: '#555', lineHeight: '1.8', marginBottom: '20px' }}>
                   Our facility includes dedicated packaging machinery for branded packaging with proper labeling — ready for both domestic and international shipments.
                 </p>
-                <div className="row g-3">
+                <div className="row g-3 resp-packaging-grid">
                   {packagingMachines.map((m, i) => (
                     <div className="col-6" key={i}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
@@ -352,22 +353,7 @@ function Infrastructure() {
       </section> */}
 
       {/* CTA */}
-      <section style={{ background: 'linear-gradient(135deg, #293194 0%, #0C7BC7 50%, #1a9ad9 100%)', padding: '60px 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '250px', height: '250px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }}></div>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="row align-items-center">
-            <div className="col-lg-8">
-              <h2 style={{ color: '#fff', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 800, marginBottom: '10px' }}>Want a Factory Visit?</h2>
-              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '15px', marginBottom: 0, maxWidth: '500px' }}>Schedule a visit to our 16,000 sq. ft. manufacturing facility in Jodhpur and see our production capabilities first-hand.</p>
-            </div>
-            <div className="col-lg-4 text-lg-end" style={{ marginTop: '15px' }}>
-              <Link className="rs-btn has-theme-light-blue has-icon has-bg" to="/contact" style={{ background: '#fff', color: '#293194', fontWeight: 700, borderRadius: '10px' }}>
-                Contact Us{arrowIcon}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaSection />
     </>
   )
 }

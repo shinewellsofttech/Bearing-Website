@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+﻿import { useEffect, useRef } from 'react'
+import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -194,7 +195,10 @@ function Team() {
     `
 
   return (
-    <div ref={contentRef} className="rs-team-page rs-main" dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <>
+      <div ref={contentRef} className="rs-team-page rs-main" dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+      <CtaSection />
+    </>
   )
 }
 

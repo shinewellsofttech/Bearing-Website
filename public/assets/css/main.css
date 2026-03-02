@@ -197,7 +197,7 @@ h6, .body__overlay {
   --rs-white: #FFFFFF;
   --rs-black: #1F1F1F;
   --rs-light: #eee;
-  --rs-theme-orange: #EA5501;
+  --rs-theme-orange: #0C7BC7;
   --rs-theme-red: #E30613;
   --rs-theme-blue: #005EB8;
   --rs-theme-light-blue: #0D80CE;
@@ -17880,8 +17880,8 @@ html.lenis body {
   width: 80px;
   height: 80px;
   border-radius: 100%;
-  background-color: #EA5501;
-  background: linear-gradient(135deg, var(--rs-theme-orange, #EA5501) 0%, #c94501 100%);
+  background-color: #0C7BC7;
+  background: linear-gradient(135deg, var(--rs-theme-orange, #0C7BC7) 0%, #c94501 100%);
   color: #fff;
   display: flex;
   align-items: center;
@@ -17895,7 +17895,7 @@ html.lenis body {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: var(--rs-theme-orange, #EA5501);
+  color: var(--rs-theme-orange, #0C7BC7);
   font-size: 1rem;
 }
 .rs-testimonial-stars .fa-star-half-stroke {
@@ -23612,7 +23612,7 @@ html.lenis body {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.76);
   z-index: 9;
-  border: 3px solid #EA5501;
+  border: 3px solid #0C7BC7;
 }
 .rs-contact-nine .rs-contact-wrapper {
   display: grid;
@@ -29089,14 +29089,19 @@ a.ui-button:active {
 .rs-certificate-thumb {
   overflow: hidden;
   flex-shrink: 0;
+  background: #f5f8fc;
 }
 
 .rs-certificate-thumb img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  object-position: center;
   display: block;
   vertical-align: middle;
+  padding: 8px;
+  background: #f5f8fc;
 }
 
 .rs-certificate-content {

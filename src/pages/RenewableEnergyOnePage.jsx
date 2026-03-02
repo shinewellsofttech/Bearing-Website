@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -538,42 +539,6 @@ function RenewableEnergyOnePage() {
         </section>
         <!-- services area end -->
 
-        <!-- cta area start -->
-        <section class="rs-cta-area rs-cta-four">
-            <div class="rs-cta-bg-thumb" data-background="assets/images/bg/cta-bg-04.png"></div>
-            <div class="container">
-                <div class="rs-cta-wrapper">
-                    <div class="rs-section-title-wrapper">
-                        <h2 class="rs-section-title rs-split-text-enable split-in-fade">Need any services! get in touch
-                            with us today</h2>
-                        <p class="rs-cta-description">
-                            We solve worldwide industrial every problem of global.
-                        </p>
-                    </div>
-                    <div class="rs-cta-content">
-                        <div class="rs-cta-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
-                                fill="none">
-                                <path
-                                    d="M29.3496 22.8857C28.4132 22.1004 22.9211 18.6225 22.0082 18.7821C21.5796 18.8582 21.2518 19.2236 20.3743 20.2704C19.9685 20.7856 19.5228 21.2681 19.0414 21.7136C18.1594 21.5005 17.3056 21.184 16.4979 20.7707C13.3299 19.2284 10.7707 16.6684 9.22929 13.5C8.81597 12.6922 8.49949 11.8384 8.28643 10.9564C8.73185 10.475 9.21441 10.0294 9.72964 9.62357C10.7754 8.74607 11.1418 8.42036 11.2179 7.98964C11.3775 7.07464 7.89643 1.58464 7.11429 0.648214C6.78643 0.260357 6.48857 0 6.10714 0C5.00143 0 0 6.18429 0 6.98571C0 7.05107 0.107143 13.4893 8.23821 21.7618C16.5107 29.8929 22.9489 30 23.0143 30C23.8157 30 30 24.9986 30 23.8929C30 23.5114 29.7396 23.2136 29.3496 22.8857Z"
-                                    fill="#F7C600"></path>
-                                <path
-                                    d="M22.4989 13.9269H24.6417C24.6392 11.6544 23.7353 9.4757 22.1284 7.8688C20.5215 6.2619 18.3428 5.35802 16.0703 5.35547V7.49833C17.7748 7.50003 19.4089 8.17787 20.6141 9.38309C21.8193 10.5883 22.4972 12.2225 22.4989 13.9269Z"
-                                    fill="#F7C600"></path>
-                                <path
-                                    d="M27.856 13.9286H29.9989C29.9946 10.2358 28.5258 6.69547 25.9146 4.08428C23.3034 1.47309 19.7631 0.00425354 16.0703 0V2.14286C19.1949 2.14654 22.1905 3.38943 24.4 5.59888C26.6095 7.80834 27.8523 10.8039 27.856 13.9286Z"
-                                    fill="#F7C600"></path>
-                            </svg>
-                        </div>
-                        <div class="rs-cta-contact-item">
-                            <a href="tel:+197155157926">+91 982 902 3064</a>
-                            <span>Mon - Sat : 10.00 - 18.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- cta area end -->
 
         <!-- video area start -->
         <div class="rs-video-area rs-video-three jarallax">
@@ -1367,58 +1332,14 @@ function RenewableEnergyOnePage() {
         </section>
         <!-- award area end -->
 
-        <!-- cta area start -->
-        <section id="homecontact" class="rs-cta-area rs-cta-two has-theme-green">
-            <div class="container">
-                <div class="rs-cta-wrapper">
-                    <div class="rs-cta-bg-thumb" data-background="assets/images/bg/cta-bg-05.png"></div>
-                    <div class="row align-items-center">
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="rs-cta-thumb">
-                                <img src="assets/images/cta/cta-thumb-02.png" alt="image">
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-lg-7">
-                            <div class="rs-cta-content-wrapper">
-                                <h3 class="rs-cta-title rs-split-text-enable split-in-fade"> Sign up to get the latest
-                                    updates!
-                                </h3>
-                                <div class="rs-cta-form">
-                                    <form action="#">
-                                        <div class="rs-cta-input">
-                                            <input name="name" type="text" placeholder="Enter Your Email">
-                                            <button type="submit" class="rs-btn has-theme-yellow has-bg has-icon">
-                                                Subscribe Now
-                                                <span class="icon-box">
-                                                    <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 32 32">
-                                                        <path
-                                                            d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                                        </path>
-                                                    </svg>
-                                                    <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 32 32">
-                                                        <path
-                                                            d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                                        </path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- cta area end -->
 
     `
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+      <CtaSection />
+    </>
   )
 }
 

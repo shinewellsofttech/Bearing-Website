@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -1358,58 +1359,15 @@ function Architecture() {
             </div>
             <!-- brand area end -->
 
-            <!-- cta area start -->
-            <section class="rs-cta-area rs-cta-two has-theme-deep-blue">
-                <div class="container">
-                    <div class="rs-cta-wrapper">
-                        <div class="rs-cta-bg-thumb" data-background="assets/images/bg/cta-bg-07.png"></div>
-                        <div class="row align-items-center">
-                            <div class="col-xl-5 col-lg-5">
-                                <div class="rs-cta-thumb">
-                                    <img src="assets/images/cta/cta-thumb-02.png" alt="image">
-                                </div>
-                            </div>
-                            <div class="col-xl-7 col-lg-7">
-                                <div class="rs-cta-content-wrapper">
-                                    <h3 class="rs-cta-title"> Sign up to get the latest updates! </h3>
-                                    <div class="rs-cta-form">
-                                        <form action="#">
-                                            <div class="rs-cta-input">
-                                                <input id="name" name="name" type="text" placeholder="Enter Your Email">
-                                                <button type="submit"
-                                                    class="rs-btn black-bg has-theme-deep-blue has-icon">
-                                                    Subscribe Now
-                                                    <span class="icon-box">
-                                                        <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 32 32">
-                                                            <path
-                                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                                            </path>
-                                                        </svg>
-                                                        <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 32 32">
-                                                            <path
-                                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                                            </path>
-                                                        </svg>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- cta area end -->
         </div>
 
     `
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+      <CtaSection />
+    </>
   )
 }
 

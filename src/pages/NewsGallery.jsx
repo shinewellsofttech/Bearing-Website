@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import CtaSection from '../components/CtaSection'
 
 function NewsGallery() {
   const [hoveredNews, setHoveredNews] = useState(null)
@@ -130,9 +131,9 @@ function NewsGallery() {
           {/* Row 1: 2 featured wide images */}
           <div className="row g-4 mb-4">
             {galleryImages.slice(0, 2).map((img, i) => (
-              <div className="col-lg-6 col-md-6" key={i}>
+              <div className="col-lg-6 col-md-6 col-12" key={i}>
                 <div
-                  className="wow fadeInUp" data-wow-delay={`${0.1 + i * 0.1}s`}
+                  className="wow fadeInUp resp-gallery-featured" data-wow-delay={`${0.1 + i * 0.1}s`}
                   style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '320px', boxShadow: '0 6px 24px rgba(0,0,0,0.1)', cursor: 'pointer' }}
                 >
                   <img src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
@@ -148,9 +149,9 @@ function NewsGallery() {
           {/* Row 2-3: 6 images in 3 columns */}
           <div className="row g-4">
             {galleryImages.slice(2).map((img, i) => (
-              <div className="col-lg-4 col-md-6" key={i}>
+              <div className="col-lg-4 col-md-6 col-12" key={i}>
                 <div
-                  className="wow fadeInUp" data-wow-delay={`${0.1 + i * 0.08}s`}
+                  className="wow fadeInUp resp-gallery-item" data-wow-delay={`${0.1 + i * 0.08}s`}
                   style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '220px', boxShadow: '0 4px 16px rgba(0,0,0,0.08)', cursor: 'pointer' }}
                 >
                   <img src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
@@ -165,7 +166,7 @@ function NewsGallery() {
         </div>
       </section>
 
-      {/* exhibitions section */
+      {/* exhibitions section */}
       <section className="section-space" style={{ backgroundColor: '#f5f8fc' }}>
           <div className="container">
             <div className="row g-5 justify-content-center section-title-space">
@@ -179,9 +180,9 @@ function NewsGallery() {
             </div>
             <div className="row g-4">
               {exhibitions.map((exh, i) => (
-                <div className="col-xl-6 col-lg-6" key={i}>
+                <div className="col-xl-6 col-lg-6 col-12" key={i}>
                   <div
-                    className="wow fadeInUp" 
+                    className="wow fadeInUp resp-flex-card" 
                     data-wow-delay={`${0.1 + i * 0.1}s`}
                     onMouseEnter={() => setHoveredNews(i)}
                     onMouseLeave={() => setHoveredNews(null)}
@@ -196,7 +197,7 @@ function NewsGallery() {
                       height: '100%'
                     }}
                   >
-                    <div style={{ width: '200px', minWidth: '200px', overflow: 'hidden' }}>
+                    <div className="resp-img-column" style={{ width: '200px', minWidth: '200px', overflow: 'hidden' }}>
                       <img 
                         src={exh.image} 
                         alt={exh.title} 
@@ -209,7 +210,7 @@ function NewsGallery() {
                         }} 
                       />
                     </div>
-                    <div style={{ padding: '22px 24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div className="resp-content-column" style={{ padding: '22px 24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                       <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
                         <span style={{
                           display: 'inline-block', 
@@ -247,25 +248,8 @@ function NewsGallery() {
             </div>
           </div>
         </section>
-}
 
-    
-      <section style={{ background: 'linear-gradient(135deg, #293194 0%, #0C7BC7 50%, #1a9ad9 100%)', padding: '60px 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '280px', height: '280px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }}></div>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="row align-items-center">
-            <div className="col-lg-8">
-              <h2 style={{ color: '#fff', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 800, marginBottom: '10px' }}>Stay Connected With Us</h2>
-              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '15px', marginBottom: 0, maxWidth: '500px' }}>Get in touch for inquiries, partnerships, or to learn more about our bearing solutions for your industry.</p>
-            </div>
-            <div className="col-lg-4 text-lg-end" style={{ marginTop: '15px' }}>
-              <Link className="rs-btn has-theme-light-blue has-icon has-bg" to="/contact" style={{ background: '#fff', color: '#293194', fontWeight: 700, borderRadius: '10px' }}>
-                Contact Us{arrowIcon}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaSection />
     </>
   )
 }

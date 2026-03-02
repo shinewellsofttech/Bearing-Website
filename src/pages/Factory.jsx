@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -154,36 +155,6 @@ function Factory() {
         </section>
         <!-- banner area end -->
 
-        <!-- cta area start -->
-        <section class="rs-cta-area rs-cta-five">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="rs-cta-wrapper">
-                            <div class="rs-cta-shape-one">
-                                <img src="assets/images/shape/phone-shape.png" alt="image">
-                            </div>
-                            <div class="rs-cta-shape-two">
-                                <img src="assets/images/shape/quote-arrow.png" alt="image">
-                            </div>
-                            <div class="rs-cta-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                                <h5 class="rs-cta-title">Global solutions meeting all needs.</h5>
-                                <div class="rs-cta-call">
-                                    <a href="tel:+197155157926">+91 982 902 3064</a>
-                                </div>
-                            </div>
-                            <div class="rs-cta-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                                <div class="rs-cta-text">â€œWestern Bearning has consistently embraced innovation to provide a
-                                    superior
-                                    level of excellenceâ€</div>
-                                <div class="rs-cta-designation">Donal Lue / CEO &amp; Founder</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- cta area end -->
 
         <!-- about area start -->
         <section class="rs-about-area section-space rs-about-nine">
@@ -196,11 +167,11 @@ function Factory() {
                                     <span class="rs-section-subtitle has-theme-orange justify-content-start">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15"
                                             viewBox="0 0 11 15" fill="none">
-                                            <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501">
+                                            <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7">
                                             </path>
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                                fill="#EA5501"></path>
+                                                fill="#0C7BC7"></path>
                                         </svg>
                                         About Western Bearning
                                     </span>
@@ -330,10 +301,10 @@ function Factory() {
                                 <span class="rs-section-subtitle has-theme-orange justify-content-start">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                         fill="none">
-                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                            fill="#EA5501"></path>
+                                            fill="#0C7BC7"></path>
                                     </svg>
                                     Services
                                 </span>
@@ -588,10 +559,10 @@ function Factory() {
                             <span class="rs-section-subtitle has-theme-orange justify-content-start">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                     fill="none">
-                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                        fill="#EA5501"></path>
+                                        fill="#0C7BC7"></path>
                                 </svg>
                                 Recent Work
                             </span>
@@ -773,10 +744,10 @@ function Factory() {
                                 <span class="rs-section-subtitle has-theme-orange justify-content-start">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                         fill="none">
-                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                            fill="#EA5501"></path>
+                                            fill="#0C7BC7"></path>
                                     </svg>
                                     Work Process
                                 </span>
@@ -873,10 +844,10 @@ function Factory() {
                                 <span class="rs-section-subtitle has-theme-orange justify-content-start">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                         fill="none">
-                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                            fill="#EA5501"></path>
+                                            fill="#0C7BC7"></path>
                                     </svg>
                                     Faq's
                                 </span>
@@ -971,10 +942,10 @@ function Factory() {
                                 <span class="rs-section-subtitle has-theme-red justify-content-start">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                         fill="none">
-                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                        <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                            fill="#EA5501"></path>
+                                            fill="#0C7BC7"></path>
                                     </svg>
                                     Reviews
                                 </span>
@@ -1104,10 +1075,10 @@ function Factory() {
                             <span class="rs-section-subtitle has-theme-orange">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                     fill="none">
-                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                        fill="#EA5501"></path>
+                                        fill="#0C7BC7"></path>
                                 </svg>
                                 News &amp; Blog
                             </span>
@@ -1316,57 +1287,15 @@ function Factory() {
         </div>
         <!-- brand area end -->
 
-        <!-- cta area start -->
-        <section class="rs-cta-area rs-cta-two has-theme-orange-two">
-            <div class="container">
-                <div class="rs-cta-wrapper">
-                    <div class="rs-cta-bg-thumb" data-background="assets/images/bg/cta-bg-01.png"></div>
-                    <div class="row">
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="rs-cta-thumb">
-                                <img src="assets/images/cta/cta-thumb-01.png" alt="image">
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-lg-7">
-                            <div class="rs-cta-content-wrapper">
-                                <h3 class="rs-cta-title"> Sign up to get the latest updates! </h3>
-                                <div class="rs-cta-form">
-                                    <form action="#">
-                                        <div class="rs-cta-input">
-                                            <input name="name" type="text" placeholder="Enter Your Email">
-                                            <button type="submit" class="rs-btn black-bg has-icon">
-                                                Subscribe Now
-                                                <span class="icon-box">
-                                                    <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 32 32">
-                                                        <path
-                                                            d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                                        </path>
-                                                    </svg>
-                                                    <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 32 32">
-                                                        <path
-                                                            d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                                        </path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- cta area end -->
 
 
     `
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+      <CtaSection />
+    </>
   )
 }
 

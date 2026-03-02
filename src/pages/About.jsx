@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import CtaSection from '../components/CtaSection'
 
 function About() {
   useEffect(() => {
@@ -666,7 +667,7 @@ function About() {
             </div>
           </div>
           <div className="row g-5 justify-content-center">
-            <div className="col-xl-4 col-lg-4 col-md-6">
+            <div className="col-xl-4 col-lg-4 col-md-6 col-12">
               <div className="rs-certificate-item">
                 <div className="rs-certificate-thumb">
                   <img
@@ -682,7 +683,7 @@ function About() {
               </div>
             </div>
 
-            <div className="col-xl-4 col-lg-4 col-md-6">
+            <div className="col-xl-4 col-lg-4 col-md-6 col-12">
               <div className="rs-certificate-item">
                 <div className="rs-certificate-thumb">
                   <img
@@ -697,7 +698,7 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-4 col-md-6">
+            <div className="col-xl-4 col-lg-4 col-md-6 col-12">
               <div className="rs-certificate-item">
                 <div className="rs-certificate-thumb">
                   <img
@@ -723,11 +724,11 @@ function About() {
         <div className="rs-testimonial-bg-thumb-two" data-background="/assets/images/Main-images/testimonialBG.png"></div>
         <div className="container">
           <div className="row justify-content-end">
-            <div className="col-xxl-6 col-xl-7 col-lg-7">
+            <div className="col-xxl-6 col-xl-7 col-lg-7 col-12">
               <div className="rs-testimonial-wrapper">
                 <div className="rs-section-title-wrapper section-title-space">
                   <span className="rs-section-subtitle has-theme-light-blue justify-content-start has-transparent">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
                       <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                       <path fillRule="evenodd" clipRule="evenodd"
                         d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
@@ -1034,6 +1035,7 @@ expected.</p>
         </div>
       </section> */}
       {/* blog area end */}
+      <CtaSection />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import CtaSection from '../components/CtaSection'
 
 function ApplicationsIndustry() {
   const [hoveredIndustry, setHoveredIndustry] = useState(null)
@@ -216,8 +217,8 @@ function ApplicationsIndustry() {
             {highlights.map((item, i) => (
               <div className="col-6 col-md-3" key={i}>
                 <div className="wow fadeInUp" data-wow-delay={`${0.1 + i * 0.15}s`} style={{ textAlign: 'center' }}>
-                  <h2 style={{ color: '#fff', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, marginBottom: '6px', letterSpacing: '-0.5px' }}>{item.number}</h2>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: 500, marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>{item.label}</p>
+                  <h2 className="resp-stat-number" style={{ color: '#fff', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, marginBottom: '6px', letterSpacing: '-0.5px' }}>{item.number}</h2>
+                  <p className="resp-stat-label" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: 500, marginBottom: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>{item.label}</p>
                 </div>
               </div>
             ))}
@@ -233,7 +234,7 @@ function ApplicationsIndustry() {
               <div className="wow fadeInLeft" data-wow-delay=".2s">
                 <div style={{ position: 'relative' }}>
                   <img src="/assets/images/Main-images/Product-Portfolio.png" alt="Western Bearing Product Portfolio" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
-                  <div style={{
+                  <div className="resp-float-badge" style={{
                     position: 'absolute', bottom: '-20px', right: '-10px',
                     background: 'linear-gradient(135deg, #293194 0%, #0C7BC7 100%)',
                     color: '#fff', padding: '18px 24px', borderRadius: '14px',
@@ -259,7 +260,7 @@ function ApplicationsIndustry() {
                 <p style={{ color: '#555', lineHeight: '1.8', marginBottom: '25px' }}>
                   We consistently use high-grade <strong>SAE 52100 steel</strong> sourced from reputed companies like <strong>TATA, JINDAL, and SUNFLAG STEEL</strong>, along with international standard finished raw material parts to ensure superior product quality and performance.
                 </p>
-                <div className="row g-3">
+                <div className="row g-3 resp-check-grid">
                   {['SAE 52100 Grade Steel', 'TATA / JINDAL / SUNFLAG', 'OEM Quality Standards', 'Custom Specifications'].map((point, i) => (
                     <div className="col-6" key={i}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px' }}>
@@ -294,9 +295,9 @@ function ApplicationsIndustry() {
           </div>
           <div className="row g-4">
             {industries.map((industry, index) => (
-              <div className="col-xl-3 col-lg-4 col-md-6" key={index}>
+              <div className="col-xl-3 col-lg-4 col-md-6 col-12" key={index}>
                 <div
-                  className="wow fadeInUp" data-wow-delay={`${0.1 + index * 0.08}s`}
+                  className="wow fadeInUp resp-industry-card" data-wow-delay={`${0.1 + index * 0.08}s`}
                   onMouseEnter={() => setHoveredIndustry(index)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                   style={{
@@ -332,9 +333,9 @@ function ApplicationsIndustry() {
           {/* All Applications Tags */}
           <div className="wow fadeInUp" data-wow-delay=".2s" style={{ marginTop: '50px', textAlign: 'center' }}>
             <h5 style={{ fontWeight: 700, color: '#1a1a1a', marginBottom: '20px' }}>All Applications We Serve</h5>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', maxWidth: '900px', margin: '0 auto' }} className="resp-app-tags">
               {allApplications.map((app, i) => (
-                <span key={i} style={{
+                <span key={i} className="resp-app-tag" style={{
                   display: 'inline-block', padding: '8px 18px', borderRadius: '25px', fontSize: '13px', fontWeight: 600,
                   background: 'rgba(12,123,199,0.08)', color: '#0C7BC7', border: '1px solid rgba(12,123,199,0.15)', cursor: 'default'
                 }}>{app}</span>
@@ -417,9 +418,9 @@ function ApplicationsIndustry() {
           </div>
           <div className="row g-4">
             {features.map((feature, index) => (
-              <div className="col-xl-3 col-lg-6 col-md-6" key={index}>
+              <div className="col-xl-3 col-lg-6 col-md-6 col-12" key={index}>
                 <div
-                  className="wow fadeInUp" data-wow-delay={`${0.1 + index * 0.15}s`}
+                  className="wow fadeInUp resp-feature-card" data-wow-delay={`${0.1 + index * 0.15}s`}
                   onMouseEnter={() => setHoveredFeature(index)}
                   onMouseLeave={() => setHoveredFeature(null)}
                   style={{
@@ -430,7 +431,7 @@ function ApplicationsIndustry() {
                     transition: 'all 0.4s ease', boxShadow: hoveredFeature === index ? '0 20px 40px rgba(12,123,199,0.3)' : '0 4px 15px rgba(0,0,0,0.08)'
                   }}
                 >
-                  <div style={{
+                  <div className="resp-feature-icon" style={{
                     width: '76px', height: '76px', borderRadius: '20px',
                     background: hoveredFeature === index ? 'rgba(255,255,255,0.2)' : 'rgba(12,123,199,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 22px', transition: 'all 0.4s ease'
@@ -488,35 +489,8 @@ function ApplicationsIndustry() {
         </section> */}
 
       {/* CTA section */}
-      <section className="section-space p-relative" style={{ background: 'linear-gradient(135deg, #293194 0%, #0C7BC7 50%, #1a9ad9 100%)', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.06)', zIndex: 0 }}></div>
-        <div style={{ position: 'absolute', bottom: '-60px', left: '-60px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', zIndex: 0 }}></div>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="row g-5 align-items-center">
-            <div className="col-lg-7">
-              <div className="wow fadeInLeft" data-wow-delay=".2s">
-                <span style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '20px', background: 'rgba(255,255,255,0.15)', color: '#fff', fontSize: '13px', fontWeight: 600, marginBottom: '18px' }}>Get in Touch</span>
-                <h2 style={{ color: '#fff', fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 800, marginBottom: '16px', lineHeight: 1.3 }}>Need Bearings for Your Industry?</h2>
-                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '16px', marginBottom: 0, maxWidth: '540px', lineHeight: '1.8' }}>Our engineering team will help you find the right bearing solution — whether it's for agriculture, automotive, or heavy machinery applications.</p>
-              </div>
-            </div>
-            <div className="col-lg-5">
-              <div className="wow fadeInRight" data-wow-delay=".3s" style={{ textAlign: 'center' }}>
-                <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: '20px', padding: '35px 30px', border: '1px solid rgba(255,255,255,0.15)' }}>
-                  <div style={{ marginBottom: '8px' }}><i className="ri-phone-line" style={{ fontSize: '36px', color: '#fff' }}></i></div>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', marginBottom: '5px' }}>Call Us Now</p>
-                  <h4 style={{ color: '#fff', marginBottom: '20px', fontWeight: 700 }}>
-                    <a href="tel:+919829023064" style={{ color: '#fff', textDecoration: 'none' }}>+91 982 902 3064</a>
-                  </h4>
-                  <Link className="rs-btn has-theme-light-blue has-icon has-bg" to="/contact" style={{ background: '#fff', color: '#293194', fontWeight: 700, display: 'inline-flex', borderRadius: '10px' }}>
-                    Contact Us{arrowIcon}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <CtaSection />
     </>
   )
 }

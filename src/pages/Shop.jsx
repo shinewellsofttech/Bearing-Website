@@ -1,6 +1,7 @@
 ﻿import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSwiper } from '../hooks/useSwiper'
+import CtaSection from '../components/CtaSection'
 import { useScripts } from '../hooks/useScripts'
 
 // Products data - exported for use in ShopDetails
@@ -33,13 +34,13 @@ function Shop() {
             <div className="col-xxl-6 col-xl-8 col-lg-8">
               <div className="rs-breadcrumb-content-wrapper">
                 <div className="rs-breadcrumb-title-wrapper">
-                  <h1 className="rs-breadcrumb-title">Shop</h1>
+                  <h1 className="rs-breadcrumb-title">Products</h1>
                             </div>
                 <div className="rs-breadcrumb-menu">
                                 <nav>
                                     <ul>
-                      <li><span><a href="/">Western Bearning</a></span></li>
-                                        <li><span>Shop</span></li>
+                      <li><span><a href="/">Western Bearing</a></span></li>
+                                        <li><span>Products</span></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -57,7 +58,7 @@ function Shop() {
             <div className="col-12">
               <div className="row g-5">
                 {products.map((product) => (
-                  <div key={product.id} className="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                  <div key={product.id} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="rs-product-item">
                       <div className="rs-product-thumb">
                         <Link to={`/shop-details/${product.id}`}>
@@ -96,6 +97,7 @@ function Shop() {
             </div>
         </section>
       {/* shop area end */}
+      <CtaSection />
     </>
   )
 }

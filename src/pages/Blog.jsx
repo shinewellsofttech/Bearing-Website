@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -548,7 +549,10 @@ function Blog() {
     `
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+      <CtaSection />
+    </>
   )
 }
 

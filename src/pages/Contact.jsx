@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+﻿import { useEffect } from 'react'
+import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
@@ -98,10 +99,10 @@ function Contact() {
                                     fill="none">
                                     <path
                                         d="M0 27C0 12.0883 12.0883 0 27 0C41.9117 0 54 12.0883 54 27V54H48V27C48 15.402 38.598 6 27 6C15.402 6 6 15.402 6 27V54H0V27Z"
-                                        fill="#EA5501"></path>
+                                        fill="#0C7BC7"></path>
                                     <path
                                         d="M27 12C18.3015 12 11.25 19.0515 11.25 27.75V54H42.75V27.75C42.75 19.0515 35.6985 12 27 12Z"
-                                        fill="#EA5501"></path>
+                                        fill="#0C7BC7"></path>
                                 </svg>
                             </div>
                             <h3 class="rs-contact-title">Main Offices</h3>
@@ -189,10 +190,10 @@ function Contact() {
                         <span class="rs-section-subtitle has-theme-orange">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
                                 fill="none">
-                                <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                                    fill="#EA5501"></path>
+                                    fill="#0C7BC7"></path>
                             </svg>
                             Our Team
                         </span>
@@ -358,7 +359,10 @@ function Contact() {
     `
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: processHTML(htmlContent) }} />
+      <CtaSection />
+    </>
   )
 }
 
