@@ -200,96 +200,94 @@ function Contact() {
                         <h2 class="rs-section-title rs-split-text-enable split-in-fade">Contact Details</h2>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="rs-contact-wrapper rs-contact-team-grid">
-                        <div class="rs-contact-item">
-                            <div class="rs-contact-bg-thumb"
-                                data-background="assets/images/contact/contact-thumb-02.png"></div>
-                            <h4 class="rs-contact-title">Waheed Belim</h4>
-                            <p class="rs-contact-role">Managing Director</p>
-                            <div class="rs-contact-list-wrapper">
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z">
-                                            </path>
-                                        </svg>
+                <div class="row g-4">
+                    <!-- Waheed Belim -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div style="background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%); border-radius: 16px; padding: 32px 24px; text-align: center; border: 1px solid rgba(12,123,199,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.35s ease; height: 100%;" onmouseover="this.style.boxShadow='0 12px 35px rgba(12,123,199,0.15)'; this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(12,123,199,0.25)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'; this.style.transform='translateY(0)'; this.style.borderColor='rgba(12,123,199,0.1)'">
+                            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #293194 0%, #0C7BC7 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 6px 20px rgba(41,49,148,0.25);">
+                                <span style="color: #fff; font-size: 26px; font-weight: 700; line-height: 1;">WB</span>
+                            </div>
+                            <h4 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;">Waheed Belim</h4>
+                            <p style="color: #0C7BC7; font-size: 13px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Managing Director</p>
+                            <div style="display: flex; flex-direction: column; gap: 12px; overflow: hidden;">
+                                <a href="tel:+919829023064" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(12,123,199,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-phone-line" style="color: #0C7BC7; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="tel:+919829023064">+91 982 902 3064</a></h6>
-                                </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
-                                        </svg>
+                                    <span style="font-size: 13px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">+91 982 902 3064</span>
+                                </a>
+                                <a href="mailto:sales@westernbearing.in" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(12,123,199,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-mail-line" style="color: #0C7BC7; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a></h6>
-                                </div>
+                                    <span style="font-size: 12px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">sales@westernbearing.in</span>
+                                </a>
                             </div>
                         </div>
-                        <div class="rs-contact-item">
-                            <div class="rs-contact-bg-thumb"
-                                data-background="assets/images/contact/contact-thumb-03.png"></div>
-                            <h4 class="rs-contact-title">Neha Dadich</h4>
-                            <p class="rs-contact-role">Export Sales Executive</p>
-                            <div class="rs-contact-list-wrapper">
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
-                                        </svg>
+                    </div>
+                    <!-- Neha Dadich -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div style="background: linear-gradient(135deg, #f5f0ff 0%, #ede8fd 100%); border-radius: 16px; padding: 32px 24px; text-align: center; border: 1px solid rgba(41,49,148,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.35s ease; height: 100%;" onmouseover="this.style.boxShadow='0 12px 35px rgba(41,49,148,0.15)'; this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(41,49,148,0.25)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'; this.style.transform='translateY(0)'; this.style.borderColor='rgba(41,49,148,0.1)'">
+                            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #5c2d91 0%, #8b5cf6 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 6px 20px rgba(92,45,145,0.25);">
+                                <span style="color: #fff; font-size: 26px; font-weight: 700; line-height: 1;">ND</span>
+                            </div>
+                            <h4 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;">Neha Dadich</h4>
+                            <p style="color: #5c2d91; font-size: 13px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Export Sales Executive</p>
+                            <div style="display: flex; flex-direction: column; gap: 12px; overflow: hidden;">
+                                <a href="mailto:exportwesternbearing@gmail.com" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(92,45,145,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-mail-line" style="color: #5c2d91; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="mailto:exportwesternbearing@gmail.com">exportwesternbearing@gmail.com</a></h6>
-                                </div>
+                                    <span style="font-size: 11px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">exportwesternbearing@gmail.com</span>
+                                </a>
                             </div>
                         </div>
-                        <div class="rs-contact-item">
-                            <div class="rs-contact-bg-thumb"
-                                data-background="assets/images/contact/contact-thumb-04.png"></div>
-                            <h4 class="rs-contact-title">Adnan Sheikh</h4>
-                            <p class="rs-contact-role">Accounts</p>
-                            <div class="rs-contact-list-wrapper">
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
-                                        </svg>
+                    </div>
+                    <!-- Adnan Sheikh -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div style="background: linear-gradient(135deg, #f0faf5 0%, #e6f7ee 100%); border-radius: 16px; padding: 32px 24px; text-align: center; border: 1px solid rgba(16,185,129,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.35s ease; height: 100%;" onmouseover="this.style.boxShadow='0 12px 35px rgba(16,185,129,0.15)'; this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(16,185,129,0.25)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'; this.style.transform='translateY(0)'; this.style.borderColor='rgba(16,185,129,0.1)'">
+                            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #059669 0%, #10b981 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 6px 20px rgba(5,150,105,0.25);">
+                                <span style="color: #fff; font-size: 26px; font-weight: 700; line-height: 1;">AS</span>
+                            </div>
+                            <h4 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;">Adnan Sheikh</h4>
+                            <p style="color: #059669; font-size: 13px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Accounts</p>
+                            <div style="display: flex; flex-direction: column; gap: 12px; overflow: hidden;">
+                                <a href="tel:+919928532210" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(5,150,105,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-phone-line" style="color: #059669; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="tel:+919928532210">+91 992 853 2210</a></h6>
-                                </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
-                                        </svg>
+                                    <span style="font-size: 13px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">+91 992 853 2210</span>
+                                </a>
+                                <a href="mailto:adnan.westerneng@gmail.com" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(5,150,105,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-mail-line" style="color: #059669; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="mailto:adnan.westerneng@gmail.com">adnan.westerneng@gmail.com</a></h6>
-                                </div>
+                                    <span style="font-size: 11px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">adnan.westerneng@gmail.com</span>
+                                </a>
                             </div>
                         </div>
-                        <div class="rs-contact-item">
-                            <div class="rs-contact-bg-thumb"
-                                data-background="assets/images/contact/contact-thumb-02.png"></div>
-                            <h4 class="rs-contact-title">Aakib Khilji</h4>
-                            <p class="rs-contact-role">Office Team Head</p>
-                            <div class="rs-contact-list-wrapper">
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path>
-                                        </svg>
+                    </div>
+                    <!-- Aakib Khilji -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-radius: 16px; padding: 32px 24px; text-align: center; border: 1px solid rgba(234,88,12,0.1); box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.35s ease; height: 100%;" onmouseover="this.style.boxShadow='0 12px 35px rgba(234,88,12,0.15)'; this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(234,88,12,0.25)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'; this.style.transform='translateY(0)'; this.style.borderColor='rgba(234,88,12,0.1)'">
+                            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #ea580c 0%, #f97316 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; box-shadow: 0 6px 20px rgba(234,88,12,0.25);">
+                                <span style="color: #fff; font-size: 26px; font-weight: 700; line-height: 1;">AK</span>
+                            </div>
+                            <h4 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;">Aakib Khilji</h4>
+                            <p style="color: #ea580c; font-size: 13px; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Office Team Head</p>
+                            <div style="display: flex; flex-direction: column; gap: 12px; overflow: hidden;">
+                                <a href="tel:+918769636208" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(234,88,12,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-phone-line" style="color: #ea580c; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="tel:+918769636208">+91 876 963 6208</a></h6>
-                                </div>
-                                <div class="rs-contact-list">
-                                    <div class="rs-contact-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
-                                        </svg>
+                                    <span style="font-size: 13px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">+91 876 963 6208</span>
+                                </a>
+                                <a href="mailto:aakib.westerneng@gmail.com" style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fff; border-radius: 10px; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.04); overflow: hidden;">
+                                    <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(234,88,12,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <i class="ri-mail-line" style="color: #ea580c; font-size: 16px;"></i>
                                     </div>
-                                    <h6><a href="mailto:aakib.westerneng@gmail.com">aakib.westerneng@gmail.com</a></h6>
-                                </div>
+                                    <span style="font-size: 11px; color: #333; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;">aakib.westerneng@gmail.com</span>
+                                </a>
                             </div>
                         </div>
                     </div>

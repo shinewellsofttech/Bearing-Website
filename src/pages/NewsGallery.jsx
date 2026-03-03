@@ -36,14 +36,14 @@ function NewsGallery() {
   )
 
   const galleryImages = [
-    { src: '/assets/images/Main-images/Company/7.jpg', label: 'Factory Overview' },
-    { src: '/assets/images/Main-images/exh-1.jpg', label: 'ACMA Automechanika Exhibition' },
-    { src: '/assets/images/Main-images/Company/1.jpg', label: 'CNC Grinding Section' },
-    { src: '/assets/images/Main-images/Company/2.jpg', label: 'Universal Grinding' },
-    { src: '/assets/images/Main-images/Company/5.jpg', label: 'Quality Testing Lab' },
-    { src: '/assets/images/Main-images/exh-2.jpg', label: 'Trade Show Display' },
-    { src: '/assets/images/Main-images/Company/3.jpg', label: 'Assembly Section' },
-    { src: '/assets/images/Main-images/Company/6.jpg', label: 'Packaging & Dispatch' }
+    { src: '/assets/images/history/history-thumb-01.png', label: 'Factory Overview' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'ACMA Automechanika Exhibition' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'CNC Grinding Section' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'Universal Grinding' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'Quality Testing Lab' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'Trade Show Display' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'Assembly Section' },
+    { src: '/assets/images/history/history-thumb-01.png', label: 'Packaging & Dispatch' }
   ]
 
   const exhibitions = [
@@ -51,35 +51,35 @@ function NewsGallery() {
       title: 'ACMA Automechanika (Germany)',
       years: '2015, 2017, 2019, 2026',
       desc: 'Western Bearing has been actively participating in ACMA Automechanika organized by Germany, establishing a strong market presence and brand identity in the international automotive industry.',
-      image: '/assets/images/Main-images/exh-1.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       tag: 'International'
     },
     {
       title: 'International Auto Expo Delhi',
       years: '2014, 2016, 2018, 2020',
       desc: 'Regular participation in India\'s premier automotive exposition — showcasing our latest taper roller, deep groove, and cylindrical roller bearing product ranges.',
-      image: '/assets/images/Main-images/exh-2.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       tag: 'National'
     },
     {
       title: 'Bauma Conexpo India — Construction Expo',
       years: '2025',
       desc: 'In 2025, the company participated in Bauma Conexpo India — one of the largest construction equipment exhibitions, expanding our reach in the construction and earthmoving sectors.',
-      image: '/assets/images/Main-images/exh-3.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       tag: 'Construction'
     },
     {
       title: 'Kisan Agri Show, Pune',
       years: '10–14 Dec, 2025',
       desc: 'Participation in Kisan Agri Show 2025 in Pune — connecting directly with agriculture OEMs and dealers for our taper roller and pillow block bearing ranges.',
-      image: '/assets/images/Main-images/exh-4.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       tag: 'Agriculture'
     },
     {
       title: 'State Level Exhibitions',
       years: '2004, 2008, 2022',
       desc: 'Western Bearing has been participating in exhibitions since 1993, including multiple state level exhibitions — building strong brand recognition across Rajasthan and India.',
-      image: '/assets/images/Main-images/Company/7.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       tag: 'Regional'
     }
   ]

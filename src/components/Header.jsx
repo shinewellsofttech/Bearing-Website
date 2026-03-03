@@ -60,7 +60,7 @@ function Header() {
             <i className={`ri-arrow-${isPagesOpen ? 'up' : 'down'}-s-line`}></i>
           </div>
           <ul className={`mobile-submenu ${isPagesOpen ? 'open' : ''}`}>
-            <li><Link to="/team">Team</Link></li>
+            {/* <li><Link to="/team">Team</Link></li> */}
             <li><Link to="/applications-industry">Application and industry</Link></li>
             <li><Link to="/infrastructure">Infrastructure</Link></li>
             <li><Link to="/news-gallery">News and gallery</Link></li>
@@ -70,7 +70,7 @@ function Header() {
         <li className="menu-item-has-children">
           <a href="#" onClick={(e) => e.preventDefault()}>Pages</a>
           <ul className="submenu last-children">
-            <li><Link to="/team">Team</Link></li>
+            {/* <li><Link to="/team">Team</Link></li> */}
             <li><Link to="/applications-industry">Application and industry</Link></li>
             <li><Link to="/infrastructure">Infrastructure</Link></li>
             <li><Link to="/news-gallery">News and gallery</Link></li>

@@ -65,49 +65,49 @@ function ApplicationsIndustry() {
     {
       title: 'Harvester',
       description: 'Heavy-duty bearings for combine harvesters with dust-resistant sealing and extended service life for critical harvest seasons.',
-      image: '/assets/images/Main-images/Vehicle/Harvestor.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-leaf-line'
     },
     {
       title: 'Rotavator',
       description: 'Purpose-built bearings for rotavators designed for impact loading and harsh soil preparation conditions.',
-      image: '/assets/images/Main-images/rotavator-and-seeder.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-settings-3-line'
     },
     {
       title: 'Tractor',
       description: 'Core bearing solutions for tractor axles, PTO systems, and wheel hubs — preferred across Indian and international markets.',
-      image: '/assets/images/Main-images/Vehicle/Tractor.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-steering-2-line'
     },
     {
       title: 'Earth Moving Machine',
       description: 'Heavy-duty bearings for excavators, loaders, and earth-moving equipment — built for extreme loads, shock, and vibration.',
-      image: '/assets/images/Main-images/Vehicle/Earth-Moving-Machine.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-building-2-line'
     },
     {
       title: 'Tractor Trolley',
       description: 'Reliable bearings for tractor trolley wheels and axles, ensuring smooth operation under heavy agricultural loads.',
-      image: '/assets/images/Main-images/tractor-trolly.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-truck-line'
     },
     {
       title: 'Concrete Mixer',
       description: 'Robust bearings for mixers and batching plants, performing flawlessly in high-vibration, cement-dust environments.',
-      image: '/assets/images/Main-images/Vehicle/Concreate-Mixer.jpg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-tools-line'
     },
     {
       title: 'Agriculture Machinery',
       description: 'High-quality bearings for threshers, super seeders, combine machines — renowned for durability, smooth performance, and reliability.',
-      image: '/assets/images/Main-images/agriculture-machines.jpeg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-plant-line'
     },
     {
       title: 'Industrial Machinery',
       description: 'Application-specific bearings for gearboxes, pumps, compressors, electric motors, and heavy industrial equipment.',
-      image: '/assets/images/Main-images/manufacturing.jpg.jpeg',
+      image: '/assets/images/history/history-thumb-01.png',
       icon: 'ri-cpu-line'
     }
   ]
@@ -125,37 +125,37 @@ function ApplicationsIndustry() {
   const bearingTypes = [
     {
       name: 'Tapper Roller Bearing',
-      image: '/assets/images/Main-images/Products/Tapper-Roller-Bearing.png',
+      image: '/assets/images/history/history-thumb-01.png',
       description: 'Ideal for automotive wheel hubs, agriculture gearboxes, and heavy machinery axles.',
       applications: ['Tractors', 'Trucks', 'Gearboxes']
     },
     {
       name: 'Deep Groove Ball Bearing',
-      image: '/assets/images/Main-images/Products/Deep-Grove-Ball-Bearing.png',
+      image: '/assets/images/history/history-thumb-01.png',
       description: 'Versatile bearings for electric motors, household appliances, and light machinery.',
       applications: ['Motors', 'Appliances', 'Light Machinery']
     },
     {
       name: 'Double Row Angular Contact Ball Bearing',
-      image: '/assets/images/Main-images/Products/Double-Row-Angular-Contact-Ball-Bearing.png',
+      image: '/assets/images/history/history-thumb-01.png',
       description: 'For pumps, compressors, and combined axial-radial load applications.',
       applications: ['Pumps', 'Compressors', 'Spindles']
     },
     {
       name: 'Pillow Block Bearing (Unbreakable Body)',
-      image: '/assets/images/Main-images/Products/Pillow-Block-Bearing.png',
+      image: '/assets/images/history/history-thumb-01.png',
       description: 'Mounted bearings with unbreakable body for conveyor systems, fans, and agricultural processing.',
       applications: ['Conveyors', 'Fans', 'Agriculture']
     },
     {
       name: 'Cylindrical Roller Bearing',
-      image: '/assets/images/Main-images/Products/Cylendrical-Roller-Bearing.png',
+      image: '/assets/images/history/history-thumb-01.png',
       description: 'Used in electric motors, pumps, compressors, and high-speed industrial equipment.',
       applications: ['Motors', 'Pumps', 'Compressors']
     },
     {
       name: 'Spherical Roller Bearing',
-      image: '/assets/images/Main-images/Products/Spherecal-Roller-Bearing.png',
+      image: '/assets/images/history/history-thumb-01.png',
       description: 'For heavy-duty applications with misalignment — mining, construction, and paper mills.',
       applications: ['Mining', 'Construction', 'Paper Mills']
     }
@@ -233,7 +233,7 @@ function ApplicationsIndustry() {
             <div className="col-lg-6">
               <div className="wow fadeInLeft" data-wow-delay=".2s">
                 <div style={{ position: 'relative' }}>
-                  <img src="/assets/images/Main-images/Product-Portfolio.png" alt="Western Bearing Product Portfolio" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
+                  <img src="/assets/images/history/history-thumb-01.png" alt="Western Bearing Product Portfolio" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
                   <div className="resp-float-badge" style={{
                     position: 'absolute', bottom: '-20px', right: '-10px',
                     background: 'linear-gradient(135deg, #293194 0%, #0C7BC7 100%)',
