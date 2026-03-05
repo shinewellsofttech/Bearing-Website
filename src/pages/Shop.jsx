@@ -1,27 +1,48 @@
-﻿import { useEffect } from 'react'
+﻿import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSwiper } from '../hooks/useSwiper'
 import CtaSection from '../components/CtaSection'
 import { useScripts } from '../hooks/useScripts'
 
-// Products data - exported for use in ShopDetails
-export const products = [
-  { id: 'tapper-roller-bearing', name: 'TAPPER ROLLER BEARING', image: '/assets/images/shop/shop-thumb-01.png', price: '$19.99' },
-  { id: 'cylindrical-roller-bearing', name: 'CYLINDRICAL ROLLER BEARING', image: '/assets/images/shop/shop-thumb-02.png', price: '$19.99' },
-  { id: 'ball-bearing', name: 'BALL BEARING', image: '/assets/images/shop/shop-thumb-03.png', price: '$19.99' },
-  { id: 'hub-unit-bearing', name: 'HUB UNIT BEARING', image: '/assets/images/shop/shop-thumb-04.png', price: '$19.99' },
-  { id: 'king-pin-bearing', name: 'King Pin Bearing', image: '/assets/images/shop/shop-thumb-05.png', price: '$19.99' },
-  { id: 'agriculture-trolly-bearing', name: 'AGRICULTURE TROLLY BEARING', image: '/assets/images/shop/shop-thumb-06.png', price: '$19.99' },
-  { id: 'double-raw-deep-grow-bearing', name: 'DOUBLE RAW DEEP GROW BEARING', image: '/assets/images/shop/shop-thumb-07.png', price: '$19.99' },
-  { id: 'thrust-ball-bearing', name: 'THRUST BALL BEARING', image: '/assets/images/shop/shop-thumb-08.png', price: '$19.99' },
-  { id: 'pillow-block-bearing', name: 'PILLOW BLOCK BEARING', image: '/assets/images/shop/shop-thumb-09.png', price: '$19.99' },
-  { id: 'clutch-bearing', name: 'CLUTCH BEARING', image: '/assets/images/shop/shop-thumb-01.png', price: '$19.99' },
-  { id: 'universal-joint-cross', name: 'UNIVERSAL JOINT CROSS', image: '/assets/images/shop/shop-thumb-02.png', price: '$19.99' }
-]
+const API_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/api/V1/Masters/0/token/ProductMaster/Id/0'
+const IMAGE_BASE_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/MemberImages/'
 
 function Shop() {
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
   useSwiper()
   useScripts()
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch(API_URL)
+        const result = await response.json()
+        
+        if (result.success && result.data?.dataList) {
+          const transformedProducts = result.data.dataList.map(product => ({
+            id: product.Id,
+            name: product.Name,
+            image: `${IMAGE_BASE_URL}${product.PhotoName}`,
+            price: '$19.99',
+            description: product.Description
+          }))
+          setProducts(transformedProducts)
+        } else {
+          setError('Failed to load products')
+        }
+      } catch (err) {
+        setError('Error fetching products: ' + err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProducts()
+  }, [])
 
   return (
     <>
@@ -56,46 +77,59 @@ function Shop() {
         <div className="container">
           <div className="row g-5">
             <div className="col-12">
-              <div className="row g-5">
-                {products.map((product) => (
-                  <div key={product.id} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="rs-product-item">
-                      <div className="rs-product-thumb">
-                        <Link to={`/shop-details/${product.id}`}>
-                          <img src={product.image} alt={product.name} />
-                        </Link>
-                        <div className="rs-product-btn">
-                          <Link className="rs-btn" to={`/shop-details/${product.id}`}>View Details</Link>
-                                </div>
-                            </div>
-                      <div className="rs-product-content">
-                        <h6 className="rs-product-title">
-                          <Link to={`/shop-details/${product.id}`}>{product.name}</Link>
-                                        </h6>
-                        <div className="rs-product-price">
-                          <span className="rs-current-price">{product.price}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                ))}
-                                        </div>
-              {/* pagination style */}
-              <div className="common-pagination">
-                            <nav>
-                                <ul>
-                    <li><a className="current">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                    <li><a href="#">→</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-              {/* pagination style end */}
-                    </div>
+              {loading && (
+                <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+                  <p>Loading products...</p>
                 </div>
+              )}
+              {error && (
+                <div style={{ textAlign: 'center', padding: '60px 20px', color: '#dc3545' }}>
+                  <p>{error}</p>
+                </div>
+              )}
+              {!loading && !error && (
+                <>
+                  <div className="row g-5">
+                  {products.map((product) => (
+                    <div key={product.id} className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="rs-product-item">
+                        <div className="rs-product-thumb">
+                          <Link to={`/shop-details/${product.id}`}>
+                            <img src={product.image} alt={product.name} onError={(e) => e.target.src = '/assets/images/shop/shop-thumb-01.png'} />
+                          </Link>
+                          <div className="rs-product-btn">
+                            <Link className="rs-btn" to={`/shop-details/${product.id}`}>View Details</Link>
+                          </div>
+                        </div>
+                        <div className="rs-product-content">
+                          <h6 className="rs-product-title">
+                            <Link to={`/shop-details/${product.id}`}>{product.name}</Link>
+                          </h6>
+                          <div className="rs-product-price">
+                            <span className="rs-current-price">{product.price}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  </div>
+                  {/* pagination style */}
+                  <div className="common-pagination">
+                    <nav>
+                      <ul>
+                        <li><a className="current">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">→</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </>
+              )}
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
       {/* shop area end */}
       <CtaSection />
     </>
