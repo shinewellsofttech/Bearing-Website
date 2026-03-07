@@ -3,6 +3,7 @@ import CtaSection from '../components/CtaSection'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
+
 const WHATSAPP_NUMBER = '7878218459'
 
 function Contact() {
