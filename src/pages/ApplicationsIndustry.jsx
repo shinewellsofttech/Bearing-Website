@@ -65,50 +65,50 @@ function ApplicationsIndustry() {
     {
       title: 'Harvester',
       description: 'Heavy-duty bearings for combine harvesters with dust-resistant sealing and extended service life for critical harvest seasons.',
-      image: '/assets/images/history/history-thumb-01.png',
+      image: '/assets/images/Main-images/Applications/harvestor.jpeg',
       icon: 'ri-leaf-line'
     },
     {
       title: 'Rotavator',
       description: 'Purpose-built bearings for rotavators designed for impact loading and harsh soil preparation conditions.',
-      image: '/assets/images/history/history-thumb-01.png',
+      image: '/assets/images/Main-images/Applications/Rotavator.jpeg',
       icon: 'ri-settings-3-line'
     },
     {
       title: 'Tractor',
       description: 'Core bearing solutions for tractor axles, PTO systems, and wheel hubs — preferred across Indian and international markets.',
-      image: '/assets/images/history/history-thumb-01.png',
+      image: '/assets/images/Main-images/Applications/Tractor.jpeg',
       icon: 'ri-steering-2-line'
     },
     {
       title: 'Earth Moving Machine',
       description: 'Heavy-duty bearings for excavators, loaders, and earth-moving equipment — built for extreme loads, shock, and vibration.',
-      image: '/assets/images/history/history-thumb-01.png',
+      image: '/assets/images/Main-images/Applications/EarthMovingMachinary.jpeg',
       icon: 'ri-building-2-line'
     },
     {
-      title: 'Tractor Trolley',
-      description: 'Reliable bearings for tractor trolley wheels and axles, ensuring smooth operation under heavy agricultural loads.',
-      image: '/assets/images/history/history-thumb-01.png',
+      title: 'TRUCK & TRAILER',
+      description: 'Durable and high-performance bearings engineered specifically for heavy-duty trucks and trailers, ensuring long-haul reliability.',
+      image: '/assets/images/Main-images/Applications/Truck&trailor.jpeg',
       icon: 'ri-truck-line'
     },
     {
       title: 'Concrete Mixer',
       description: 'Robust bearings for mixers and batching plants, performing flawlessly in high-vibration, cement-dust environments.',
-      image: '/assets/images/history/history-thumb-01.png',
+      image: '/assets/images/Main-images/Applications/ConcreetMixture.jpeg',
       icon: 'ri-tools-line'
     },
     {
-      title: 'Agriculture Machinery',
-      description: 'High-quality bearings for threshers, super seeders, combine machines — renowned for durability, smooth performance, and reliability.',
-      image: '/assets/images/history/history-thumb-01.png',
-      icon: 'ri-plant-line'
+      title: 'BUS',
+      description: 'Premium quality bearings for buses, designed to withstand continuous operation and provide a smooth, safe ride for passengers.',
+      image: '/assets/images/Main-images/Applications/Bus.jpeg',
+      icon: 'ri-bus-line'
     },
     {
-      title: 'Industrial Machinery',
-      description: 'Application-specific bearings for gearboxes, pumps, compressors, electric motors, and heavy industrial equipment.',
-      image: '/assets/images/history/history-thumb-01.png',
-      icon: 'ri-cpu-line'
+      title: 'TATA ACE (LIGHT COMMERCIAL VEHICLE)',
+      description: 'Reliable bearing solutions tailored for light commercial vehicles, optimizing performance and load capacity.',
+      image: '/assets/images/Main-images/Applications/LightComercialVechical.jpeg',
+      icon: 'ri-car-line'
     }
   ]
 
@@ -188,7 +188,7 @@ function ApplicationsIndustry() {
     <>
       {/* breadcrumb */}
       <section className="rs-breadcrumb-area rs-breadcrumb-one p-relative">
-        <div className="rs-breadcrumb-bg" data-background="/assets/images/bg/breadcrumb-bg-01.png"></div>
+        <div className="rs-breadcrumb-bg" data-background="/assets/images/Main-images/Hero/Applications&IndustryHero.jpeg" style={{ filter: 'brightness(0.6)' }}></div>
         <div className="container">
           <div className="row">
             <div className="col-xxl-6 col-xl-8 col-lg-8">
@@ -233,8 +233,8 @@ function ApplicationsIndustry() {
             <div className="col-lg-6">
               <div className="wow fadeInLeft" data-wow-delay=".2s">
                 <div style={{ position: 'relative' }}>
-                  <img src="/assets/images/history/history-thumb-01.png" alt="Western Bearing Product Portfolio" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
-                  <div className="resp-float-badge" style={{
+                  <img src="/assets/images/Main-images/highQualityBearing.jpeg" alt="Western Bearing Product Portfolio" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
+                  {/* <div className="resp-float-badge" style={{
                     position: 'absolute', bottom: '-20px', right: '-10px',
                     background: 'linear-gradient(135deg, #293194 0%, #0C7BC7 100%)',
                     color: '#fff', padding: '18px 24px', borderRadius: '14px',
@@ -242,7 +242,7 @@ function ApplicationsIndustry() {
                   }}>
                     <div style={{ fontSize: '28px', fontWeight: 800, lineHeight: 1 }}>Since</div>
                     <div style={{ fontSize: '32px', fontWeight: 800, lineHeight: 1.2 }}>1985</div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -252,8 +252,7 @@ function ApplicationsIndustry() {
                   {subtitleSvg} Serving Every Industry with Precision
                 </span>
                 <h2 className="rs-section-title" style={{ marginBottom: '20px', marginTop: '10px' }}>
-                  High-Quality Bearings for Agricultural &amp; Earth-Moving Machinery
-                </h2>
+                  High-Quality Bearings for Agriculture, Construction & Earthmoving Equipment, and Commercial Vehicles                </h2>
                 <p style={{ color: '#555', lineHeight: '1.8', marginBottom: '15px' }}>
                   We are capable of providing high-quality bearings for agricultural and earth-moving machinery — tractors, harvesters, rotavators, threshers, super seeders, combine machines, and more — renowned for their durability, smooth performance, and reliability.
                 </p>
@@ -301,29 +300,53 @@ function ApplicationsIndustry() {
                   onMouseEnter={() => setHoveredIndustry(index)}
                   onMouseLeave={() => setHoveredIndustry(null)}
                   style={{
-                    position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '380px', cursor: 'pointer',
-                    boxShadow: hoveredIndustry === index ? '0 20px 50px rgba(12,123,199,0.25)' : '0 8px 30px rgba(0,0,0,0.1)',
-                    transform: hoveredIndustry === index ? 'translateY(-8px)' : 'translateY(0)',
-                    transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    background: '#fff',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    height: '420px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    boxShadow: hoveredIndustry === index ? '0 15px 35px rgba(12,123,199,0.18)' : '0 4px 20px rgba(0,0,0,0.06)',
+                    transform: hoveredIndustry === index ? 'translateY(-6px)' : 'translateY(0)',
+                    transition: 'all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    border: '1px solid rgba(0,0,0,0.04)'
                   }}
                 >
-                  <img src={industry.image} alt={industry.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease', transform: hoveredIndustry === index ? 'scale(1.1)' : 'scale(1)' }} />
                   <div style={{
-                    position: 'absolute', inset: 0,
-                    background: hoveredIndustry === index ? 'linear-gradient(180deg, rgba(41,49,148,0.15) 0%, rgba(41,49,148,0.92) 65%)' : 'linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.75) 100%)',
-                    transition: 'background 0.4s ease'
-                  }}></div>
-                  <div style={{
-                    position: 'absolute', top: '20px', right: '20px', width: '48px', height: '48px', borderRadius: '12px',
-                    background: hoveredIndustry === index ? '#fff' : 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease',
-                    boxShadow: hoveredIndustry === index ? '0 4px 15px rgba(0,0,0,0.15)' : 'none'
+                    height: '220px',
+                    position: 'relative',
+                    background: '#f8fafc',
+                    padding: '15px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden'
                   }}>
-                    <i className={industry.icon} style={{ fontSize: '22px', color: hoveredIndustry === index ? '#293194' : '#fff', transition: 'color 0.3s ease' }}></i>
+                    <img
+                      src={industry.image}
+                      alt={industry.title}
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        objectFit: 'contain',
+                        transition: 'transform 0.4s ease',
+                        transform: hoveredIndustry === index ? 'scale(1.06)' : 'scale(1)'
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute', top: '12px', right: '12px', width: '36px', height: '36px', borderRadius: '8px',
+                      background: hoveredIndustry === index ? '#293194' : 'rgba(12,123,199,0.08)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease'
+                    }}>
+                      <i className={industry.icon} style={{ fontSize: '18px', color: hoveredIndustry === index ? '#fff' : '#0C7BC7', transition: 'color 0.3s ease' }}></i>
+                    </div>
                   </div>
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '25px', transform: hoveredIndustry === index ? 'translateY(0)' : 'translateY(10px)', transition: 'transform 0.4s ease' }}>
-                    <h5 style={{ color: '#fff', fontSize: '20px', fontWeight: 700, marginBottom: hoveredIndustry === index ? '12px' : '0', transition: 'margin 0.3s ease' }}>{industry.title}</h5>
-                    <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '13px', lineHeight: '1.6', marginBottom: 0, maxHeight: hoveredIndustry === index ? '100px' : '0', opacity: hoveredIndustry === index ? 1 : 0, overflow: 'hidden', transition: 'all 0.4s ease' }}>{industry.description}</p>
+                  <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <h5 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 700, marginBottom: '8px', transition: 'color 0.3s ease' }}>{industry.title}</h5>
+                      <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.6', marginBottom: 0 }}>{industry.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -448,7 +471,7 @@ function ApplicationsIndustry() {
       </section>
 
       {/* memberships section */}
-        {/* <section className="section-space" style={{ backgroundColor: '#f5f8fc' }}>
+      {/* <section className="section-space" style={{ backgroundColor: '#f5f8fc' }}>
             <div className="container">
             <div className="row g-5 justify-content-center section-title-space">
                 <div className="col-xxl-8">

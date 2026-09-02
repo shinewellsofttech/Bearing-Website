@@ -153,6 +153,42 @@ function ShopDetails() {
                   {product.description || `Western Bearing manufactures ${product.name} using high-grade materials. Built to OEM standards with complete in-house manufacturing.`}
                 </p>
 
+                <div style={{ marginTop: '20px', marginBottom: '25px' }}>
+                  <button
+                    onClick={() => {
+                      const text = `Hello, I am interested in: *${product.name}*. Can you please provide a quotation?`
+                      const url = `https://wa.me/7878218459?text=${encodeURIComponent(text)}`
+                      window.open(url, '_blank', 'noopener,noreferrer')
+                    }}
+                    style={{
+                      padding: '12px 28px',
+                      borderRadius: '12px',
+                      background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                      color: '#fff',
+                      border: 'none',
+                      fontWeight: '700',
+                      fontSize: '15px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 4px 15px rgba(37, 211, 102, 0.2)',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 4px 15px rgba(37, 211, 102, 0.2)';
+                    }}
+                  >
+                    <i className="ri-whatsapp-line" style={{ fontSize: '20px' }}></i>
+                    Get Quotation via WhatsApp
+                  </button>
+                </div>
+
                 <div className="product-details-categories product-details-more mb-10">
                   <p>Category:</p>
                   <span><a href="#">Bearings</a></span>

@@ -2,8 +2,14 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CtaSection from '../components/CtaSection'
 
+const API_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/api/V1/Masters/0/token/NewsGalleryMaster/Id/0'
+const LOCAL_STORAGE_KEY = 'western_news_gallery_items'
+const IMAGE_BASE_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/MemberImages/'
+
 function NewsGallery() {
   const [hoveredNews, setHoveredNews] = useState(null)
+  const [dynamicItems, setDynamicItems] = useState([])
+  const [selectedModalItem, setSelectedModalItem] = useState(null)
 
   useEffect(() => {
     const initScripts = () => {
@@ -19,7 +25,45 @@ function NewsGallery() {
     const check = () => { window.jQuery ? setTimeout(initScripts, 200) : setTimeout(check, 100) }
     check()
     window.scrollTo(0, 0)
+
+    loadNewsAndGalleryData()
   }, [])
+
+  const loadNewsAndGalleryData = async () => {
+    let localItems = []
+    try {
+      const stored = localStorage.getItem(LOCAL_STORAGE_KEY)
+      if (stored) {
+        localItems = JSON.parse(stored)
+      }
+    } catch (e) {
+      console.error('Error reading local news storage', e)
+    }
+
+    try {
+      const res = await fetch(API_URL)
+      const data = await res.json()
+      if (data.success && Array.isArray(data.data?.dataList)) {
+        const apiItems = data.data.dataList.map(item => ({
+          id: item.Id,
+          title: item.Title || item.Name,
+          desc: item.Description,
+          years: item.EventDate || '2026',
+          image: item.ImagePath || (item.PhotoName ? `${IMAGE_BASE_URL}${item.PhotoName}` : '/assets/images/history/history-thumb-01.png'),
+        }))
+        
+        // Merge API & local items uniquely
+        const merged = [...localItems, ...apiItems]
+        const uniqueItems = Array.from(new Map(merged.map(item => [item.Id || item.id, item])).values())
+        setDynamicItems(uniqueItems)
+        return
+      }
+    } catch (e) {
+      console.log('API fetch fallback to local store', e)
+    }
+
+    setDynamicItems(localItems)
+  }
 
   const subtitleSvg = (
     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
@@ -28,137 +72,227 @@ function NewsGallery() {
     </svg>
   )
 
-  const arrowIcon = (
-    <span className="icon-box">
-      <svg className="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path></svg>
-      <svg className="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path></svg>
-    </span>
-  )
-
-  const galleryImages = [
-    { src: '/assets/images/history/history-thumb-01.png', label: 'Factory Overview' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'ACMA Automechanika Exhibition' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'CNC Grinding Section' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'Universal Grinding' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'Quality Testing Lab' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'Trade Show Display' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'Assembly Section' },
-    { src: '/assets/images/history/history-thumb-01.png', label: 'Packaging & Dispatch' }
-  ]
-
-  const exhibitions = [
-    {
-      title: 'ACMA Automechanika (Germany)',
-      years: '2015, 2017, 2019, 2026',
-      desc: 'Western Bearing has been actively participating in ACMA Automechanika organized by Germany, establishing a strong market presence and brand identity in the international automotive industry.',
-      image: '/assets/images/history/history-thumb-01.png',
-      tag: 'International'
-    },
+  const defaultExhibitions = [
     {
       title: 'International Auto Expo Delhi',
       years: '2014, 2016, 2018, 2020',
       desc: 'Regular participation in India\'s premier automotive exposition — showcasing our latest taper roller, deep groove, and cylindrical roller bearing product ranges.',
-      image: '/assets/images/history/history-thumb-01.png',
-      tag: 'National'
+      image: '/assets/images/Main-images/exh-1.jpg',
+    },
+    {
+      title: 'ACMA Automechanika (Germany)',
+      years: '2015, 2017, 2019, 2026',
+      desc: 'Western Bearing has been actively participating in ACMA Automechanika organized by Germany, establishing a strong market presence and brand identity in the international automotive industry.',
+      image: '/assets/images/Main-images/exh-2.jpg',
     },
     {
       title: 'Bauma Conexpo India — Construction Expo',
       years: '2025',
       desc: 'In 2025, the company participated in Bauma Conexpo India — one of the largest construction equipment exhibitions, expanding our reach in the construction and earthmoving sectors.',
-      image: '/assets/images/history/history-thumb-01.png',
-      tag: 'Construction'
+      image: '/assets/images/Main-images/exh-3.jpg',
     },
     {
       title: 'Kisan Agri Show, Pune',
       years: '10–14 Dec, 2025',
       desc: 'Participation in Kisan Agri Show 2025 in Pune — connecting directly with agriculture OEMs and dealers for our taper roller and pillow block bearing ranges.',
-      image: '/assets/images/history/history-thumb-01.png',
-      tag: 'Agriculture'
+      image: '/assets/images/Main-images/exh-4.jpg',
     },
     {
       title: 'State Level Exhibitions',
       years: '2004, 2008, 2022',
       desc: 'Western Bearing has been participating in exhibitions since 1993, including multiple state level exhibitions — building strong brand recognition across Rajasthan and India.',
-      image: '/assets/images/history/history-thumb-01.png',
-      tag: 'Regional'
+      image: '/assets/images/Main-images/exh-5.jpeg',
     }
   ]
 
-  const exportCountries = [
-    'USA', 'UAE', 'Italy', 'Turkey', 'Poland', 'Serbia',
-    'South Africa', 'Kenya', 'Ethiopia', 'Sudan', 'Ghana', 'Morocco', 'Mauritius', 'Libya', 'Tunisia', 'Algeria',
-    'Jordan', 'Iran', 'Iraq', 'Oman', 'Qatar', 'Lebanon', 'Yemen', 'Palestine',
-    'Nepal', 'Bangladesh', 'Myanmar', 'Sri Lanka', 'Bhutan', 'Afghanistan',
-    'Brazil', 'Mexico'
-  ]
+  // Convert dynamic admin panel items into standardized display models
+  const formattedDynamicExhibitions = dynamicItems.map(item => ({
+    title: item.Title || item.title,
+    years: item.EventDate || item.years || '2026',
+    desc: item.Description || item.desc,
+    image: item.ImagePath || item.PhotoName || item.image || '/assets/images/history/history-thumb-01.png',
+    isDynamic: true
+  }))
+
+  const allExhibitionsAndNews = [...formattedDynamicExhibitions, ...defaultExhibitions]
 
   return (
     <>
-      {/* breadcrumb */}
-      <section className="rs-breadcrumb-area rs-breadcrumb-one p-relative">
-        <div className="rs-breadcrumb-bg" data-background="/assets/images/bg/breadcrumb-bg-01.png"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-xxl-6 col-xl-8 col-lg-8">
-              <div className="rs-breadcrumb-content-wrapper">
-                <div className="rs-breadcrumb-title-wrapper">
-                  <h1 className="rs-breadcrumb-title">News &amp; Gallery</h1>
+      {/* Modal View for detailed Story / High Res Image */}
+      {selectedModalItem && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.75)',
+          zIndex: 99999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px',
+          backdropFilter: 'blur(5px)'
+        }}>
+          <div style={{
+            background: '#ffffff',
+            borderRadius: '20px',
+            maxWidth: '650px',
+            width: '100%',
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            position: 'relative',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
+            animation: 'fadeInUp 0.3s ease'
+          }}>
+            <button
+              onClick={() => setSelectedModalItem(null)}
+              style={{
+                position: 'absolute',
+                top: '15px',
+                right: '15px',
+                background: '#f0f4f8',
+                border: 'none',
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                cursor: 'pointer',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                color: '#333',
+                zIndex: 10
+              }}
+            >
+              ✕
+            </button>
+            <div style={{ height: '280px', width: '100%', overflow: 'hidden', background: '#f8fafc' }}>
+              <img
+                src={selectedModalItem.image}
+                alt={selectedModalItem.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                onError={(e) => e.target.src = '/assets/images/history/history-thumb-01.png'}
+              />
+            </div>
+            <div style={{ padding: '25px 30px' }}>
+              {selectedModalItem.years && (
+                <div style={{ marginBottom: '12px' }}>
+                  <span style={{
+                    background: 'rgba(41,49,148,0.1)',
+                    color: '#293194',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    padding: '4px 12px',
+                    borderRadius: '20px'
+                  }}>
+                    {selectedModalItem.years}
+                  </span>
                 </div>
-                <div className="rs-breadcrumb-menu">
-                  <nav><ul>
-                    <li><span><Link to="/">Western Bearing</Link></span></li>
-                    <li><span>News &amp; Gallery</span></li>
-                  </ul></nav>
-                </div>
-              </div>
+              )}
+              <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#111', marginBottom: '15px', lineHeight: 1.3 }}>
+                {selectedModalItem.title}
+              </h3>
+              <p style={{ color: '#555', fontSize: '15px', lineHeight: '1.7', whiteSpace: 'pre-line' }}>
+                {selectedModalItem.desc}
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      )}
 
-      {/* gallery section */}
+      {/* exhibitions & news section */}
       <section className="section-space" style={{ backgroundColor: '#f5f8fc' }}>
         <div className="container">
           <div className="row g-5 justify-content-center section-title-space">
             <div className="col-xxl-8">
               <div className="rs-section-title-wrapper text-center">
-                <span className="rs-section-subtitle has-theme-light-blue">{subtitleSvg} Pictures That Speak Quality</span>
-                <h2 className="rs-section-title">Showcasing Excellence in Every Frame</h2>
+                <span className="rs-section-subtitle has-theme-light-blue">{subtitleSvg} Showcasing Innovation, Sharing Excellence</span>
+                <h2 className="rs-section-title">News, Exhibitions &amp; Events</h2>
+                <p style={{ color: '#666', maxWidth: '580px', margin: '10px auto 0', lineHeight: 1.7 }}>
+                  Western Bearing INDIA actively participates in national &amp; global exhibitions, sharing our latest achievements and manufacturing excellence.
+                </p>
               </div>
             </div>
           </div>
-
-          {/* Row 1: 2 featured wide images */}
-          <div className="row g-4 mb-4">
-            {galleryImages.slice(0, 2).map((img, i) => (
-              <div className="col-lg-6 col-md-6 col-12" key={i}>
-                <div
-                  className="wow fadeInUp resp-gallery-featured" data-wow-delay={`${0.1 + i * 0.1}s`}
-                  style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '320px', boxShadow: '0 6px 24px rgba(0,0,0,0.1)', cursor: 'pointer' }}
-                >
-                  <img src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                    onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.07)'}
-                    onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                  />
-
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2-3: 6 images in 3 columns */}
           <div className="row g-4">
-            {galleryImages.slice(2).map((img, i) => (
-              <div className="col-lg-4 col-md-6 col-12" key={i}>
+            {allExhibitionsAndNews.map((exh, i) => (
+              <div className="col-xl-6 col-lg-6 col-12" key={i}>
                 <div
-                  className="wow fadeInUp resp-gallery-item" data-wow-delay={`${0.1 + i * 0.08}s`}
-                  style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '220px', boxShadow: '0 4px 16px rgba(0,0,0,0.08)', cursor: 'pointer' }}
+                  className="wow fadeInUp resp-flex-card"
+                  data-wow-delay={`${0.1 + (i % 4) * 0.1}s`}
+                  onMouseEnter={() => setHoveredNews(i)}
+                  onMouseLeave={() => setHoveredNews(null)}
+                  onClick={() => setSelectedModalItem(exh)}
+                  style={{
+                    display: 'flex',
+                    background: '#fff',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    boxShadow: hoveredNews === i ? '0 12px 35px rgba(12,123,199,0.15)' : '0 3px 15px rgba(0,0,0,0.06)',
+                    transform: hoveredNews === i ? 'translateY(-4px)' : 'translateY(0)',
+                    transition: 'all 0.35s ease',
+                    height: '100%',
+                    cursor: 'pointer'
+                  }}
                 >
-                  <img src={img.src} alt={img.label} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
-                    onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.08)'}
-                    onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                  />
-
+                  <div className="resp-img-column" style={{ width: '200px', minWidth: '200px', overflow: 'hidden', position: 'relative' }}>
+                    <img
+                      src={exh.image}
+                      alt={exh.title}
+                      onError={(e) => e.target.src = '/assets/images/history/history-thumb-01.png'}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transform: hoveredNews === i ? 'scale(1.06)' : 'scale(1)',
+                        transition: 'transform 0.4s ease'
+                      }}
+                    />
+                    {exh.isDynamic && (
+                      <span style={{
+                        position: 'absolute',
+                        bottom: '8px',
+                        left: '8px',
+                        background: '#28a745',
+                        color: '#fff',
+                        fontSize: '10px',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        fontWeight: 'bold'
+                      }}>NEW</span>
+                    )}
+                  </div>
+                  <div className="resp-content-column" style={{ padding: '22px 24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    {exh.years && (
+                      <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
+                        <span style={{
+                          display: 'inline-block',
+                          background: 'rgba(41,49,148,0.08)',
+                          color: '#293194',
+                          fontSize: '11px',
+                          fontWeight: 600,
+                          padding: '3px 10px',
+                          borderRadius: '20px'
+                        }}>
+                          {exh.years}
+                        </span>
+                      </div>
+                    )}
+                    <h5 style={{ fontSize: '17px', fontWeight: 700, color: '#1a1a1a', marginBottom: '8px', lineHeight: 1.35 }}>
+                      {exh.title}
+                    </h5>
+                    <p style={{
+                      color: '#666',
+                      fontSize: '13px',
+                      lineHeight: '1.6',
+                      marginBottom: 0,
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden'
+                    }}>
+                      {exh.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -166,93 +300,9 @@ function NewsGallery() {
         </div>
       </section>
 
-      {/* exhibitions section */}
-      <section className="section-space" style={{ backgroundColor: '#f5f8fc' }}>
-          <div className="container">
-            <div className="row g-5 justify-content-center section-title-space">
-              <div className="col-xxl-8">
-                <div className="rs-section-title-wrapper text-center">
-                  <span className="rs-section-subtitle has-theme-light-blue">{subtitleSvg} Showcasing Innovation, Sharing Excellence</span>
-                  <h2 className="rs-section-title">Exhibition &amp; Participation</h2>
-                  <p style={{ color: '#666', maxWidth: '580px', margin: '10px auto 0', lineHeight: 1.7 }}>Western Bearing INDIA has been actively participating in exhibitions since 1993 — building strong brand presence nationally and internationally.</p>
-                </div>
-              </div>
-            </div>
-            <div className="row g-4">
-              {exhibitions.map((exh, i) => (
-                <div className="col-xl-6 col-lg-6 col-12" key={i}>
-                  <div
-                    className="wow fadeInUp resp-flex-card" 
-                    data-wow-delay={`${0.1 + i * 0.1}s`}
-                    onMouseEnter={() => setHoveredNews(i)}
-                    onMouseLeave={() => setHoveredNews(null)}
-                    style={{
-                      display: 'flex', 
-                      background: '#fff', 
-                      borderRadius: '16px', 
-                      overflow: 'hidden',
-                      boxShadow: hoveredNews === i ? '0 12px 35px rgba(12,123,199,0.15)' : '0 3px 15px rgba(0,0,0,0.06)',
-                      transform: hoveredNews === i ? 'translateY(-4px)' : 'translateY(0)',
-                      transition: 'all 0.35s ease', 
-                      height: '100%'
-                    }}
-                  >
-                    <div className="resp-img-column" style={{ width: '200px', minWidth: '200px', overflow: 'hidden' }}>
-                      <img 
-                        src={exh.image} 
-                        alt={exh.title} 
-                        style={{
-                          width: '100%', 
-                          height: '100%', 
-                          objectFit: 'cover',
-                          transform: hoveredNews === i ? 'scale(1.06)' : 'scale(1)', 
-                          transition: 'transform 0.4s ease'
-                        }} 
-                      />
-                    </div>
-                    <div className="resp-content-column" style={{ padding: '22px 24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                      <div style={{ display: 'flex', gap: '8px', marginBottom: '10px', flexWrap: 'wrap' }}>
-                        <span style={{
-                          display: 'inline-block', 
-                          background: 'rgba(12,123,199,0.08)', 
-                          color: '#0C7BC7',
-                          fontSize: '11px', 
-                          fontWeight: 600, 
-                          padding: '3px 10px', 
-                          borderRadius: '20px'
-                        }}>
-                          {exh.tag}
-                        </span>
-                        <span style={{
-                          display: 'inline-block', 
-                          background: 'rgba(41,49,148,0.08)', 
-                          color: '#293194',
-                          fontSize: '11px', 
-                          fontWeight: 600, 
-                          padding: '3px 10px', 
-                          borderRadius: '20px'
-                        }}>
-                          {exh.years}
-                        </span>
-                      </div>
-                      <h5 style={{ fontSize: '17px', fontWeight: 700, color: '#1a1a1a', marginBottom: '8px', lineHeight: 1.35 }}>
-                        {exh.title}
-                      </h5>
-                      <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.6', marginBottom: 0 }}>
-                        {exh.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
       <CtaSection />
     </>
   )
 }
-
 
 export default NewsGallery

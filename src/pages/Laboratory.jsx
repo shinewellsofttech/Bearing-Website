@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Laboratory() {
@@ -1020,6 +1020,76 @@ function Laboratory() {
         </section>
         {/* feature area end */}
 
+        {/* certificates area start */}
+        <section className="rs-certificates-area has-space section-space-top section-space-bottom">
+            <div className="container">
+                <div className="row g-5 justify-content-center section-title-space align-items-center">
+                    <div className="col-xxl-6 col-xl-7 col-lg-8">
+                        <div className="rs-section-title-wrapper text-center">
+                            <span className="rs-section-subtitle has-theme-light-blue">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M11 3.10345e-06L11 15L3.14286 15L3.14286 10L8.85714 10L8.85714 5L3.14286 5L3.14286 3.10345e-06L11 3.10345e-06Z" fill="#0C7BC7"></path>
+                                </svg>
+                                Company Achievement
+                            </span>
+                            <h2 className="rs-section-title">Our Certifications</h2>
+                            <p className="rs-section-desc">"We test our products according to international standards, provide 2D/3D drawings as per customer requirements, and continuously work on improving quality.".</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="row g-5 justify-content-center">
+                    <div className="col-xl-4 col-lg-4 col-md-6 col-12">
+                        <div className="rs-certificate-item">
+                            <div className="rs-certificate-thumb">
+                                <img
+                                    src="/assets/images/Main-images/Certificates/1.jpeg"
+                                    alt="ISO 9001:2015 Quality Management"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="rs-certificate-content">
+                                <h4 className="rs-certificate-title">Moody International Certificate</h4>
+                                <p className="rs-certificate-desc">Western Bearing Company is a trusted, ISO and ZED certified bearing manufacturer, supplying quality bearings to both government and private sectors, with regular tool calibration ensuring consistent standards. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-xl-4 col-lg-4 col-md-6 col-12">
+                        <div className="rs-certificate-item">
+                            <div className="rs-certificate-thumb">
+                                <img
+                                    src="/assets/images/Main-images/Certificates/2.jpeg"
+                                    alt="Industry certification"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="rs-certificate-content">
+                                <h4 className="rs-certificate-title">ROHS Certificate</h4>
+                                <p className="rs-certificate-desc">We obtained the EN ISO 9001:2008 certification on 12th October 2009 through Moody International.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xl-4 col-lg-4 col-md-6 col-12">
+                        <div className="rs-certificate-item">
+                            <div className="rs-certificate-thumb">
+                                <img
+                                    src="/assets/images/Main-images/Certificates/3.jpeg"
+                                    alt="Export certification"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="rs-certificate-content">
+                                <h4 className="rs-certificate-title">ZED Certificate</h4>
+                                <p className="rs-certificate-desc">Western Bearing ISO 9001 : 2015 certified, ensuring quality, consistency, and customer satisfaction."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {/* certificates area end */}
+
         {/* about area start */}
         <section className="rs-about-area rs-about-six">
             <div className="rs-about-shape-one">
@@ -1245,7 +1315,7 @@ building strong market presence and brand identity.</p>
                             </div>
                             <h4 className="rs-services-title underline has-theme-blue"><a href="/services-details">
                                     Bauma <br /> Conexpo </a></h4>
-                            <p className="descrip">Participated in Construction Expo 2025,
+                            <p className="descrip">Participated in Construction Expo 2025,2026
 showcasing innovation at Bauma Conexpo India.</p>
                             <div className="rs-services-icon">
                                 <a className="rs-btn has-icon has-transparent-btn" href="/services-details">
@@ -2222,6 +2292,287 @@ connecting with the agricultural industry nationwide.</p>
         </div>
         {/* brand area end */}
 
+        {/* featured products section start */}
+        <section className="rs-product-section section-space rs-services-one" style={{ background: 'linear-gradient(to bottom, #ffffff, #f8fbfd)', padding: '80px 0' }}>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-8 text-center">
+                <div className="rs-section-subtitle-wrapper justify-content-center" style={{ display: 'flex', justifyContent: 'center' }}>
+                  <span className="rs-section-subtitle justify-content-center" style={{ color: '#0D80CE', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: '8px', height: '8px', backgroundColor: '#0D80CE', borderRadius: '50%', display: 'inline-block' }}></span>
+                    Our Featured Products
+                    <span style={{ width: '8px', height: '8px', backgroundColor: '#0D80CE', borderRadius: '50%', display: 'inline-block' }}></span>
+                  </span>
+                </div>
+                <h2 className="rs-section-title text-black mt-3" style={{ fontSize: '38px', fontWeight: '700', marginBottom: '40px', color: '#0f1c3f' }}>
+                  Premium Bearings Range
+                </h2>
+              </div>
+            </div>
+            
+            <div className="row g-4 justify-content-center">
+              {/* Card 1: Ball Bearing */}
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div className="rs-product-card-custom" style={{
+                  background: '#ffffff',
+                  border: '1px solid #eaeaea',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(13, 128, 206, 0.04)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(13, 128, 206, 0.12)';
+                  e.currentTarget.style.borderColor = '#0D80CE';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(13, 128, 206, 0.04)';
+                  e.currentTarget.style.borderColor = '#eaeaea';
+                }}
+                >
+                  <Link to="/shop-details/20002" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                    <div style={{
+                      borderRadius: '20px 20px 0 0',
+                      overflow: 'hidden',
+                      marginBottom: '20px',
+                      backgroundColor: '#f4f8fc',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      height: '240px',
+                      padding: '0px',
+                      transition: 'background-color 0.3s ease',
+                      marginLeft: '-24px',
+                      marginRight: '-24px',
+                      marginTop: '-24px'
+                    }}>
+                      <img 
+                        src="/assets/images/Main-images/homeProducts/BallBearing.jpeg" 
+                        alt="Ball Bearing" 
+                        style={{ 
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transition: 'transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)'
+                        }}
+                        onMouseEnter={(e) => e.target.style.transform = 'scale(1.08)'}
+                        onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h4 className="product-title" style={{ color: '#0f1c3f', fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>
+                        Ball Bearing
+                      </h4>
+                      <p style={{ color: '#5b6c8f', fontSize: '14px', lineHeight: '1.6', marginBottom: '20px' }}>
+                        High-precision deep groove ball bearings designed for maximum reliability and low friction.
+                      </p>
+                      <span style={{ 
+                        color: '#0D80CE', 
+                        fontWeight: '600', 
+                        fontSize: '14px', 
+                        display: 'inline-flex', 
+                        alignItems: 'center', 
+                        gap: '6px',
+                        transition: 'gap 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.gap = '10px'}
+                      onMouseLeave={(e) => e.currentTarget.style.gap = '6px'}
+                      >
+                        View Details 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0D80CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 2: Pillow Block Bearing */}
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div className="rs-product-card-custom" style={{
+                  background: '#ffffff',
+                  border: '1px solid #eaeaea',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(13, 128, 206, 0.04)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(13, 128, 206, 0.12)';
+                  e.currentTarget.style.borderColor = '#0D80CE';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(13, 128, 206, 0.04)';
+                  e.currentTarget.style.borderColor = '#eaeaea';
+                }}
+                >
+                  <Link to="/shop-details/30002" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                    <div style={{
+                      borderRadius: '20px 20px 0 0',
+                      overflow: 'hidden',
+                      marginBottom: '20px',
+                      backgroundColor: '#f4f8fc',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      height: '240px',
+                      padding: '0px',
+                      transition: 'background-color 0.3s ease',
+                      marginLeft: '-24px',
+                      marginRight: '-24px',
+                      marginTop: '-24px'
+                    }}>
+                      <img 
+                        src="/assets/images/Main-images/homeProducts/PillowBlockBearing.jpg" 
+                        alt="Pillow Block Bearing" 
+                        style={{ 
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transition: 'transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)'
+                        }}
+                        onMouseEnter={(e) => e.target.style.transform = 'scale(1.08)'}
+                        onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h4 className="product-title" style={{ color: '#0f1c3f', fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>
+                        Pillow Block Bearing
+                      </h4>
+                      <p style={{ color: '#5b6c8f', fontSize: '14px', lineHeight: '1.6', marginBottom: '20px' }}>
+                        Robust mounted bearing units providing excellent shaft support and alignment.
+                      </p>
+                      <span style={{ 
+                        color: '#0D80CE', 
+                        fontWeight: '600', 
+                        fontSize: '14px', 
+                        display: 'inline-flex', 
+                        alignItems: 'center', 
+                        gap: '6px',
+                        transition: 'gap 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.gap = '10px'}
+                      onMouseLeave={(e) => e.currentTarget.style.gap = '6px'}
+                      >
+                        View Details 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0D80CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 3: Taper Roller Bearing */}
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div className="rs-product-card-custom" style={{
+                  background: '#ffffff',
+                  border: '1px solid #eaeaea',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  boxShadow: '0 10px 30px rgba(13, 128, 206, 0.04)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(13, 128, 206, 0.12)';
+                  e.currentTarget.style.borderColor = '#0D80CE';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(13, 128, 206, 0.04)';
+                  e.currentTarget.style.borderColor = '#eaeaea';
+                }}
+                >
+                  <Link to="/shop-details/10002" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                    <div style={{
+                      borderRadius: '20px 20px 0 0',
+                      overflow: 'hidden',
+                      marginBottom: '20px',
+                      backgroundColor: '#f4f8fc',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      height: '240px',
+                      padding: '0px',
+                      transition: 'background-color 0.3s ease',
+                      marginLeft: '-24px',
+                      marginRight: '-24px',
+                      marginTop: '-24px'
+                    }}>
+                      <img 
+                        src="/assets/images/Main-images/homeProducts/TapperRollerBearing.png" 
+                        alt="Taper Roller Bearing" 
+                        style={{ 
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transition: 'transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)'
+                        }}
+                        onMouseEnter={(e) => e.target.style.transform = 'scale(1.08)'}
+                        onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h4 className="product-title" style={{ color: '#0f1c3f', fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>
+                        Taper Roller Bearing
+                      </h4>
+                      <p style={{ color: '#5b6c8f', fontSize: '14px', lineHeight: '1.6', marginBottom: '20px' }}>
+                        High-capacity tapered rollers engineered for heavy-duty radial and axial load capacity.
+                      </p>
+                      <span style={{ 
+                        color: '#0D80CE', 
+                        fontWeight: '600', 
+                        fontSize: '14px', 
+                        display: 'inline-flex', 
+                        alignItems: 'center', 
+                        gap: '6px',
+                        transition: 'gap 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.gap = '10px'}
+                      onMouseLeave={(e) => e.currentTarget.style.gap = '6px'}
+                      >
+                        View Details 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0D80CE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* featured products section end */}
+
         {/* team area start */}
         <section className="rs-team-area rs-team-one has-theme-light-blue">
             <div className="container has-large">
@@ -2266,8 +2617,8 @@ connecting with the agricultural industry nationwide.</p>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
-                                    <a href="/team-details"><img src="/assets/images/Main-images/Team/1.jpg"
-                                            alt="image" /></a>
+                                    <Link to="/team-details/aziz"><img src="/assets/images/Main-images/Team/1.jpg"
+                                            alt="image" /></Link>
                                     {/* <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
                                         <a href="#"><i className="ri-facebook-fill"></i></a>
@@ -2276,7 +2627,7 @@ connecting with the agricultural industry nationwide.</p>
                                 </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
-                                        <h5 className="rs-team-title"><a href="/team-details">Mr.Aziz Belim</a></h5>
+                                        <h5 className="rs-team-title"><Link to="/team-details/aziz">Mr.Aziz Belim</Link></h5>
                                         <span className="rs-team-designation">FOUNDER</span>
                             </div>
                                 </div>
@@ -2285,8 +2636,8 @@ connecting with the agricultural industry nationwide.</p>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
-                                    <a href="/team-details"><img src="/assets/images/Main-images/Team/2.jpg"
-                                            alt="image" /></a>
+                                    <Link to="/team-details/waheed"><img src="/assets/images/Main-images/Team/2.jpg"
+                                            alt="image" /></Link>
                                     {/* <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
                                         <a href="#"><i className="ri-facebook-fill"></i></a>
@@ -2295,7 +2646,7 @@ connecting with the agricultural industry nationwide.</p>
                     </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
-                                        <h5 className="rs-team-title"><a href="/team-details">Mr.Waheed Belim</a></h5>
+                                        <h5 className="rs-team-title"><Link to="/team-details/waheed">Mr.Waheed Belim</Link></h5>
                                         <span className="rs-team-designation">MANAGING DIRECTOR </span>
                                 </div>
                             </div>
@@ -2304,8 +2655,8 @@ connecting with the agricultural industry nationwide.</p>
                         <div className="col-xl-3 col-lg-4 col-md-6">
                             <div className="rs-team-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
                                 <div className="rs-team-thumb has-clip">
-                                    <a href="/team-details"><img src="/assets/images/Main-images/Team/3.jpg"
-                                            alt="image" /></a>
+                                    <Link to="/team-details/maheed"><img src="/assets/images/Main-images/Team/3.jpg"
+                                            alt="image" /></Link>
                                     {/* <div className="rs-theme-social rs-team-social has-transparent">
                                         <a href="#"><i className="ri-twitter-x-line"></i></a>
                                         <a href="#"><i className="ri-facebook-fill"></i></a>
@@ -2314,7 +2665,7 @@ connecting with the agricultural industry nationwide.</p>
                         </div>
                                 <div className="rs-team-content-wrapper">
                                     <div className="rs-team-content-box">
-                                        <h5 className="rs-team-title"><a href="/team-details">Mr.Maheed Belim</a></h5>
+                                        <h5 className="rs-team-title"><Link to="/team-details/maheed">Mr.Maheed Belim</Link></h5>
                                         <span className="rs-team-designation">EXECUTIVE DIRECTOR</span>
                     </div>
                             </div>

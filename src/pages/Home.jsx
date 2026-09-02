@@ -1,10 +1,79 @@
+import { useEffect, useState } from 'react'
 import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 import CtaSection from '../components/CtaSection'
 
+const API_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/api/V1/Masters/0/token/BannerMaster/Id/0'
+const LOCAL_STORAGE_KEY = 'western_hero_slider_items'
+const IMAGE_BASE_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/MemberImages/'
+
+const DEFAULT_HERO_SLIDES = [
+  {
+    id: 1,
+    title: 'Leader in industrial Factory around the world',
+    desc: 'We face each project as a new challenge and with our ability to build and innovate we overcome all barriers to using content.',
+    image: '/assets/images/bg/banner-bg-01.png'
+  },
+  {
+    id: 2,
+    title: 'Moving Your Industry Manufacturing Forward',
+    desc: 'We face each project as a new challenge and with our ability to build and innovate we overcome all barriers to using content.',
+    image: '/assets/images/bg/banner-bg-02.png'
+  },
+  {
+    id: 3,
+    title: 'Precision Engineered Bearings for Global Industries',
+    desc: 'Delivering top quality taper roller, deep groove and pillow block bearings across 30+ countries worldwide.',
+    image: '/assets/images/bg/banner-bg-03.png'
+  }
+]
+
 function Home() {
+  const [heroSlides, setHeroSlides] = useState(DEFAULT_HERO_SLIDES)
+
   useSwiper()
   useScripts()
+
+  useEffect(() => {
+    loadHeroSlides()
+  }, [])
+
+  const loadHeroSlides = async () => {
+    let localItems = []
+    try {
+      const stored = localStorage.getItem(LOCAL_STORAGE_KEY)
+      if (stored) {
+        localItems = JSON.parse(stored)
+      }
+    } catch (e) {
+      console.error('Error reading local hero slides storage', e)
+    }
+
+    try {
+      const res = await fetch(API_URL)
+      const data = await res.json()
+      if (data.success && Array.isArray(data.data?.dataList) && data.data.dataList.length > 0) {
+        const apiItems = data.data.dataList.map(item => ({
+          id: item.Id,
+          title: item.Title || item.Name,
+          desc: item.Description,
+          image: item.ImagePath || (item.PhotoName ? `${IMAGE_BASE_URL}${item.PhotoName}` : '/assets/images/bg/banner-bg-01.png')
+        }))
+        const merged = [...localItems, ...apiItems]
+        const uniqueItems = Array.from(new Map(merged.map(item => [item.Id || item.id, item])).values())
+        if (uniqueItems.length > 0) {
+          setHeroSlides(uniqueItems)
+          return
+        }
+      }
+    } catch (e) {
+      console.log('API fetch fallback for hero slides', e)
+    }
+
+    if (localItems && localItems.length > 0) {
+      setHeroSlides(localItems)
+    }
+  }
 
   return (
     <>
@@ -32,40 +101,42 @@ function Home() {
         <div className="rs-banner-slider-wrapper">
           <div className="swiper" data-clone-slides="false" data-loop="true" data-speed={2000} data-autoplay="true" data-dots-dynamic="false" data-hover-pause="true" data-effect="fade" data-delay={1000} data-item={1} data-item-xl={1} data-item-lg={1} data-item-md={1} data-item-sm={1} data-item-xs={1} data-item-mobile={1} data-margin={30} data-margin-xl={30} data-margin-lg={30} data-margin-md={30} data-margin-sm={30} data-margin-xs={30} data-margin-mobile={30}>
             <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <div className="rs-banner-item-wrapper">
-                  <div className="rs-banner-bg-thumb" data-background="/assets/images/bg/banner-bg-01.png">
-                  </div>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-xxl-8 col-xl-8 col-lg-10">
-                        <div className="rs-banner-item">
-                          <div className="rs-banner-content">
-                            <h1 className="rs-banner-title">Leader in industrial Factory around <br />
-                              the world
-                            </h1>
-                            <div className="rs-banner-descrip">
-                              <p>We face each project as a new challenge and with our ability
-                                to build and
-                                innovate we overcome all barriers to using content. </p>
-                            </div>
-                            <div className="rs-banner-info-btn">
-                              <div className="rs-banner-btn">
-                                <a className="rs-btn has-theme-orange has-icon has-bg" href="/contact">Explore More
-                                  <span className="icon-box">
-                                    <svg className="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                      <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                      </path>
-                                    </svg>
-                                    <svg className="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                      <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                      </path>
-                                    </svg>
-                                  </span>
-                                </a>
+              {heroSlides.map((slide, i) => (
+                <div key={slide.id || i} className="swiper-slide">
+                  <div className="rs-banner-item-wrapper">
+                    <div
+                      className="rs-banner-bg-thumb"
+                      data-background={slide.image || slide.ImagePath || '/assets/images/bg/banner-bg-01.png'}
+                      style={{ backgroundImage: `url(${slide.image || slide.ImagePath || '/assets/images/bg/banner-bg-01.png'})` }}
+                    >
+                    </div>
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-xxl-8 col-xl-8 col-lg-10">
+                          <div className="rs-banner-item">
+                            <div className="rs-banner-content">
+                              <h1 className="rs-banner-title">{slide.title || slide.Title}</h1>
+                              <div className="rs-banner-descrip">
+                                <p>{slide.desc || slide.Description}</p>
                               </div>
-                              <div className="rs-feature-video">
-                                <a href="https://www.youtube.com/watch?v=Yue48fUXuqI" className="rs-play-btn popup-video"><i className="ri-play-fill" /></a>
+                              <div className="rs-banner-info-btn">
+                                <div className="rs-banner-btn">
+                                  <a className="rs-btn has-theme-orange has-icon has-bg" href="/contact">Explore More
+                                    <span className="icon-box">
+                                      <svg className="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                        <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                        </path>
+                                      </svg>
+                                      <svg className="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                        <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                        </path>
+                                      </svg>
+                                    </span>
+                                  </a>
+                                </div>
+                                <div className="rs-feature-video">
+                                  <a href="https://www.youtube.com/watch?v=Yue48fUXuqI" className="rs-play-btn popup-video"><i className="ri-play-fill" /></a>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -74,49 +145,7 @@ function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="rs-banner-item-wrapper">
-                  <div className="rs-banner-bg-thumb" data-background="/assets/images/bg/banner-bg-02.png">
-                  </div>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-xxl-8 col-xl-8 col-lg-10">
-                        <div className="rs-banner-item">
-                          <div className="rs-banner-content">
-                            <h1 className="rs-banner-title">Moving Your Industry Manufacturing <br />
-                              Forward </h1>
-                            <div className="rs-banner-descrip">
-                              <p>We face each project as a new challenge and with our ability
-                                to build and
-                                innovate we overcome all barriers to using content. </p>
-                            </div>
-                            <div className="rs-banner-info-btn">
-                              <div className="rs-banner-btn">
-                                <a className="rs-btn has-theme-orange has-icon has-bg" href="/contact">Explore More
-                                  <span className="icon-box">
-                                    <svg className="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                      <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                      </path>
-                                    </svg>
-                                    <svg className="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                      <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
-                                      </path>
-                                    </svg>
-                                  </span>
-                                </a>
-                              </div>
-                              <div className="rs-feature-video">
-                                <a href="https://www.youtube.com/watch?v=Yue48fUXuqI" className="rs-play-btn popup-video"><i className="ri-play-fill" /></a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             {/* If we need navigation buttons */}
             <div className="rs-banner-navigation">

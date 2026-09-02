@@ -1,4 +1,5 @@
-﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -67,9 +68,20 @@ import ElementsTestimonial from './pages/ElementsTestimonial'
 import ElementsBrand from './pages/ElementsBrand'
 import ElementsBlog from './pages/ElementsBlog'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Laboratory />} />
@@ -79,6 +91,7 @@ function App() {
           <Route path="services-details" element={<ServicesDetails />} />
           <Route path="team" element={<Team />} />
           <Route path="team-details" element={<TeamDetails />} />
+          <Route path="team-details/:id" element={<TeamDetails />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="portfolio-details" element={<PortfolioDetails />} />
           <Route path="pricing" element={<Pricing />} />

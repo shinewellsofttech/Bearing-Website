@@ -19,85 +19,90 @@ function Footer() {
               <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div className="rs-footer-widget footer-2-col-1">
                   <div className="rs-footer-widget-logo mb-25">
-                    <Link 
+                    <Link
                       to="/"
-                      style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
+                      style={{ textDecoration: 'none' }}
                     >
-                      <img 
-                        src="/assets/images/Main-images/LOGO.jpeg" 
-                        alt="logo" 
-                        style={{ maxHeight: '75px', width: 'auto', display: 'block' }}
-                      />
-                      <span style={{ color: '#fff', fontWeight: 700, fontSize: '22px' }}>
+                      <span style={{ color: '#fff', fontWeight: 800, fontSize: '24px', letterSpacing: '0.5px' }}>
                         WESTERN BEARING
                       </span>
                     </Link>
                   </div>
                   <div className="rs-footer-widget-content">
                     <p className="rs-footer-widget-description">
-                    Manufacturer and exporter of premium bearings since 1985.
-                    Trusted for quality, precision engineering, and reliable performance across industries worldwide.
+                      Manufacturer and exporter of premium bearings since 1985.
+                      Trusted for quality, precision engineering, and reliable performance across industries worldwide.
                     </p>
                     <div className="rs-footer-widget-stroke-text">
-                      <h3 className="rs-footer-stroke-text has-theme-blue">Since 1985</h3>
+                      <h3 className="rs-footer-stroke-text has-theme-blue" style={{ fontWeight: 800 }}>Since 1985</h3>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-6">
                 <div className="rs-footer-widget footer-2-col-2">
                   <h5 className="rs-footer-widget-title">Useful Links</h5>
                   <div className="rs-footer-widget-content">
                     <div className="rs-footer-widget-links has-theme-light-blue">
-                      <ul>
+                      <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About us</Link></li>
                         <li><Link to="/shop">Product</Link></li>
-                        <li><Link to="/applications-industry">Application </Link></li>
-                        <li><Link to="/infrastructure">Infrastructure</Link></li>
-                        <li><Link to="/news-gallery">News and gallery</Link></li>
                         <li><Link to="/contact">Contact us</Link></li>
+                        <li><Link to="/about">About us</Link></li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-6">
                 <div className="rs-footer-widget footer-2-col-3">
                   <h5 className="rs-footer-widget-title">Unit Address</h5>
                   <div className="rs-footer-widget-content">
                     <div className="rs-footer-widget-meta">
                       <div className="rs-footer-widget-address">
                         <a target="_blank" href="https://www.google.com/maps/dir//WESTERN+BEARING,+86,+New+Power+House+Rd,+Section+7+Extension,+Shastri+Nagar,+Jodhpur,+Rajasthan+342011/@26.2995968,73.0365952,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39418e8f828701a1:0xe56fda7f5b778b07!2m2!1d73.0128354!2d26.2632152?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" rel="noopener noreferrer">
-                        B-7, Industrial Estate, New Power House Road, Jodhpur - 342 003 (Rajasthan.) INDIA
+                          B-7, Industrial Estate, New Power House Road, Jodhpur - 342 003 (Rajasthan.) INDIA
                         </a>
                       </div>
-                      <h5 className="rs-footer-widget-title">Email Address</h5>
-                      {/* <p>Interested in working with us?</p> */}
+                      {/* <h5 className="rs-footer-widget-title">Email Address</h5>
+                      
                       <div className="rs-footer-widget-email">
                         <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div className="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12">
                 <div className="rs-footer-widget footer-2-col-4">
                   <h5 className="rs-footer-widget-title">Contact Us</h5>
                   <div className="rs-footer-widget-content">
                     <div className="rs-footer-widget-contact-info">
-                      <div className="rs-footer-widget-number">
-                        <span>
-                          <div style={{ marginBottom: '5px', fontWeight: '600', color: '#fff' }}>Customer Care</div>
+                      <div className="rs-footer-widget-number" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px 15px', marginBottom: '15px' }}>
+                        <span style={{ marginBottom: '0px', display: 'block' }}>
+                          <div style={{ marginBottom: '2px', fontWeight: '600', color: '#fff', lineHeight: '1.2' }}>Customer Care</div>
                           <a href="tel:+91 982 902 3064">+91 992 853 2210</a>
                         </span>
-                        <span>
-                          <div style={{ marginBottom: '5px', fontWeight: '600', color: '#fff' }}>For Export Sales</div>
+                        <span style={{ marginBottom: '0px', display: 'block' }}>
+                          <div style={{ marginBottom: '2px', fontWeight: '600', color: '#fff', lineHeight: '1.2' }}>For Export Sales Inquiry (Maheed Madawat)</div>
                           <a href="tel:+91 992 939 6200">+91 992 939 6200</a>
+                             <div style={{ marginTop: '1px', lineHeight: '1.2' }}>
+                            <a href="mailto:exportwesternbearing@gmail.com" style={{ fontSize: '14.5px', whiteSpace: 'nowrap', letterSpacing: '0.8px' }}>exportwesternbearing@gmail.com</a>
+                          </div>
                         </span>
-                        <span>
-                          <div style={{ marginBottom: '5px', fontWeight: '600', color: '#fff' }}>For Domestic Sales</div>
-                          <a href="tel:+91 992 902 3064">+91 992 902 3064</a>
+                        <span style={{ marginBottom: '0px', display: 'block' }}>
+                          <div style={{ marginBottom: '2px', fontWeight: '600', color: '#fff', lineHeight: '1.2' }}>For Domestic Sales</div>
+                          <a href="tel:+91 992 902 3064">+91 982 902 3064</a>
+                          <div style={{ marginTop: '1px', lineHeight: '1.2' }}>
+                            <a href="mailto:sales@westernbearing.in" style={{ fontSize: '14.5px', whiteSpace: 'nowrap', letterSpacing: '0.8px' }}>sales@westernbearing.in</a>
+                          </div>
+                        </span>
+                        <span style={{ marginBottom: '0px', display: 'block' }}>
+                          <div style={{ marginBottom: '2px', fontWeight: '600', color: '#fff', lineHeight: '1.2' }}>For Technical</div>
+                          <a href="tel:+91 8769636208">+91 876 963 6208</a>
+                          <div style={{ marginTop: '1px', lineHeight: '1.2' }}>
+                            <a href="mailto:qualitywesternbearing@gmail.com" style={{ fontSize: '14.5px', whiteSpace: 'nowrap', letterSpacing: '0.8px' }}>qualitywesternbearing@gmail.com</a>
+                          </div>
                         </span>
                       </div>
                     </div>

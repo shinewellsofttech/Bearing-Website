@@ -1,4 +1,5 @@
-﻿import { useEffect } from 'react'
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import CtaSection from '../components/CtaSection'
 
 function About() {
@@ -269,7 +270,7 @@ function About() {
     <>
       {/* breadcrumb area start */}
       <section className="rs-breadcrumb-area rs-breadcrumb-one p-relative">
-        <div className="rs-breadcrumb-bg" data-background="/assets/images/bg/breadcrumb-bg-01.png"></div>
+        <div className="rs-breadcrumb-bg" data-background="/assets/images/Main-images/Hero/AboutHeroBg.jpeg"></div>
         <div className="container">
           <div className="row">
             <div className="col-xxl-6 col-xl-8 col-lg-8">
@@ -311,23 +312,83 @@ function About() {
               </div>
             </div>
           </div>
-          <div className="row rs-about-intro-row g-5 align-items-stretch">
-            <div className="col-lg-5 col-md-6">
-              <div className="rs-about-intro-thumb">
-                <img src="/assets/images/about/about-thumb-18.png" alt="Western Bearing" />
+          {/* Mr. Aziz Belim */}
+          <div className="row g-5 align-items-center" style={{ marginBottom: '40px' }}>
+            <div className="col-lg-4 col-md-5">
+              <div className="rs-team-details-thumb" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.05)', maxWidth: '280px', transition: 'transform 0.3s ease' }}
+                   onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+                   onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                <img src="/assets/images/Main-images/Team/1.jpg" alt="Mr.Aziz Belim" style={{ width: '100%', borderRadius: '20px', display: 'block' }} />
               </div>
             </div>
-            <div className="col-lg-7 col-md-6">
-              <div className="rs-about-intro-content">
-                <p>
-                  Established in 1970, Western Bearing began manufacturing operations in 1985 and has since built a strong reputation for quality and reliability under the WESTERN BEARING brand.
-                </p>
-                <p>
-                  In 2005, the company transitioned into second-generation leadership under Mr. A.V. Belim, expanding its footprint in domestic and international markets through a focused approach to precision, innovation, and consistent manufacturing standards. Today, Western Bearing supplies premium bearings to leading OEM customers in the automotive, agricultural, and earthmoving sectors.
-                </p>
-                <p className="mb-0">
-                  In 2024, Mr. Maheed, representing the third generation, joined the Western Bearing Group after completing his MBA and assumed responsibility for operational management and strategic execution. With Western Engineers initiating the IPO process, the company is positioned for its next phase of structured growth and long-term value creation.
-                </p>
+            <div className="col-lg-8 col-md-7">
+              <div className="rs-team-details-content" style={{ paddingLeft: '15px' }}>
+                <h2 className="rs-team-details-title" style={{ color: '#0f1c3f', fontWeight: '700', fontSize: '28px', marginBottom: '8px' }}>Mr.Aziz Belim</h2>
+                <span style={{ backgroundColor: '#f4f8fc', color: '#0D80CE', padding: '6px 16px', borderRadius: '30px', fontSize: '13px', fontWeight: '600', display: 'inline-block', marginBottom: '18px', letterSpacing: '0.5px' }}>FOUNDER</span>
+                
+                <div className="rs-team-details-bio">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                    <span style={{ width: '3px', height: '18px', backgroundColor: '#0D80CE', borderRadius: '2px', display: 'inline-block' }}></span>
+                    <h4 style={{ color: '#0f1c3f', fontWeight: '600', fontSize: '18px', margin: 0 }}>Profile Details</h4>
+                  </div>
+                  <p style={{ color: '#4a5568', fontSize: '18px', lineHeight: '1.8', marginBottom: '0' }}>
+                    Mr.Aziz started the bearing business in 1970 and began manufacturing in 1985. Today 2024, “WESTERN BEARING” brand is known for quality and trust.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mr. Waheed Belim (Alternating layout: Image right, text left) */}
+          <div className="row g-5 align-items-center" style={{ marginBottom: '40px', borderTop: '1px solid #eaeaea', paddingTop: '40px' }}>
+            <div className="col-lg-8 col-md-7 order-2 order-lg-1">
+              <div className="rs-team-details-content" style={{ paddingRight: '15px' }}>
+                <h2 className="rs-team-details-title" style={{ color: '#0f1c3f', fontWeight: '700', fontSize: '28px', marginBottom: '8px' }}>Mr.Waheed Belim</h2>
+                <span style={{ backgroundColor: '#f4f8fc', color: '#0D80CE', padding: '6px 16px', borderRadius: '30px', fontSize: '13px', fontWeight: '600', display: 'inline-block', marginBottom: '18px', letterSpacing: '0.5px' }}>MANAGING DIRECTOR</span>
+                
+                <div className="rs-team-details-bio">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                    <span style={{ width: '3px', height: '18px', backgroundColor: '#0D80CE', borderRadius: '2px', display: 'inline-block' }}></span>
+                    <h4 style={{ color: '#0f1c3f', fontWeight: '600', fontSize: '18px', margin: 0 }}>Profile Details</h4>
+                  </div>
+                  <p style={{ color: '#4a5568', fontSize: '18px', lineHeight: '1.8', marginBottom: '0' }}>
+                    In 2005, Mr.Belim took charge of the company and, with 19 years of experience, established the WESTERN brand globally. Under his leadership, the company has grown steadily with a strong focus on quality and innovation. Today, it produces premium bearings for leading OEM clients.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-5 order-1 order-lg-2">
+              <div className="rs-team-details-thumb" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.05)', maxWidth: '280px', marginLeft: 'auto', transition: 'transform 0.3s ease' }}
+                   onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+                   onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                <img src="/assets/images/Main-images/Team/2.jpg" alt="Mr.Waheed Belim" style={{ width: '100%', borderRadius: '20px', display: 'block' }} />
+              </div>
+            </div>
+          </div>
+
+          {/* Mr. Maheed Madawat (BELIM) */}
+          <div className="row g-5 align-items-center" style={{ marginBottom: '20px', borderTop: '1px solid #eaeaea', paddingTop: '40px' }}>
+            <div className="col-lg-4 col-md-5">
+              <div className="rs-team-details-thumb" style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.05)', maxWidth: '280px', transition: 'transform 0.3s ease' }}
+                   onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+                   onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                <img src="/assets/images/Main-images/Team/3.jpg" alt="Mr.Maheed Madawat (BELIM)" style={{ width: '100%', borderRadius: '20px', display: 'block' }} />
+              </div>
+            </div>
+            <div className="col-lg-8 col-md-7">
+              <div className="rs-team-details-content" style={{ paddingLeft: '15px' }}>
+                <h2 className="rs-team-details-title" style={{ color: '#0f1c3f', fontWeight: '700', fontSize: '28px', marginBottom: '8px' }}>Mr.Maheed Madawat (BELIM)</h2>
+                <span style={{ backgroundColor: '#f4f8fc', color: '#0D80CE', padding: '6px 16px', borderRadius: '30px', fontSize: '13px', fontWeight: '600', display: 'inline-block', marginBottom: '18px', letterSpacing: '0.5px' }}>EXECUTIVE DIRECTOR</span>
+                
+                <div className="rs-team-details-bio">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                    <span style={{ width: '3px', height: '18px', backgroundColor: '#0D80CE', borderRadius: '2px', display: 'inline-block' }}></span>
+                    <h4 style={{ color: '#0f1c3f', fontWeight: '600', fontSize: '18px', margin: 0 }}>Profile Details</h4>
+                  </div>
+                  <p style={{ color: '#4a5568', fontSize: '18px', lineHeight: '1.8', marginBottom: '0' }}>
+                    In 2024, after completing his MBA, Mr.Maheed joined Western Bearing group to take charge of the company’s operations. MISSION: Western Engineers has initiated the process to launch its IPO, paving the way for a new direction and future growth.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -336,13 +397,106 @@ function About() {
       {/* about area end */}
 
       {/* history area start */}
-      <section className="rs-history-area section-space rs-history-one has-theme-light-blue">
-        <div className="rs-history-bg-thumb" data-background="/assets/images/Main-images/journeyBG.png"></div>
+      <section className="rs-history-area section-space rs-history-one has-theme-light-blue" style={{ background: '#f8fbfd' }}>
+        <style>{`
+          .timeline-container {
+            position: relative;
+            padding: 40px 0;
+          }
+          .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #0D80CE;
+            opacity: 0.2;
+            transform: translateX(-50%);
+          }
+          .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+          }
+          .timeline-item::after {
+            content: '';
+            display: table;
+            clear: both;
+          }
+          .timeline-badge {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #0D80CE;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px rgba(13, 128, 206, 0.2);
+            transform: translateX(-50%);
+            z-index: 2;
+          }
+          .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 24px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+          }
+          .timeline-content:hover {
+            box-shadow: 0 10px 25px rgba(13, 128, 206, 0.08);
+            border-color: #0D80CE;
+            transform: translateY(-2px);
+          }
+          .timeline-item-left .timeline-content {
+            float: left;
+            text-align: right;
+          }
+          .timeline-item-right .timeline-content {
+            float: right;
+            text-align: left;
+          }
+          .timeline-year {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0D80CE;
+            margin-bottom: 6px;
+            display: inline-block;
+          }
+          .timeline-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f1c3f;
+            margin-bottom: 10px;
+          }
+          .timeline-desc {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #5b6c8f;
+            margin-bottom: 0;
+          }
+          @media (max-width: 767px) {
+            .timeline-container::before {
+              left: 20px;
+            }
+            .timeline-badge {
+              left: 20px;
+            }
+            .timeline-content {
+              width: calc(100% - 40px);
+              float: right !important;
+              text-align: left !important;
+            }
+          }
+        `}</style>
         <div className="container">
           <div className="row g-5 justify-content-center section-title-space align-items-center">
             <div className="col-xxl-6 col-xl-6 col-lg-6">
               <div className="rs-section-title-wrapper text-center">
-                <span className="rs-section-subtitle has-theme-light-blue">
+                <span className="rs-section-subtitle has-theme-light-blue justify-content-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
                     <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                     <path fillRule="evenodd" clipRule="evenodd"
@@ -356,128 +510,88 @@ function About() {
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-xxl-9 col-xl-10">
-              <div className="rs-history-tab-wrapper">
-                <div className="rs-history-tab">
-                  <ul className="nav nav-pills" id="pills-tab" role="tablist">
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link active" id="pills-item-one-tab" data-bs-toggle="pill" data-bs-target="#pills-item-one" type="button" role="tab" aria-controls="pills-item-one" aria-selected="true">1985</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-two-tab" data-bs-toggle="pill" data-bs-target="#pills-item-two" type="button" role="tab" aria-controls="pills-item-two" aria-selected="false">1990</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-three-tab" data-bs-toggle="pill" data-bs-target="#pills-item-three" type="button" role="tab" aria-controls="pills-item-three" aria-selected="false">2000</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-four-tab" data-bs-toggle="pill" data-bs-target="#pills-item-four" type="button" role="tab" aria-controls="pills-item-four" aria-selected="false">2010</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-five-tab" data-bs-toggle="pill" data-bs-target="#pills-item-five" type="button" role="tab" aria-controls="pills-item-five" aria-selected="false">2015</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-six-tab" data-bs-toggle="pill" data-bs-target="#pills-item-six" type="button" role="tab" aria-controls="pills-item-six" aria-selected="false">2020</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-seven-tab" data-bs-toggle="pill" data-bs-target="#pills-item-seven" type="button" role="tab" aria-controls="pills-item-seven" aria-selected="false">2024</button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" id="pills-item-eight-tab" data-bs-toggle="pill" data-bs-target="#pills-item-eight" type="button" role="tab" aria-controls="pills-item-eight" aria-selected="false">2025</button>
-                    </li>
-                  </ul>
-                </div>
-                <div className="rs-history-tab-content-wrapper">
-                  <div className="tab-content rs-history-tab-anim" id="pills-tabContent">
-                    <div className="tab-pane fade show active" id="pills-item-one" role="tabpanel" aria-labelledby="pills-item-one-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-01.png" alt="Western Bearing 1985" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">Foundation & Early Growth</h5>
-                          <p>Established in 1985, the company began with a small setup focused on agriculture bearings, especially the SS series. Starting at a micro scale, it supplied taper roller bearings from 25 mm to 50 mm bore size without compromising on quality. Using SAE 52100 grade material, the products quickly gained market acceptance and built a strong reputation for reliability.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-two" role="tabpanel" aria-labelledby="pills-item-two-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-02.png" alt="Western Bearing 1990" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">Product Range Expansion</h5>
-                          <p>By 1990, the taper roller bearing range was expanded from 50 mm up to 80 mm bore size. The business structure was clearly defined, with 70 percent focus on the agriculture segment and 30 percent on the industrial segment. During this period, trading activities began under the brand name WESTERN BEARING, helping establish a stronger market identity.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-three" role="tabpanel" aria-labelledby="pills-item-three-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-03.png" alt="Western Bearing 2000" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">New Plant & Dealer Network Development</h5>
-                          <p>In 2000, the company shifted to a larger plant, increasing production capacity. At the same time, a strong dealer network was developed across India. This phase significantly improved both supply capability and market reach.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-four" role="tabpanel" aria-labelledby="pills-item-four-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-04.png" alt="Western Bearing 2010" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">Entry into International Market</h5>
-                          <p>In 2010, the company entered the international market and began participating in international exhibitions. This provided global exposure and increased brand visibility. The experience helped build confidence in expanding export activities.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-five" role="tabpanel" aria-labelledby="pills-item-five-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-05.png" alt="Western Bearing 2015" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">Certification & Technology Upgrade</h5>
-                          <p>In 2015, the company achieved ISO certification. Advanced German-made machines were installed in the laboratory to strengthen testing and quality control systems. This upgrade improved product consistency and performance reliability.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-six" role="tabpanel" aria-labelledby="pills-item-six-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-01.png" alt="Western Bearing 2020" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">Global Presence Expansion</h5>
-                          <p>By 2020, the company was supplying products under its brand name to more than seven countries. This marked a period of stable export growth and increasing international recognition.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-seven" role="tabpanel" aria-labelledby="pills-item-seven-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-02.png" alt="Western Bearing 2024" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">Quality System Strengthening</h5>
-                          <p>In 2024, the ISO 9001:2015 Management System certification was renewed. Internal systems and documentation processes were further strengthened to maintain structured and disciplined operations.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tab-pane fade" id="pills-item-eight" role="tabpanel" aria-labelledby="pills-item-eight-tab" tabIndex="0">
-                      <div className="rs-history-tab-item">
-                        <div className="rs-history-tab-thumb">
-                          <img src="/assets/images/history/history-thumb-03.png" alt="Western Bearing 2025" />
-                        </div>
-                        <div className="rs-history-tab-content">
-                          <h5 className="rs-history-tab-title">National Quality Recognition</h5>
-                          <p>In 2025, the company achieved ZED Certification under a Government of India quality initiative. This recognition reinforced the company's commitment to manufacturing excellence, quality control standards, and environmental responsibility.</p>
-                        </div>
-                      </div>
-                    </div>
+            <div className="col-xxl-10 col-xl-10 col-lg-12">
+              <div className="timeline-container">
+                {/* 1985 */}
+                <div className="timeline-item timeline-item-left">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">1985</span>
+                    <h4 className="timeline-title">Foundation & Early Growth</h4>
+                    <p className="timeline-desc">Established in 1985, the company began with a small setup focused on agriculture bearings, especially the SS series. Starting at a micro scale, it supplied taper roller bearings from 25 mm to 50 mm bore size without compromising on quality. Using SAE 52100 grade material, the products quickly gained market acceptance and built a strong reputation for reliability.</p>
                   </div>
                 </div>
+
+                {/* 1990 */}
+                <div className="timeline-item timeline-item-right">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">1990</span>
+                    <h4 className="timeline-title">Product Range Expansion</h4>
+                    <p className="timeline-desc">By 1990, the taper roller bearing range was expanded from 50 mm up to 80 mm bore size. The business structure was clearly defined, with 70 percent focus on the agriculture segment and 30 percent on the industrial segment. During this period, trading activities began under the brand name WESTERN BEARING, helping establish a stronger market identity.</p>
+                  </div>
+                </div>
+
+                {/* 2000 */}
+                <div className="timeline-item timeline-item-left">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">2000</span>
+                    <h4 className="timeline-title">New Plant & Dealer Network Development</h4>
+                    <p className="timeline-desc">In 2000, the company shifted to a larger plant, increasing production capacity. At the same time, a strong dealer network was developed across India. This phase significantly improved both supply capability and market reach.</p>
+                  </div>
+                </div>
+
+                {/* 2010 */}
+                <div className="timeline-item timeline-item-right">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">2010</span>
+                    <h4 className="timeline-title">Entry into International Market</h4>
+                    <p className="timeline-desc">In 2010, the company entered the international market and began participating in international exhibitions. This provided global exposure and increased brand visibility. The experience helped build confidence in expanding export activities.</p>
+                  </div>
+                </div>
+
+                {/* 2015 */}
+                <div className="timeline-item timeline-item-left">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">2015</span>
+                    <h4 className="timeline-title">Certification & Technology Upgrade</h4>
+                    <p className="timeline-desc">In 2015, the company achieved ISO certification. Advanced German-made machines were installed in the laboratory to strengthen testing and quality control systems. This upgrade improved product consistency and performance reliability.</p>
+                  </div>
+                </div>
+
+                {/* 2020 */}
+                <div className="timeline-item timeline-item-right">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">2020</span>
+                    <h4 className="timeline-title">Global Presence Expansion</h4>
+                    <p className="timeline-desc">By 2020, the company was supplying products under its brand name to more than seven countries. This marked a period of stable export growth and increasing international recognition.</p>
+                  </div>
+                </div>
+
+                {/* 2024 */}
+                <div className="timeline-item timeline-item-left">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">2024</span>
+                    <h4 className="timeline-title">Quality System Strengthening</h4>
+                    <p className="timeline-desc">In 2024, the ISO 9001:2015 Management System certification was renewed. Internal systems and documentation processes were further strengthened to maintain structured and disciplined operations.</p>
+                  </div>
+                </div>
+
+                {/* 2025 */}
+                <div className="timeline-item timeline-item-right">
+                  <div className="timeline-badge"></div>
+                  <div className="timeline-content">
+                    <span className="timeline-year">2025</span>
+                    <h4 className="timeline-title">National Quality Recognition</h4>
+                    <p className="timeline-desc">In 2025, the company achieved ZED Certification under a Government of India quality initiative. This recognition reinforced the company's commitment to manufacturing excellence, quality control standards, and environmental responsibility.</p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -486,95 +600,90 @@ function About() {
       {/* history area start */}
 
       {/* team area start */}
-      {/* <section className="rs-team-area section-space rs-team-one">
-        <div className="container">
-          <div className="row g-5 section-title-space align-items-center">
-            <div className="col-xl-7 col-lg-7">
-              <div className="rs-section-title-wrapper">
-                <span className="rs-section-subtitle has-theme-light-blue justify-content-start">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
-                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
-                    <path fillRule="evenodd" clipRule="evenodd"
-                      d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
-                      fill="#0C7BC7"></path>
-                  </svg>
-                  Engineer
-                </span>
-                <h2 className="rs-section-title">The Best Industry Expert</h2>
+      {/* <section className="rs-team-area rs-team-one has-theme-light-blue">
+          <div className="container has-large">
+              <div className="row">
+                  <div className="col-lg-12">
+                      <div className="rs-section-subtitle-wrapper">
+                          <span className="rs-section-subtitle has-theme-light-blue justify-content-start">
+                              Our Engineer
+                          </span>
+                          <div className="rs-section-border-line"></div>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div className="col-xl-5 col-lg-5">
-              <div className="rs-team-btn d-flex justify-content-lg-end">
-                <a className="rs-btn has-theme-light-blue has-icon has-bg" href="/team">Become a Member
-                  <span className="icon-box">
-                    <svg className="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                      <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path>
-                    </svg>
-                    <svg className="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                      <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path>
-                    </svg>
-                  </span>
-                </a>
+              <div className="row  g-5 section-title-space align-items-center">
+                  <div className="col-xl-6 col-lg-6">
+                      <div className="rs-section-title-wrapper">
+                          <h2 className="rs-section-title has-theme-light-blue rs-split-text-enable split-in-fade">The
+                              best
+                              industry experts</h2>
+                      </div>
+                  </div>
+                  <div className="col-xl-6 col-lg-6">
+                      <div className="rs-team-btn">
+                          <a className="rs-btn has-theme-light-blue has-icon has-bg" href="/team">View More Member
+                              <span className="icon-box">
+                                  <svg className="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                      <path
+                                          d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                      </path>
+                                  </svg>
+                                  <svg className="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                      <path
+                                          d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                      </path>
+                                  </svg>
+                              </span>
+                          </a>
+                      </div>
+                  </div>
               </div>
-            </div>
+                  <div className="row justify-content-center" style={{ marginLeft: '30px', marginRight: '30px', gap: '40px' }}>
+                      <div className="col-xl-3 col-lg-4 col-md-6">
+                          <div className="rs-team-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                              <div className="rs-team-thumb has-clip">
+                                  <Link to="/team-details/aziz"><img src="/assets/images/Main-images/Team/1.jpg"
+                                          alt="image" /></Link>
+                              </div>
+                              <div className="rs-team-content-wrapper">
+                                  <div className="rs-team-content-box">
+                                      <h5 className="rs-team-title"><Link to="/team-details/aziz">Mr.Aziz Belim</Link></h5>
+                                      <span className="rs-team-designation">FOUNDER</span>
+                          </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div className="col-xl-3 col-lg-4 col-md-6">
+                          <div className="rs-team-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                              <div className="rs-team-thumb has-clip">
+                                  <Link to="/team-details/waheed"><img src="/assets/images/Main-images/Team/2.jpg"
+                                          alt="image" /></Link>
+                  </div>
+                              <div className="rs-team-content-wrapper">
+                                  <div className="rs-team-content-box">
+                                      <h5 className="rs-team-title"><Link to="/team-details/waheed">Mr.Waheed Belim</Link></h5>
+                                      <span className="rs-team-designation">MANAGING DIRECTOR </span>
+                              </div>
+                          </div>
+                              </div>
+                          </div>
+                      <div className="col-xl-3 col-lg-4 col-md-6">
+                          <div className="rs-team-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                              <div className="rs-team-thumb has-clip">
+                                  <Link to="/team-details/maheed"><img src="/assets/images/Main-images/Team/3.jpg"
+                                          alt="image" /></Link>
+                      </div>
+                              <div className="rs-team-content-wrapper">
+                                  <div className="rs-team-content-box">
+                                      <h5 className="rs-team-title"><Link to="/team-details/maheed">Mr.Maheed Belim</Link></h5>
+                                      <span className="rs-team-designation">EXECUTIVE DIRECTOR</span>
+                  </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div className="row g-5">
-            <div className="col-xl-4 col-lg-4 col-md-6">
-              <div className="rs-team-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                <div className="rs-team-thumb has-clip">
-                  <a href="/team-details"><img src="/assets/images/team/team-thumb-01.png" alt="image" /></a>
-                  <div className="rs-theme-social rs-team-social has-transparent">
-                    <a href="#"><i className="ri-twitter-x-line"></i></a>
-                    <a href="#"><i className="ri-facebook-fill"></i></a>
-                    <a href="#"><i className="ri-linkedin-fill"></i></a>
-                  </div>
-                </div>
-                <div className="rs-team-content-wrapper">
-                  <div className="rs-team-content-box">
-                    <h5 className="rs-team-title"><a href="/team-details">Peter Hase</a></h5>
-                    <span className="rs-team-designation">Sr. Engineer</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-6">
-              <div className="rs-team-item wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                <div className="rs-team-thumb has-clip">
-                  <a href="/team-details"><img src="/assets/images/team/team-thumb-02.png" alt="image" /></a>
-                  <div className="rs-theme-social rs-team-social has-transparent">
-                    <a href="#"><i className="ri-twitter-x-line"></i></a>
-                    <a href="#"><i className="ri-facebook-fill"></i></a>
-                    <a href="#"><i className="ri-linkedin-fill"></i></a>
-                  </div>
-                </div>
-                <div className="rs-team-content-wrapper">
-                  <div className="rs-team-content-box">
-                    <h5 className="rs-team-title"><a href="/team-details">Jack Peter</a></h5>
-                    <span className="rs-team-designation">Four Man</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-6">
-              <div className="rs-team-item wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                <div className="rs-team-thumb has-clip">
-                  <a href="/team-details"><img src="/assets/images/team/team-thumb-03.png" alt="image" /></a>
-                  <div className="rs-theme-social rs-team-social has-transparent">
-                    <a href="#"><i className="ri-twitter-x-line"></i></a>
-                    <a href="#"><i className="ri-facebook-fill"></i></a>
-                    <a href="#"><i className="ri-linkedin-fill"></i></a>
-                  </div>
-                </div>
-                <div className="rs-team-content-wrapper">
-                  <div className="rs-team-content-box">
-                    <h5 className="rs-team-title"><a href="/team-details">Bradley Roy</a></h5>
-                    <span className="rs-team-designation">Sr. Engineer</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section> */}
       {/* team area end */}
 
@@ -648,86 +757,17 @@ function About() {
       </section> */}
       {/* counter area end */}
 
-      {/* certificates area start */}
-      <section className="rs-certificates-area has-space section-space-top section-space-bottom">
-        <div className="container">
-          <div className="row g-5 justify-content-center section-title-space align-items-center">
-            <div className="col-xxl-6 col-xl-7 col-lg-8">
-              <div className="rs-section-title-wrapper text-center">
-                <span className="rs-section-subtitle has-theme-light-blue">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
-                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M11 3.10345e-06L11 15L3.14286 15L3.14286 10L8.85714 10L8.85714 5L3.14286 5L3.14286 3.10345e-06L11 3.10345e-06Z" fill="#0C7BC7"></path>
-                  </svg>
-                  Company Achievement
-                </span>
-                <h2 className="rs-section-title">Our Certifications</h2>
-                <p className="rs-section-desc">"We test our products according to international standards, provide 2D/3D drawings as per customer requirements, and continuously work on improving quality.".</p>
-              </div>
-            </div>
-          </div>
-          <div className="row g-5 justify-content-center">
-            <div className="col-xl-4 col-lg-4 col-md-6 col-12">
-              <div className="rs-certificate-item">
-                <div className="rs-certificate-thumb">
-                  <img
-                    src="/assets/images/Main-images/Certificates/1.jpeg"
-                    alt="ISO 9001:2015 Quality Management"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="rs-certificate-content">
-                  <h4 className="rs-certificate-title">Moody International Certificate</h4>
-                  <p className="rs-certificate-desc">Western Bearing Company is a trusted, ISO and ZED certified bearing manufacturer, supplying quality bearings to both government and private sectors, with regular tool calibration ensuring consistent standards. </p>
-                </div>
-              </div>
-            </div>
 
-            <div className="col-xl-4 col-lg-4 col-md-6 col-12">
-              <div className="rs-certificate-item">
-                <div className="rs-certificate-thumb">
-                  <img
-                    src="/assets/images/Main-images/Certificates/2.jpeg"
-                    alt="Industry certification"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="rs-certificate-content">
-                  <h4 className="rs-certificate-title">ROHS Certificate</h4>
-                  <p className="rs-certificate-desc">We obtained the EN ISO 9001:2008 certification on 12th October 2009 through Moody International.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-6 col-12">
-              <div className="rs-certificate-item">
-                <div className="rs-certificate-thumb">
-                  <img
-                    src="/assets/images/Main-images/Certificates/3.jpeg"
-                    alt="Export certification"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="rs-certificate-content">
-                    <h4 className="rs-certificate-title">ZED Certificate</h4>
-                  <p className="rs-certificate-desc">Western Bearing ISO 9001 : 2015 certified, ensuring quality, consistency, and customer satisfaction."</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* certificates area end */}
 
       {/* testimonial area start */}
       <section className="rs-testimonial-area rs-testimonial-three rs-swiper has-bg-black has-theme-light-blue">
-        <div className="rs-testimonial-bg-thumb" data-background="/assets/images/testimonial/testimonial-thumb-02.png"></div>
         <div className="rs-testimonial-bg-thumb-two" data-background="/assets/images/Main-images/testimonialBG.png"></div>
         <div className="container">
-          <div className="row justify-content-end">
-            <div className="col-xxl-6 col-xl-7 col-lg-7 col-12">
+          <div className="row justify-content-center">
+            <div className="col-xxl-8 col-xl-9 col-lg-10 col-12">
               <div className="rs-testimonial-wrapper">
-                <div className="rs-section-title-wrapper section-title-space">
-                  <span className="rs-section-subtitle has-theme-light-blue justify-content-start has-transparent">
+                <div className="rs-section-title-wrapper section-title-space text-center">
+                  <span className="rs-section-subtitle has-theme-light-blue justify-content-center has-transparent">
                       <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
                       <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#0C7BC7"></path>
                       <path fillRule="evenodd" clipRule="evenodd"
@@ -817,6 +857,60 @@ expected.</p>
                             <h5 className="rs-testimonial-title">Deepak Jain</h5>
                             <div className="rs-testimonial-description">
                               <p>Strong packaging and timely dispatch. We look forward to a long-term business relationship</p>
+                            </div>
+                            <div className="rs-testimonial-stars" aria-label="Rating: 5 out of 5">
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="swiper-slide">
+                        <div className="rs-testimonial-item">
+                          <div className="rs-testimonial-avater-thumb">
+                            <div className="rs-testimonial-thumb">
+                              <img src="/assets/images/Main-images/reviewUser.jpeg" alt="image" />
+                            </div>
+                            <div className="rs-testimonial-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="29" viewBox="0 0 40 29" fill="none">
+                                <path d="M2.85714 29H11.4286L17.1429 17.4V0H0V17.4H8.57143L2.85714 29ZM25.7143 29H34.2857L40 17.4V0H22.8571V17.4H31.4286L25.7143 29Z" fill="white" fillOpacity="0.4"></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="rs-testimonial-content">
+                            <h5 className="rs-testimonial-title">User</h5>
+                            <div className="rs-testimonial-description">
+                              <p>I have worked with Western Bearing for many years. Their products have consistently maintained high quality and are always in strong demand in my country.</p>
+                            </div>
+                            <div className="rs-testimonial-stars" aria-label="Rating: 5 out of 5">
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="swiper-slide">
+                        <div className="rs-testimonial-item">
+                          <div className="rs-testimonial-avater-thumb">
+                            <div className="rs-testimonial-thumb">
+                              <img src="/assets/images/Main-images/Ibrahim.jpeg" alt="image" />
+                            </div>
+                            <div className="rs-testimonial-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="29" viewBox="0 0 40 29" fill="none">
+                                <path d="M2.85714 29H11.4286L17.1429 17.4V0H0V17.4H8.57143L2.85714 29ZM25.7143 29H34.2857L40 17.4V0H22.8571V17.4H31.4286L25.7143 29Z" fill="white" fillOpacity="0.4"></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="rs-testimonial-content">
+                            <h5 className="rs-testimonial-title">Mohammad Ibrahim</h5>
+                            <div className="rs-testimonial-description">
+                              <p>I've been a long-time importer of Western Bearing. Their consistent quality keeps my customers coming back.</p>
                             </div>
                             <div className="rs-testimonial-stars" aria-label="Rating: 5 out of 5">
                               <i className="fa-solid fa-star"></i>

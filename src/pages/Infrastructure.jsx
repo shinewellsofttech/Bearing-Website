@@ -44,21 +44,23 @@ function Infrastructure() {
   ]
 
   const facilities = [
-    { title: 'CNC Grinding Machine', desc: 'Advanced CNC Grinding machines — both Indian and imported — for precision grinding of inner and outer bearing races.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { title: 'Universal Grinding Machines', desc: 'Universal grinding equipment for diverse bearing component finishing with micron-level accuracy.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { title: 'Semi-Automatic Assembly', desc: 'Semi-automatic bearing assembly machine for correct fitment, greasing, and quality assembly process.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { title: 'Demagnetize Machine', desc: 'Demagnetization equipment to remove residual magnetism from bearing components after machining.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { title: 'Quality Testing Lab', desc: 'State-of-the-art testing laboratory with Mahr (Germany) roughness, profile, contour, and hardness testing machines.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { title: 'Packaging & Dispatch', desc: 'Export lamination, branding, pouching packing, and box packing machines for domestic and international shipments.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' }
+    { title: 'CNC GRINDING MACHINE', desc: 'Advanced CNC Grinding machines — both Indian and imported — for precision grinding of inner and outer bearing races.', image: '/assets/images/Main-images/Infrastructure/CNCGrindingMachine.jpeg' },
+    { title: 'UNIVERSAL GRINDING MACHINE', desc: 'Universal grinding equipment for diverse bearing component finishing with micron-level accuracy.', image: '/assets/images/Main-images/Infrastructure/UniversalGrindingMachine.jpeg' },
+    { title: 'Semi Automatic ASSEMBLY', desc: 'Semi-automatic bearing assembly machine for correct fitment, greasing, and quality assembly process.', image: '/assets/images/Main-images/Infrastructure/SemiAutoMeticAssembly.jpeg' },
+    { title: 'QUALITY TESTING LAB', desc: 'State-of-the-art testing laboratory with advanced roughness, profile, contour, and hardness testing machines.', image: '/assets/images/Main-images/Infrastructure/QualityTestingLab.jpeg' },
+    { title: 'PACKING AND Dispatch', desc: 'Export lamination, branding, pouching packing, and box packing machines for domestic and international shipments.', image: '/assets/images/Main-images/Infrastructure/PackingAndDispatch.jpeg' },
+    { title: 'MARKING MACHINE', desc: 'High-precision marking and branding machines for clear product identification and traceability.', image: '/assets/images/Main-images/Infrastructure/MarkingMachine.jpeg' },
+    { title: 'Contour Measurement', desc: 'Precision contour measurement for bearing race geometry verification and quality assurance.', image: '/assets/images/Main-images/Infrastructure/CountOore.jpeg' },
+    { title: 'Hardness Testing', desc: 'Facility for HRC hardness testing to ensure all components meet international durability standards.', image: '/assets/images/Main-images/Infrastructure/Hardness.jpeg' }
   ]
 
   const qualityEquipment = [
-    { name: 'Mahr (Germany) Roughness & Profile Testing Machine', icon: 'ri-test-tube-line', desc: 'World-class German-made instrument for surface roughness and profile measurement.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { name: 'Contour Testing Machine (Mahr Germany)', icon: 'ri-shape-line', desc: 'Precision contour measurement for bearing race geometry verification.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { name: 'Hardness Testing Machine', icon: 'ri-hammer-line', desc: 'Facility for HRC hardness testing to ensure components meet international standards.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { name: 'Mitutoyo (Japan) Dial Gauge', icon: 'ri-dashboard-3-line', desc: 'Japanese precision dial gauges for accurate dimensional measurement.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { name: 'Air Gauge for Bore Testing', icon: 'ri-focus-3-line', desc: 'Air gauging system for non-contact, high-precision bore diameter measurement.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' },
-    { name: '2D/3D Drawings as per Customer', icon: 'ri-draft-line', desc: 'We provide 2D/3D drawings as per customer requirements and continuously work on improving quality.', image: 'http://localhost:3000/assets/images/history/history-thumb-01.png' }
+    { name: 'Mahr (Germany) Roughness & Profile Testing Machine', icon: 'ri-test-tube-line', desc: 'World-class German-made instrument for surface roughness and profile measurement.', image: '/assets/images/Main-images/Infrastructure/QualityTestingLab.jpeg' },
+    { name: 'Contour Testing Machine (Mahr Germany)', icon: 'ri-shape-line', desc: 'Precision contour measurement for bearing race geometry verification.', image: '/assets/images/Main-images/Infrastructure/CountOore.jpeg' },
+    { name: 'Hardness Testing Machine', icon: 'ri-hammer-line', desc: 'Facility for HRC hardness testing to ensure components meet international standards.', image: '/assets/images/Main-images/Infrastructure/Hardness.jpeg' },
+    { name: 'Mitutoyo (Japan) Dial Gauge', icon: 'ri-dashboard-3-line', desc: 'Japanese precision dial gauges for accurate dimensional measurement.', image: '/assets/images/Main-images/Infrastructure/QualityTestingLab.jpeg' },
+    { name: 'Air Gauge for Bore Testing', icon: 'ri-focus-3-line', desc: 'Air gauging system for non-contact, high-precision bore diameter measurement.', image: '/assets/images/Main-images/Infrastructure/QualityTestingLab.jpeg' },
+    { name: '2D/3D Drawings as per Customer', icon: 'ri-draft-line', desc: 'We provide 2D/3D drawings as per customer requirements and continuously work on improving quality.', image: '/assets/images/Main-images/Infrastructure/QualityTestingLab.jpeg' }
   ]
 
   const certifications = [
@@ -78,7 +80,7 @@ function Infrastructure() {
     <>
       {/* breadcrumb */}
       <section className="rs-breadcrumb-area rs-breadcrumb-one p-relative">
-        <div className="rs-breadcrumb-bg" data-background="/assets/images/bg/breadcrumb-bg-01.png"></div>
+        <div className="rs-breadcrumb-bg" data-background="/assets/images/Main-images/Hero/infrastructureHero.jpeg" style={{ filter: 'brightness(0.6)' }}></div>
         <div className="container">
           <div className="row">
             <div className="col-xxl-6 col-xl-8 col-lg-8">
@@ -122,7 +124,7 @@ function Infrastructure() {
             <div className="col-lg-6">
               <div className="wow fadeInLeft" data-wow-delay=".2s">
                 <div style={{ position: 'relative' }}>
-                  <img src="http://localhost:3000/assets/images/history/history-thumb-01.png" alt="Western Bearing Factory" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
+                  <img src="/assets/images/Main-images/infrastructure.jpeg" alt="Western Bearing Factory" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }} />
                   <div style={{ position: 'absolute', bottom: '-15px', right: '-10px', background: 'linear-gradient(135deg, #293194, #0C7BC7)', color: '#fff', padding: '16px 22px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(41,49,148,0.35)', textAlign: 'center' }} className="resp-float-badge">
                     <div style={{ fontSize: '26px', fontWeight: 800, lineHeight: 1 }}>16,000+</div>
                     <div style={{ fontSize: '12px', fontWeight: 500, opacity: 0.85, marginTop: '2px' }}>Sq. Ft. Facility</div>
@@ -161,7 +163,7 @@ function Infrastructure() {
               </div>
             </div>
           </div>
-          <div className="row g-4">
+          <div className="row g-4 justify-content-center">
             {facilities.map((f, i) => (
               <div className="col-xl-4 col-lg-4 col-md-6 col-12" key={i}>
                 <div
@@ -211,77 +213,52 @@ function Infrastructure() {
           </div>
           <div className="row g-4">
             {qualityEquipment.map((eq, i) => (
-              <div className="col-xl-6 col-lg-6 col-md-6 col-12" key={i}>
+              <div className="col-xl-4 col-lg-4 col-md-6 col-12" key={i}>
                 <div
-                  className="wow fadeInUp resp-quality-card" data-wow-delay={`${0.1 + i * 0.1}s`}
+                  className="wow fadeInUp resp-quality-card" data-wow-delay={`${0.1 + i * 0.08}s`}
                   onMouseEnter={() => setHoveredEquip(i)}
                   onMouseLeave={() => setHoveredEquip(null)}
                   style={{
                     background: hoveredEquip === i ? 'linear-gradient(135deg, #0C7BC7 0%, #293194 100%)' : '#fff',
-                    borderRadius: '16px', overflow: 'hidden',
-                    border: hoveredEquip === i ? '1px solid transparent' : '1px solid rgba(0,0,0,0.1)',
-                    height: '100%', cursor: 'pointer',
-                    transform: hoveredEquip === i ? 'translateY(-5px)' : 'translateY(0)',
-                    transition: 'all 0.4s ease',
-                    boxShadow: hoveredEquip === i ? '0 15px 35px rgba(12,123,199,0.3)' : '0 4px 15px rgba(0,0,0,0.08)',
-                    display: 'flex', flexDirection: i % 2 === 0 ? 'row' : 'row-reverse'
+                    borderRadius: '16px',
+                    padding: '30px 24px',
+                    border: hoveredEquip === i ? '1px solid transparent' : '1px solid rgba(0,0,0,0.06)',
+                    height: '100%',
+                    cursor: 'pointer',
+                    transform: hoveredEquip === i ? 'translateY(-6px)' : 'translateY(0)',
+                    transition: 'all 0.35s ease',
+                    boxShadow: hoveredEquip === i ? '0 15px 35px rgba(12,123,199,0.22)' : '0 4px 15px rgba(0,0,0,0.05)',
+                    display: 'flex',
+                    flexDirection: 'column'
                   }}
                 >
-                  {/* Image Section */}
-                  <div className="resp-quality-img" style={{ width: '45%', minHeight: '200px', position: 'relative' }}>
-                    <img 
-                      src={eq.image} 
-                      alt={eq.name} 
-                      style={{ 
-                        width: '100%', 
-                        height: '100%', 
-                        objectFit: 'cover',
-                        transform: hoveredEquip === i ? 'scale(1.05)' : 'scale(1)',
-                        transition: 'transform 0.4s ease'
-                      }} 
-                    />
-                    <div style={{
-                      position: 'absolute', 
-                      top: '15px', 
-                      left: i % 2 === 0 ? '15px' : 'auto',
-                      right: i % 2 === 0 ? 'auto' : '15px',
-                      width: '46px', height: '46px', borderRadius: '12px',
-                      background: hoveredEquip === i ? 'rgba(255,255,255,0.25)' : 'rgba(12,123,199,0.1)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', 
-                      transition: 'all 0.3s ease'
-                    }}>
-                      <i className={eq.icon} style={{ 
-                        fontSize: '20px', 
-                        color: hoveredEquip === i ? '#fff' : '#0C7BC7', 
-                        transition: 'color 0.3s ease' 
-                      }}></i>
-                    </div>
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className="resp-quality-content" style={{ 
-                    width: '55%', 
-                    padding: '24px', 
-                    display: 'flex', 
-                    flexDirection: 'column', 
-                    justifyContent: 'center' 
+                  <div style={{
+                    width: '52px', height: '52px', borderRadius: '12px',
+                    background: hoveredEquip === i ? 'rgba(255,255,255,0.2)' : 'rgba(12,123,199,0.08)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px',
+                    transition: 'all 0.3s ease'
                   }}>
-                    <h6 style={{ 
-                      color: hoveredEquip === i ? '#fff' : '#1a1a1a', 
-                      fontWeight: 700, 
-                      fontSize: '16px', 
-                      marginBottom: '12px',
-                      lineHeight: '1.4',
+                    <i className={eq.icon} style={{
+                      fontSize: '24px',
+                      color: hoveredEquip === i ? '#fff' : '#0C7BC7',
                       transition: 'color 0.3s ease'
-                    }}>{eq.name}</h6>
-                    <p style={{ 
-                      color: hoveredEquip === i ? 'rgba(255,255,255,0.9)' : '#666', 
-                      fontSize: '13px', 
-                      lineHeight: 1.6, 
-                      marginBottom: 0, 
-                      transition: 'color 0.3s ease' 
-                    }}>{eq.desc}</p>
+                    }}></i>
                   </div>
+                  <h5 style={{
+                    color: hoveredEquip === i ? '#fff' : '#1a1a1a',
+                    fontWeight: 700,
+                    fontSize: '17px',
+                    marginBottom: '10px',
+                    lineHeight: '1.45',
+                    transition: 'color 0.3s ease'
+                  }}>{eq.name}</h5>
+                  <p style={{
+                    color: hoveredEquip === i ? 'rgba(255,255,255,0.85)' : '#666',
+                    fontSize: '13px',
+                    lineHeight: '1.65',
+                    marginBottom: 0,
+                    transition: 'color 0.3s ease'
+                  }}>{eq.desc}</p>
                 </div>
               </div>
             ))}
@@ -316,7 +293,7 @@ function Infrastructure() {
             </div>
             <div className="col-lg-6">
               <div className="wow fadeInRight" data-wow-delay=".3s">
-                <img src="http://localhost:3000/assets/images/history/history-thumb-01.png" alt="Packaging" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 15px 40px rgba(0,0,0,0.1)' }} />
+                <img src="/assets/images/Main-images/Infrastructure/QualityTestingLab.jpeg" alt="Quality Testing Lab" style={{ borderRadius: '16px', width: '100%', boxShadow: '0 15px 40px rgba(0,0,0,0.1)' }} />
               </div>
             </div>
           </div>
