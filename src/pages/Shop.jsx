@@ -131,7 +131,7 @@ function Shop() {
                           position: 'relative',
                           height: '240px',
                           width: '100%',
-                          backgroundColor: '#f8fafc',
+                          backgroundColor: '#ffffff',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',

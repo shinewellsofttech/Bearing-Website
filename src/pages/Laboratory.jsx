@@ -1,7 +1,89 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+const API_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/api/V1/Masters/0/token/BannerMaster/Id/0'
+const IMAGE_BASE_URL = 'https://apiwesternbearing.shinewellsofttech.co.in/MemberImages/'
+
+const DEFAULT_HERO_SLIDES = [
+  {
+    Id: 1,
+    Title: "Welcome to Western Bearing, a trusted bearing manufacturer since 1985.",
+    Description: "Delivering quality, performance, and reliability trusted by industries worldwide.",
+    PhotoName: "/assets/images/Main-images/Hero/1.jpg",
+    mainTitle: "Innovate",
+    strokeTitle: "Precision"
+  },
+  {
+    Id: 2,
+    Title: "ISO 9001:2015 certified manufacturer with in-house CNC grinding,",
+    Description: "OEM-standard testing, and premium-grade steel for long-lasting performance.",
+    PhotoName: "/assets/images/Main-images/Hero/2.jpg",
+    mainTitle: "Engineering",
+    strokeTitle: "Excellence"
+  },
+  {
+    Id: 3,
+    Title: "Exporting to 30+ countries with a strong global presence,",
+    Description: "Western Bearing stands for trust, innovation, and future-ready growth.",
+    PhotoName: "/assets/images/Main-images/Hero/3.jpg",
+    mainTitle: "Driven by",
+    strokeTitle: "Reliability"
+  }
+]
+
+const TITLE_CONFIGS = [
+  { mainTitle: "Innovate", strokeTitle: "Precision" },
+  { mainTitle: "Engineering", strokeTitle: "Excellence" },
+  { mainTitle: "Driven by", strokeTitle: "Reliability" }
+]
+
 function Laboratory() {
+  const [heroSlides, setHeroSlides] = useState(DEFAULT_HERO_SLIDES)
+
+  useEffect(() => {
+    fetchHeroSlides()
+  }, [])
+
+  const fetchHeroSlides = async () => {
+    try {
+      const res = await fetch(API_URL)
+      const data = await res.json()
+      if (data.success && Array.isArray(data.data?.dataList) && data.data.dataList.length > 0) {
+        const activeSlides = data.data.dataList.filter(item => item.IsActive !== false)
+        const sortedSlides = activeSlides.sort((a, b) => (a.Id || 0) - (b.Id || 0))
+        if (sortedSlides.length > 0) {
+          setHeroSlides(sortedSlides)
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching hero section banners:', error)
+    }
+  }
+
+  const getSlideImageUrl = (photoName, fallbackIndex) => {
+    if (!photoName) return `/assets/images/Main-images/Hero/${(fallbackIndex % 3) + 1}.jpg`
+    if (photoName.startsWith('http://') || photoName.startsWith('https://') || photoName.startsWith('/')) {
+      return photoName
+    }
+    return `${IMAGE_BASE_URL}${photoName}`
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.jQuery) {
+      setTimeout(() => {
+        const $ = window.jQuery
+        $('[data-background]').each(function () {
+          $(this).css('background-image', 'url(' + $(this).attr('data-background') + ')')
+        })
+        $('.rs-swiper .swiper').each(function () {
+          if (this.swiper) {
+            this.swiper.update()
+          }
+        })
+      }, 300)
+    }
+  }, [heroSlides])
+
   // State for Read More functionality
   const [expandedCards, setExpandedCards] = useState({});
   // State for mobile detection
@@ -692,88 +774,54 @@ function Laboratory() {
                     data-item-mobile="1" data-margin="30" data-margin-xl="30" data-margin-lg="30" data-margin-md="30"
                     data-margin-sm="30" data-margin-xs="30" data-margin-mobile="30">
                     <div className="swiper-wrapper">
-                        {/* SLIDE 1 — Legacy & Trust (FOUNDATION SLIDE) */}
-                        <div className="swiper-slide">
-                            <div className="rs-banner-item-wrapper">
-                                <div className="rs-banner-bg-thumb" data-background="/assets/images/Main-images/Hero/1.jpg">
-                                </div>
-                                <div className="container-fluid">
-                                    <div className="row g-5">
-                                        <div className="col-xl-7 col-lg-7">
-                                            <div className="rs-banner-item">
-                                                <div className="rs-banner-content">
-                                                    <span className="rs-banner-subtitle">
-                                                        <img src="/assets/images/shape/border-line.png" alt="image" />
-                                                        Welcome to Western Bearing, a trusted bearing manufacturer since 1985.
-                                                    </span>
-                                                    <h1 className="rs-banner-title">Innovate <br />
-                                                        <img className="rs-banner-shape"
-                                                            src="/assets/images/shape/arrow-shape.png" alt="image" />
-                                                        <span className="rs-banner-stroke-text">Precision</span>
-                                                    </h1>
-                                                    <div className="rs-banner-info">
-                                                        <div className="rs-banner-btn">
-                                                            <div className="rs-rotate-btn">
-                                                                <a href="/contact"
-                                                                    className="rs-play-btn popup-video has-transparent-btn"><i
-                                                                        className="fa-light fa-arrow-right-long"></i></a>
-                                                                <div
-                                                                    className="rs-circle-title gsap-rotate rs-text-circle-wrapper">
-                                                                    <div className="rs-text-circle"
-                                                                        data-rotate-degree="13.33">
-                                                                        Explore More - Explore More -
+                        {heroSlides.map((slide, index) => {
+                          const bgImg = getSlideImageUrl(slide.PhotoName, index);
+                          const titleConfig = TITLE_CONFIGS[index % TITLE_CONFIGS.length];
+                          const mainTitle = slide.mainTitle || titleConfig.mainTitle;
+                          const strokeTitle = slide.strokeTitle || titleConfig.strokeTitle;
+
+                          return (
+                            <div className="swiper-slide" key={slide.Id || index}>
+                                <div className="rs-banner-item-wrapper">
+                                    <div 
+                                        className="rs-banner-bg-thumb" 
+                                        data-background={bgImg}
+                                        style={{ backgroundImage: `url(${bgImg})` }}
+                                    >
+                                    </div>
+                                    <div className="container-fluid">
+                                        <div className="row g-5">
+                                            <div className="col-xl-7 col-lg-7">
+                                                <div className="rs-banner-item">
+                                                    <div className="rs-banner-content">
+                                                        <span className="rs-banner-subtitle">
+                                                            <img src="/assets/images/shape/border-line.png" alt="image" />
+                                                            {slide.Title}
+                                                        </span>
+                                                        <h1 className="rs-banner-title">{mainTitle} <br />
+                                                            <img className="rs-banner-shape"
+                                                                src="/assets/images/shape/arrow-shape.png" alt="image" />
+                                                            <span className="rs-banner-stroke-text">{strokeTitle}</span>
+                                                        </h1>
+                                                        <div className="rs-banner-info">
+                                                            <div className="rs-banner-btn">
+                                                                <div className="rs-rotate-btn">
+                                                                    <a href="/contact"
+                                                                        className="rs-play-btn popup-video has-transparent-btn"><i
+                                                                            className="fa-light fa-arrow-right-long"></i></a>
+                                                                    <div
+                                                                        className="rs-circle-title gsap-rotate rs-text-circle-wrapper">
+                                                                        <div className="rs-text-circle"
+                                                                            data-rotate-degree="13.33">
+                                                                            Explore More - Explore More -
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="rs-banner-descrip">
-                                                            <p>Delivering quality, performance, and reliability trusted by industries worldwide.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {/* SLIDE 2 — Manufacturing & Quality (STRENGTH SLIDE) */}
-                        <div className="swiper-slide">
-                            <div className="rs-banner-item-wrapper">
-                                <div className="rs-banner-bg-thumb" data-background="/assets/images/Main-images/Hero/2.jpg">
-                                </div>
-                                <div className="container-fluid">
-                                    <div className="row g-5">
-                                        <div className="col-xl-7 col-lg-7">
-                                            <div className="rs-banner-item">
-                                                <div className="rs-banner-content">
-                                                    <span className="rs-banner-subtitle">
-                                                        <img src="/assets/images/shape/border-line.png" alt="image" />
-                                                        ISO 9001:2015 certified manufacturer with in-house CNC grinding,
-                                                    </span>
-                                                    <h1 className="rs-banner-title">Engineering <br />
-                                                        <img className="rs-banner-shape"
-                                                            src="/assets/images/shape/arrow-shape.png" alt="image" />
-                                                        <span className="rs-banner-stroke-text">Excellence</span>
-                                                    </h1>
-                                                    <div className="rs-banner-info">
-                                                        <div className="rs-banner-btn">
-                                                            <div className="rs-rotate-btn">
-                                                                <a href="https://www.youtube.com/watch?v=Yue48fUXuqI"
-                                                                    className="rs-play-btn popup-video has-transparent-btn"><i
-                                                                        className="fa-light fa-arrow-right-long"></i></a>
-                                                                <div
-                                                                    className="rs_circle_title gsap-rotate rs-text-circle-wrapper">
-                                                                    <div className="rs-text-circle"
-                                                                        data-rotate-degree="13.33">
-                                                                        Explore More - Explore More -
-                                                                    </div>
-                                                                </div>
+                                                            <div className="rs-banner-descrip">
+                                                                <p>{slide.Description}</p>
                                                             </div>
                                                         </div>
-                                                        <div className="rs-banner-descrip">
-                                                            <p>OEM-standard testing, and premium-grade steel for long-lasting performance.</p>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -781,52 +829,9 @@ function Laboratory() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {/* SLIDE 3 — Global Reach & Vision (GROWTH SLIDE) */}
-                        <div className="swiper-slide">
-                            <div className="rs-banner-item-wrapper">
-                                <div className="rs-banner-bg-thumb" data-background="/assets/images/Main-images/Hero/3.jpg">
-                    </div>
-                                <div className="container-fluid">
-                                    <div className="row g-5">
-                                        <div className="col-xl-7 col-lg-7">
-                                            <div className="rs-banner-item">
-                                                <div className="rs-banner-content">
-                                                    <span className="rs-banner-subtitle">
-                                                        <img src="/assets/images/shape/border-line.png" alt="image" />
-                                                        Exporting to 30+ countries with a strong global presence,
-                                                    </span>
-                                                    <h1 className="rs-banner-title">Driven by <br />
-                                                        <img className="rs-banner-shape"
-                                                            src="/assets/images/shape/arrow-shape.png" alt="image" />
-                                                        <span className="rs-banner-stroke-text">Reliability</span>
-                                                    </h1>
-                                                    <div className="rs-banner-info">
-                                                        <div className="rs-banner-btn">
-                                                            <div className="rs-rotate-btn">
-                                                                <a href="/contact"
-                                                                    className="rs-play-btn popup-video has-transparent-btn"><i
-                                                                        className="fa-light fa-arrow-right-long"></i></a>
-                                                                <div
-                                                                    className="rs-circle-title gsap-rotate rs-text-circle-wrapper">
-                                                                    <div className="rs-text-circle"
-                                                                        data-rotate-degree="13.33">
-                                                                        Explore More - Explore More -
-                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="rs-banner-descrip">
-                                                            <p>Western Bearing stands for trust, innovation, and future-ready growth.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                          );
+                        })}
+
                     </div>
                     {/* If we need navigation buttons */}
                     <div className="rs-banner-navigation">
