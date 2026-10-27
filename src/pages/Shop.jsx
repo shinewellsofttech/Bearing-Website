@@ -19,7 +19,7 @@ function Shop() {
   const handleWhatsAppClick = (e, productName) => {
     e.stopPropagation()
     const text = `Hello, I am interested in: *${productName}*. Can you please provide a quotation?`
-    const url = `https://wa.me/7878218459?text=${encodeURIComponent(text)}`
+    const url = `https://wa.me/919929396200?text=${encodeURIComponent(text)}`
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 

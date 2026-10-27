@@ -4,7 +4,7 @@ import { useSwiper } from '../hooks/useSwiper'
 import { useScripts } from '../hooks/useScripts'
 
 
-const WHATSAPP_NUMBER = '7878218459'
+const WHATSAPP_NUMBER = '919929396200'
 
 function Contact() {
   useSwiper()
@@ -94,7 +94,7 @@ function Contact() {
                             <h3 class="rs-contact-title" style="color: #ffffff; font-size: 24px; font-weight: 700; margin-bottom: 4px;">Main Offices</h3>
                             <span class="rs-contact-meta" style="color: rgba(255,255,255,0.85); font-size: 13px; display: inline-block; margin-bottom: 18px;">Mon - Sat 10.00 - 18.00</span>
                             <div class="rs-contact-btn" style="margin-bottom: 22px;">
-                                <a class="rs-btn has-icon w-100" href="https://maps.app.goo.gl/4CyH82tFmf6L8H1TA" style="background: #ffffff; color: #0C7BC7; font-weight: 700; padding: 10px 18px; border-radius: 10px;">View Location
+                                <a class="rs-btn has-icon w-100" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/WESTERN+BEARING/@26.2625144,72.9365618,13z/data=!4m6!3m5!1s0x39418e8f828701a1:0xe56fda7f5b778b07!8m2!3d26.2625144!4d73.0127795!16s%2Fg%2F1tsyn53c?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" style="background: #ffffff; color: #0C7BC7; font-weight: 700; padding: 10px 18px; border-radius: 10px;">View Location
                                     <span class="icon-box">
                                         <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                             <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path>
@@ -134,7 +134,7 @@ function Contact() {
                                         </svg>
                                     </div>
                                     <h6>
-                                        <a href="https://maps.app.goo.gl/4CyH82tFmf6L8H1TA" style="color: #ffffff; font-size: 13px; font-weight: 500; line-height: 1.5;">B-7, Industrial Estate, New Power House Road, Jodhpur - 342 003 (Rajasthan) INDIA</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/WESTERN+BEARING/@26.2625144,72.9365618,13z/data=!4m6!3m5!1s0x39418e8f828701a1:0xe56fda7f5b778b07!8m2!3d26.2625144!4d73.0127795!16s%2Fg%2F1tsyn53c?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" style="color: #ffffff; font-size: 13px; font-weight: 500; line-height: 1.5;">B-7, Industrial Estate, New Power House Road, Jodhpur - 342 003 (Rajasthan) INDIA</a>
                                     </h6>
                                 </div>
                             </div>

@@ -60,14 +60,14 @@ function Footer() {
                   <div className="rs-footer-widget-content">
                     <div className="rs-footer-widget-meta">
                       <div className="rs-footer-widget-address">
-                        <a target="_blank" href="https://www.google.com/maps/dir//WESTERN+BEARING,+86,+New+Power+House+Rd,+Section+7+Extension,+Shastri+Nagar,+Jodhpur,+Rajasthan+342011/@26.2995968,73.0365952,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39418e8f828701a1:0xe56fda7f5b778b07!2m2!1d73.0128354!2d26.2632152?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" rel="noopener noreferrer">
+                        <a target="_blank" href="https://www.google.com/maps/place/WESTERN+BEARING/@26.2625144,72.9365618,13z/data=!4m6!3m5!1s0x39418e8f828701a1:0xe56fda7f5b778b07!8m2!3d26.2625144!4d73.0127795!16s%2Fg%2F1tsyn53c?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer">
                           B-7, Industrial Estate, New Power House Road, Jodhpur - 342 003 (Rajasthan.) INDIA
                         </a>
                       </div>
                       {/* <h5 className="rs-footer-widget-title">Email Address</h5>
                       
                       <div className="rs-footer-widget-email">
-                        <a href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
+                        <a`href="mailto:sales@westernbearing.in">sales@westernbearing.in</a>
                       </div> */}
                     </div>
                   </div>
